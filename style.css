@@ -562,6 +562,7 @@ img {
 .contact {
   margin-bottom: 100px;
 }
+
 .contact-container {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
@@ -934,6 +935,10 @@ img {
 
   .project-card {
     margin-bottom: 2rem;
+  }
+
+  .contact {
+    margin-bottom: 40px;
   }
 
   .contact-container {
