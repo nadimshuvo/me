@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio of a Frontend Web Developer specializing in modern, responsive, and interactive web experiences."
+    />
+    <title>Frontend Developer Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header / Navigation -->
+    <header class="header">
+      <div class="container nav-container">
+        <a href="#hero" class="logo">nadim<span>Shuvo</span></a>
+
+        <nav class="nav-menu">
+          <ul class="nav-list">
+            <li><a href="#hero" class="nav-link active">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+      <div class="container hero-container">
+        <div class="hero-content fade-in-up">
+          <span class="hero-subtitle">Hello, my name is</span>
+          <h1 class="hero-title">Nadim Mahmud <span class="highlight">Shuvo</span></h1>
+          <h2
+            class="hero-role"
+            data-typing-text="Frontend Engineer |UI/UX Enthusiast |Open Source Contributor |Backend Enthusiast "
+          ></h2>
+          <p class="hero-description">
+            I build accessible, pixel-perfect, and performant web experiences
+            using modern technologies. Let's craft something amazing together.
+          </p>
+          <div class="hero-buttons">
+            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+          </div>
+        </div>
+        <!-- Decorative abstract shape or illustration -->
+        <div class="hero-visual fade-in-up delay-200">
+          <div class="abstract-shape">
+            <div class="blob"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section-padding">
+      <div class="container">
+        <h2 class="section-title fade-in-up">About Me</h2>
+        <div class="about-content">
+          <div class="about-image fade-in-up delay-100">
+            <img src="profileNew.png" alt="Nadim Shuvo" class="profile-img" />
+          </div>
+          <div class="about-text fade-in-up delay-200">
+            <h3>Creative Developer based in the Cloud.</h3>
+            <p>
+              I'm a passionate Frontend Developer with a keen eye for design and
+              a strong foundation in coding. My journey started with simple HTML
+              pages and has evolved into building complex web applications. I
+              specialize in transforming designs into functional, responsive,
+              and interactive websites.
+              <br /><br />
+              I completed my B.Sc. and M.Sc. in Physics from the National
+              University of Bangladesh (2020).
+            </p>
+            <p>
+              When I'm not coding, you can find me exploring new design trends,
+              contributing to open source, or gaming.
+            </p>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <span class="stat-number">2+</span>
+                <span class="stat-label">Years Exp.</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">10+</span>
+                <span class="stat-label">Projects</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">5+</span>
+                <span class="stat-label">Happy Clients</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section-padding">
+      <div class="container">
+        <h2 class="section-title fade-in-up">My Skills</h2>
+        <div class="skills-grid">
+          <!-- Group 1: Core & Frontend -->
+          <div
+            class="skill-card fade-in-up delay-100"
+            style="--skill-color: #e34f26"
+          >
+            <i class="fa-brands fa-html5 skill-icon"></i>
+            <h3>HTML5</h3>
+          </div>
+          <div
+            class="skill-card fade-in-up delay-100"
+            style="--skill-color: #264de4"
+          >
+            <i class="fa-brands fa-css3-alt skill-icon"></i>
+            <h3>CSS3</h3>
+          </div>
+          <div
+            class="skill-card fade-in-up delay-100"
+            style="--skill-color: #f7df1e"
+          >
+            <i class="fa-brands fa-js skill-icon"></i>
+            <h3>JavaScript</h3>
+          </div>
+          <div
+            class="skill-card fade-in-up delay-100"
+            style="--skill-color: #3178c6"
+          >
+            <i class="fa-brands fa-js skill-icon"></i>
+            <!-- Using JS icon as placeholder for TS if specific not found, or generic code -->
+            <h3>TypeScript</h3>
+          </div>
+          <div
+            class="skill-card fade-in-up delay-200"
+            style="--skill-color: #61dafb"
+          >
+            <i class="fa-brands fa-react skill-icon"></i>
+            <h3>React</h3>
+          </div>
+          <div
+            class="skill-card fade-in-up delay-200"
+            style="--skill-color: #000000"
+          >
+            <i class="fa-solid fa-layer-group skill-icon"></i>
+            <h3>Next.js</h3>
+          </div>
+          <div
+            class="skill-card fade-in-up delay-200"
+            style="--skill-color: #663399"
+          >
+            <i class="fa-solid fa-globe skill-icon"></i>
+            <h3>Gatsby</h3>
+          </div>
+          <div
+            class="skill-card fade-in-up delay-200"
+            style="--skill-color: #0055ff"
+          >
+            <i class="fa-solid fa-shapes skill-icon"></i>
+            <h3>Framer</h3>
+          </div>
+
+          <!-- Group 2: Styling & Tools -->
+          <div
+            class="skill-card fade-in-up delay-300"
+            style="--skill-color: #06b6d4"
+          >
+            <i class="fa-solid fa-wind skill-icon"></i>
+            <h3>Tailwind CSS</h3>
+          </div>
+          <div
+            class="skill-card fade-in-up delay-300"
+            style="--skill-color: #dd3a0a"
+          >
+            <i class="fa-brands fa-css3 skill-icon"></i>
+            <h3>PostCSS</h3>
+          </div>
+          <div
+            class="skill-card fade-in-up delay-300"
+            style="--skill-color: #f05032"
+          >
+            <i class="fa-brands fa-git-alt skill-icon"></i>
+            <h3>Git</h3>
+          </div>
+          <div
+            class="skill-card fade-in-up delay-300"
+            style="--skill-color: #cb3837"
+          >
+            <i class="fa-brands fa-npm skill-icon"></i>
+            <h3>npm</h3>
+          </div>
+          <div
+            class="skill-card fade-in-up delay-300"
+            style="--skill-color: #8dd6f9"
+          >
+            <i class="fa-solid fa-box-open skill-icon"></i>
+            <h3>Webpack</h3>
+          </div>
+
+          <!-- Group 3: Backend & CMS -->
+          <div
+            class="skill-card fade-in-up delay-400"
+            style="--skill-color: #339933"
+          >
+            <i class="fa-brands fa-node skill-icon"></i>
+            <h3>Node.js</h3>
+          </div>
+          <div
+            class="skill-card fade-in-up delay-400"
+            style="--skill-color: #e535ab"
+          >
+            <i class="fa-solid fa-project-diagram skill-icon"></i>
+            <h3>GraphQL</h3>
+          </div>
+          <div
+            class="skill-card fade-in-up delay-400"
+            style="--skill-color: #21759b"
+          >
+            <i class="fa-brands fa-wordpress skill-icon"></i>
+            <h3>WordPress</h3>
+          </div>
+          <div
+            class="skill-card fade-in-up delay-400"
+            style="--skill-color: #4353ff"
+          >
+            <i class="fa-solid fa-pen-nib skill-icon"></i>
+            <h3>Webflow</h3>
+          </div>
+          <div
+            class="skill-card fade-in-up delay-400"
+            style="--skill-color: #ff7a59"
+          >
+            <i class="fa-brands fa-hubspot skill-icon"></i>
+            <h3>HubSpot</h3>
+          </div>
+          <div
+            class="skill-card fade-in-up delay-400"
+            style="--skill-color: #f24e1e"
+          >
+            <i class="fa-brands fa-figma skill-icon"></i>
+            <h3>Figma</h3>
+          </div>
+
+          <!-- Group 4: Platforms & Others -->
+          <div
+            class="skill-card fade-in-up delay-500"
+            style="--skill-color: #000000"
+          >
+            <i class="fa-solid fa-triangle-exclamation skill-icon"></i>
+            <h3>Vercel</h3>
+          </div>
+          <div
+            class="skill-card fade-in-up delay-500"
+            style="--skill-color: #00c7b7"
+          >
+            <i class="fa-solid fa-cloud skill-icon"></i>
+            <h3>Netlify</h3>
+          </div>
+          <div
+            class="skill-card fade-in-up delay-500"
+            style="--skill-color: #000000"
+          >
+            <i class="fa-solid fa-vr-cardboard skill-icon"></i>
+            <h3>3D Vista</h3>
+          </div>
+          <div
+            class="skill-card fade-in-up delay-500"
+            style="--skill-color: #6332f6"
+          >
+            <i class="fa-solid fa-images skill-icon"></i>
+            <h3>Swiper JS</h3>
+          </div>
+          <div
+            class="skill-card fade-in-up delay-500"
+            style="--skill-color: #000000"
+          >
+            <i class="fa-solid fa-video skill-icon"></i>
+            <h3>DaVinci Resolve</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications section-padding">
+      <div class="container">
+        <h2 class="section-title fade-in-up">Certifications</h2>
+        <div class="certifications-grid">
+          <!-- Cert 1 -->
+          <a
+            href="https://www.udemy.com/certificate/UC-2c0c722e-43ab-4a47-b4a5-674accae4c61/"
+            target="_blank"
+            class="certification-card fade-in-up delay-100"
+          >
+            <i
+              class="fa-solid fa-graduation-cap skill-icon"
+              style="color: #a435f0"
+            ></i>
+            <h3>Udemy</h3>
+          </a>
+          <!-- Cert 2 -->
+          <a
+            href="https://www.freecodecamp.org/certification/nadimshuvo/responsive-web-design"
+            target="_blank"
+            class="certification-card fade-in-up delay-200"
+          >
+            <i
+              class="fa-brands fa-free-code-camp skill-icon"
+              style="color: #0a0a23"
+            ></i>
+            <h3>FreeCodeCamp</h3>
+          </a>
+          <!-- Cert 3 -->
+
+          <!-- Cert 4 -->
+          <a
+            href="https://university.webflow.com/"
+            target="_blank"
+            class="certification-card fade-in-up delay-500"
+          >
+            <i
+              class="fa-brands fa-webflow skill-icon"
+              style="color: #4353ff"
+            ></i>
+            <h3>Webflow</h3>
+          </a>
+          <!-- Cert 5 -->
+          <a
+            href="https://pll.harvard.edu/course/cs50-introduction-computer-science"
+            target="_blank"
+            class="certification-card fade-in-up delay-600"
+          >
+            <i
+              class="fa-solid fa-building-columns skill-icon"
+              style="color: #a51c30"
+            ></i>
+            <h3>CS50 Harvard</h3>
+          </a>
+          <!-- Cert 6 -->
+          <a
+            href="https://www.linkedin.com/in/nadimmahmudshuvo/details/certifications/1194951285/multiple-media-viewer/?profileId=ACoAADGMeM8Bt3x8uLz1rvwQIWG3E8Mx9waVkEY&treasuryMediaId=1635541953928"
+            target="_blank"
+            class="certification-card fade-in-up delay-400"
+          >
+            <i class="fa-solid fa-code skill-icon" style="color: #04aa6d"></i>
+            <h3>C Programming</h3>
+          </a>
+          <!-- Cert 7 -->
+          <a
+            href="https://www.linkedin.com/learning/certificates/d4452bd612ff69b5dde896904c203ee992e31471d2689bc7207fc6ff08c734b4?trk=share_certificate&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bb%2BQTSvaRRfKxALmJjEZcuA%3D%3D"
+            target="_blank"
+            class="certification-card fade-in-up delay-300"
+          >
+            <i
+              class="fa-brands fa-linkedin skill-icon"
+              style="color: #0077b5"
+            ></i>
+            <h3>Graphic Design Careers</h3>
+          </a>
+          <!-- Cert 8 -->
+          <a
+            href="https://www.linkedin.com/learning/certificates/4f54bc444f0c4c4defee5c32ef59af387de9425c015e1a9c8d1a4624dee7f3fd?trk=backfilled_certificate&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bb%2BQTSvaRRfKxALmJjEZcuA%3D%3D"
+            target="_blank"
+            class="certification-card fade-in-up delay-300"
+          >
+            <i
+              class="fa-brands fa-linkedin skill-icon"
+              style="color: #0077b5"
+            ></i>
+            <h3>HTML Essential Training</h3>
+          </a>
+          <!-- Cert 9 -->
+          <a
+            href="https://www.linkedin.com/learning/certificates/2aaceedc8a8b208b76694ea0a4c59053188c5e4222de9d0f4ee63f74e15ebd09?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bb%2BQTSvaRRfKxALmJjEZcuA%3D%3D"
+            target="_blank"
+            class="certification-card fade-in-up delay-300"
+          >
+            <i
+              class="fa-brands fa-linkedin skill-icon"
+              style="color: #0077b5"
+            ></i>
+            <h3>CSS Essential Training</h3>
+          </a>
+          <!-- Cert 10 -->
+          <a
+            href="https://www.linkedin.com/learning/certificates/a68bed7864eb82a5192d5bea352de57d12bc0f33fe5909a4c0d6f4e73804de04?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bb%2BQTSvaRRfKxALmJjEZcuA%3D%3D"
+            target="_blank"
+            class="certification-card fade-in-up delay-300"
+          >
+            <i
+              class="fa-brands fa-linkedin skill-icon"
+              style="color: #0077b5"
+            ></i>
+            <h3>Programming Foundations: Databases</h3>
+          </a>
+          <!-- Cert 11 -->
+          <a
+            href="https://www.linkedin.com/learning/certificates/86bc57a31f802938406007a22a52230f9cc275f48322c3d33b9ccb9b0c6f007c?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bb%2BQTSvaRRfKxALmJjEZcuA%3D%3D"
+            target="_blank"
+            class="certification-card fade-in-up delay-300"
+          >
+            <i
+              class="fa-brands fa-linkedin skill-icon"
+              style="color: #0077b5"
+            ></i>
+            <h3>JavaScript Essential Training</h3>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Swiper Structure -->
+    <section id="projects" class="projects section-padding">
+      <div class="container">
+        <h2 class="section-title fade-in-up">Recent Projects</h2>
+
+        <div class="projects-grid">
+          <!-- Project 1 -->
+          <article class="project-card fade-in-up delay-100">
+            <div class="project-image">
+              <img
+                src="gartner.png"
+                alt="Norsk Gartnerforbund Image"
+                class="project-thumb"
+              />
+              <div class="project-overlay"></div>
+            </div>
+            <div class="project-info">
+              <h3>Norsk Gartnerforbund</h3>
+              <p>
+                Supports the horticultural industry with cooperation,
+                development, sustainability, innovation, growth, resilience.
+              </p>
+              <div class="project-tags">
+                <span>Webflow</span>
+                <span>CSS</span>
+                <span>React</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/nadimshuvo" class="btn-icon"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+                <a
+                  target="_blank"
+                  href="https://9643---gartnerforbundet-nettsider.webflow.io/"
+                  class="btn-icon"
+                  ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                ></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card fade-in-up delay-200">
+            <div class="project-image">
+              <img src="vadio.png" alt="Vadio Image" class="project-thumb" />
+              <div class="project-overlay"></div>
+            </div>
+            <div class="project-info">
+              <h3>Vadio App</h3>
+              <p>
+                Connect instantly, inspect remotely, save time, costs,
+                emissions, resources, efficiency, trust.
+              </p>
+              <div class="project-tags">
+                <span>JavaScript</span>
+                <span>Webflow</span>
+                <span>React</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/nadimshuvo" class="btn-icon"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+                <a target="_blank" href="https://www.vadio.no/" class="btn-icon"
+                  ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                ></a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card fade-in-up delay-300">
+            <div class="project-image">
+              <img
+                src="pareto.png"
+                alt="Pareto Securities Company Image"
+                class="project-thumb"
+              />
+              <div class="project-overlay"></div>
+            </div>
+            <div class="project-info">
+              <h3>Pareto Securities</h3>
+              <p>
+                Independent investment bank, global reach, Nordic expertise,
+                sustainable financial solutions.
+              </p>
+              <div class="project-tags">
+                <span>Sitevision</span>
+                <span>JavaScript</span>
+                <span>React</span>
+              </div>
+              <div class="project-links">
+                <a href="https://github.com/nadimshuvo" class="btn-icon"
+                  ><i class="fa-brands fa-github"></i
+                ></a>
+                <a
+                  target="_blank"
+                  href="https://paretosec.com/"
+                  class="btn-icon"
+                  ><i class="fa-solid fa-arrow-up-right-from-square"></i
+                ></a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section-padding">
+      <div class="container">
+        <h2 class="section-title fade-in-up">Get In Touch</h2>
+        <div class="contact-container fade-in-up delay-200">
+          <div class="contact-info">
+            <h3>Let's talk about everything.</h3>
+            <p>Don't like forms? Send me an email. 👋</p>
+            <a href="mailto:nadimshuvo1997@gmail.com" class="contact-email"
+              >nadimshuvo1997@gmail.com</a
+            >
+            <a href="tel:+8801680761472" class="contact-email"
+              >+8801680761472</a
+            >
+
+            <div class="social-links">
+              <a target="_blank" href="https://x.com/nadimshuvo_"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+              <a
+                target="_blank"
+                href="https://www.linkedin.com/in/nadimmahmudshuvo/"
+                ><i class="fa-brands fa-linkedin-in"></i
+              ></a>
+              <a target="_blank" href="https://www.facebook.com/nadimmShuvo/"
+                ><i class="fa-brands fa-facebook"></i
+              ></a>
+              <a
+                target="_blank"
+                href="https://github.com/nadimshuvo?tab=repositories"
+                ><i class="fa-brands fa-github"></i
+              ></a>
+              <a target="_blank" href="https://www.youtube.com/@nadimsss"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+              <a target="_blank" href="https://wa.me/8801680761472"
+                ><i class="fa-brands fa-whatsapp"></i
+              ></a>
+              <a target="_blank" href="https://academy71.slack.com/ssb/redirect"><i class="fa-brands fa-slack"></i></a>
+            </div>
+          </div>
+
+          <form
+            class="contact-form"
+            action="https://formspree.io/f/mykgwdrp"
+            method="POST"
+          >
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Your Name" required />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="message" class="sr-only">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Message"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2025 Nadim Shuvo. All rights reserved.</p>
+        <p class="made-with">
+          Made with <i class="fa-solid fa-heart"></i> and Coffee.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#hero" class="back-to-top" aria-label="Go to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
+
+    <!-- Custom Scripts -->
+    <script src="script.js"></script>
+  </body>
+</html>
