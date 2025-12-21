@@ -226,3 +226,70 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+/**
+ * Background Music Logic (Hybrid: Autoplay + Button)
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    const music = document.getElementById('bg-music');
+    const toggleBtn = document.getElementById('music-toggle');
+    
+    if (music && toggleBtn) {
+        const icon = toggleBtn.querySelector('i');
+        music.volume = 0.3;
+
+        // updateIcon function
+        const updateIcon = () => {
+            if (music.paused) {
+                toggleBtn.classList.remove('playing');
+                icon.classList.remove('fa-pause');
+                icon.classList.add('fa-music');
+            } else {
+                toggleBtn.classList.add('playing');
+                icon.classList.remove('fa-music');
+                icon.classList.add('fa-pause');
+            }
+        };
+
+        // 1. Try Autoplay logic
+        const tryPlayMusic = () => {
+            // If already playing, don't do anything
+            if (!music.paused) return;
+
+            const playPromise = music.play();
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    console.log("Music started playing via autoplay/interaction.");
+                    updateIcon();
+                    // Cleanup interactions
+                    document.removeEventListener('click', tryPlayMusic);
+                    document.removeEventListener('keydown', tryPlayMusic);
+                }).catch(error => {
+                    console.log("Autoplay prevented. Waiting for user interaction.");
+                    updateIcon(); // Ensure icon reflects paused state
+                });
+            }
+        };
+
+        // Try immediately
+        tryPlayMusic();
+
+        // Fallback: Try on first interaction
+        document.addEventListener('click', tryPlayMusic, { once: true });
+        document.addEventListener('keydown', tryPlayMusic, { once: true });
+
+        // 2. Button Click Logic
+        toggleBtn.addEventListener('click', (e) => {
+            // Stop propagation so this click doesn't trigger the document-level "tryPlayMusic"
+            // although "tryPlayMusic" handles "if (!music.paused) return", it's cleaner.
+            e.stopPropagation();
+
+            if (music.paused) {
+                music.play().then(updateIcon).catch(console.error);
+            } else {
+                music.pause();
+                updateIcon();
+            }
+        });
+    }
+});
