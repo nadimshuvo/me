@@ -172,7 +172,7 @@ img {
 
 .nav-link:hover,
 .nav-link.active {
-  color: var(--text-main);
+  color: var(--primary);
 }
 
 /* Hamburger Menu (Mobile) */
@@ -559,6 +559,9 @@ img {
 /* =========================================
    9. Contact Section
    ========================================= */
+.contact {
+  margin-bottom: 100px;
+}
 .contact-container {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
