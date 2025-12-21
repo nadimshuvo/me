@@ -194,12 +194,12 @@ img {
    4. Hero Section
    ========================================= */
 .hero {
-  height: 100vh;
+  min-height: 100vh;
   padding-top: var(--header-height);
   display: flex;
   align-items: center;
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* Changed from hidden to visible to fix cutoff issues */
 }
 
 .hero-container {
@@ -833,6 +833,7 @@ img {
 
   .hero-content {
     margin-top: 2rem;
+    padding-bottom: 4rem; /* Ensure space for buttons/typewriter on mobile */
   }
   .hero-buttons {
     justify-content: center;
