@@ -342,7 +342,14 @@ img {
 }
 
 .stat-number {
-  display: block;
+  display: inline-block;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.5rem;
+}
+
+.stat-suffix {
   font-size: 1.8rem;
   font-weight: 700;
   color: var(--primary);
@@ -350,6 +357,7 @@ img {
 }
 
 .stat-label {
+  display: block;
   font-size: 0.9rem;
   color: var(--text-muted);
 }

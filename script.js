@@ -197,11 +197,65 @@ function initParticles() {
     }
 }
 
+/**
+ * Custom Counter Logic
+ */
+function initCounters() {
+    const counters = document.querySelectorAll('.stat-number');
+    
+    const animateCounter = (counter) => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        const duration = 2000; // Animation duration in milliseconds
+        const startTime = performance.now();
+        const startValue = 0;
+        
+        const updateCounter = (currentTime) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Easing function for smooth animation (easeOutQuart)
+            const easeProgress = 1 - Math.pow(1 - progress, 4);
+            
+            const currentValue = Math.floor(startValue + (target - startValue) * easeProgress);
+            counter.textContent = currentValue;
+            
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            } else {
+                counter.textContent = target; // Ensure final value is exact
+            }
+        };
+        
+        requestAnimationFrame(updateCounter);
+    };
+    
+    // Use IntersectionObserver to trigger animation when counters are visible
+    const observerOptions = {
+        threshold: 0.5, // Trigger when 50% of the element is visible
+        rootMargin: '0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                entry.target.classList.add('counted'); // Prevent re-animation
+                animateCounter(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    counters.forEach(counter => {
+        observer.observe(counter);
+    });
+}
+
+
 // Initialize all animations
 document.addEventListener('DOMContentLoaded', () => {
     initTypewriter();
     initTilt();
     initParticles();
+    initCounters();
 });
 
 // Back to Top Button Logic
