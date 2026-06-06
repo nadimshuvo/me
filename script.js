@@ -1,5 +1,243 @@
 /**
- * Mobile Navigation Toggle
+ * Modern Animation System
+ */
+const prefersReducedMotion = () =>
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/**
+ * Page loader
+ */
+function initPageLoader() {
+    const loader = document.querySelector('.page-loader');
+    if (!loader || prefersReducedMotion()) {
+        document.body.classList.remove('is-loading');
+        loader?.classList.add('is-done');
+        return;
+    }
+
+    document.body.classList.add('is-loading');
+
+    const finish = () => {
+        loader.classList.add('is-done');
+        document.body.classList.remove('is-loading');
+        initHeroAnimations();
+    };
+
+    if (document.readyState === 'complete') {
+        setTimeout(finish, 600);
+    } else {
+        window.addEventListener('load', () => setTimeout(finish, 900));
+    }
+}
+
+/**
+ * Unified scroll reveal
+ */
+function initScrollReveal() {
+    const selector =
+        '.reveal, .fade-in-up, .fade-in-left, .fade-in-right, .scale-in, .reveal-image, .section-title';
+    const targets = [...document.querySelectorAll(selector)].filter(
+        el => !el.closest('#hero')
+    );
+
+    if (prefersReducedMotion()) {
+        document.querySelectorAll(selector).forEach(el => el.classList.add('is-visible', 'visible'));
+        return;
+    }
+
+    const observer = new IntersectionObserver(
+        (entries, obs) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('is-visible', 'visible');
+                obs.unobserve(entry.target);
+            });
+        },
+        { root: null, rootMargin: '0px 0px -8% 0px', threshold: 0.1 }
+    );
+
+    targets.forEach(el => observer.observe(el));
+}
+
+/**
+ * Hero entrance after loader
+ */
+function initHeroAnimations() {
+    const heroItems = document.querySelectorAll('#hero .reveal');
+    if (prefersReducedMotion()) {
+        heroItems.forEach(el => el.classList.add('is-visible'));
+        return;
+    }
+
+    requestAnimationFrame(() => {
+        heroItems.forEach(el => el.classList.add('is-visible'));
+    });
+}
+
+/**
+ * Hero abstract animations — particles + parallax
+ */
+function initHeroAbstract() {
+    const hero = document.getElementById('hero');
+    const canvas = document.getElementById('hero-particles');
+    if (!hero) return;
+
+    if (!prefersReducedMotion() && window.matchMedia('(min-width: 769px)').matches) {
+        initHeroParallax(hero);
+        if (canvas) initHeroParticles(canvas, hero);
+    }
+}
+
+function initHeroParallax(hero) {
+    hero.addEventListener('mousemove', e => {
+        const rect = hero.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        hero.style.setProperty('--hero-px', x.toFixed(3));
+        hero.style.setProperty('--hero-py', y.toFixed(3));
+    });
+
+    hero.addEventListener('mouseleave', () => {
+        hero.style.setProperty('--hero-px', '0');
+        hero.style.setProperty('--hero-py', '0');
+    });
+}
+
+function initHeroParticles(canvas, hero) {
+    const ctx = canvas.getContext('2d');
+    let width = 0;
+    let height = 0;
+    let animationId = null;
+    let mouse = { x: 0, y: 0, active: false };
+    const particles = [];
+    const count = 38;
+    const linkDist = 110;
+
+    const resize = () => {
+        const rect = hero.getBoundingClientRect();
+        width = rect.width;
+        height = rect.height;
+        canvas.width = width * devicePixelRatio;
+        canvas.height = height * devicePixelRatio;
+        canvas.style.width = `${width}px`;
+        canvas.style.height = `${height}px`;
+        ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    };
+
+    const createParticles = () => {
+        particles.length = 0;
+        for (let i = 0; i < count; i++) {
+            particles.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                vx: (Math.random() - 0.5) * 0.35,
+                vy: (Math.random() - 0.5) * 0.35,
+                r: Math.random() * 1.5 + 0.5
+            });
+        }
+    };
+
+    const draw = () => {
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < particles.length; i++) {
+            const p = particles[i];
+            p.x += p.vx;
+            p.y += p.vy;
+
+            if (p.x < 0 || p.x > width) p.vx *= -1;
+            if (p.y < 0 || p.y > height) p.vy *= -1;
+
+            if (mouse.active) {
+                const dx = mouse.x - p.x;
+                const dy = mouse.y - p.y;
+                const dist = Math.hypot(dx, dy);
+                if (dist < 140) {
+                    p.x -= dx * 0.008;
+                    p.y -= dy * 0.008;
+                }
+            }
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(129, 140, 248, 0.45)';
+            ctx.fill();
+
+            for (let j = i + 1; j < particles.length; j++) {
+                const q = particles[j];
+                const dx = p.x - q.x;
+                const dy = p.y - q.y;
+                const dist = Math.hypot(dx, dy);
+                if (dist < linkDist) {
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(q.x, q.y);
+                    ctx.strokeStyle = `rgba(34, 211, 238, ${0.12 * (1 - dist / linkDist)})`;
+                    ctx.lineWidth = 0.6;
+                    ctx.stroke();
+                }
+            }
+        }
+
+        animationId = requestAnimationFrame(draw);
+    };
+
+    hero.addEventListener('mousemove', e => {
+        const rect = hero.getBoundingClientRect();
+        mouse.x = e.clientX - rect.left;
+        mouse.y = e.clientY - rect.top;
+        mouse.active = true;
+    }, { passive: true });
+
+    hero.addEventListener('mouseleave', () => {
+        mouse.active = false;
+    });
+
+    resize();
+    createParticles();
+    draw();
+
+    window.addEventListener('resize', () => {
+        resize();
+        createParticles();
+    }, { passive: true });
+
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) cancelAnimationFrame(animationId);
+        else draw();
+    });
+}
+
+/**
+ * Stagger grid children
+ */
+function initGridStagger() {
+    document.querySelectorAll('.skills-grid, .certifications-grid, .projects-grid').forEach(grid => {
+        [...grid.children].forEach((child, index) => {
+            child.style.setProperty('--stagger', `${(index % 6) * 0.06}s`);
+        });
+    });
+}
+
+/**
+ * Skill card spotlight follow
+ */
+function initCardSpotlight() {
+    if (prefersReducedMotion()) return;
+
+    document.querySelectorAll('.skill-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+            card.style.setProperty('--mouse-x', `${x}%`);
+            card.style.setProperty('--mouse-y', `${y}%`);
+        });
+    });
+}
+
+/**
+ * Mobile Navigation
  */
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
@@ -11,7 +249,6 @@ if (hamburger && navMenu) {
         navMenu.classList.toggle('active');
     });
 
-    // Close menu when a link is clicked
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
@@ -21,329 +258,227 @@ if (hamburger && navMenu) {
 }
 
 /**
- * Scroll Animations using IntersectionObserver
+ * Header scroll state
  */
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1
-};
+function initHeaderScroll() {
+    const header = document.querySelector('.header');
+    if (!header) return;
 
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target); // Only animate once
-        }
-    });
-}, observerOptions);
-
-document.querySelectorAll('.fade-in-up').forEach((el) => {
-    observer.observe(el);
-});
+    const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+}
 
 /**
- * Active Navigation Link on Scroll
+ * Scroll progress
+ */
+function initScrollProgress() {
+    const bar = document.querySelector('.scroll-progress-bar');
+    if (!bar) return;
+
+    const update = () => {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = max > 0 ? `${(window.scrollY / max) * 100}%` : '0%';
+    };
+
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+}
+
+/**
+ * Active nav link
  */
 const sections = document.querySelectorAll('section');
 
-window.addEventListener('scroll', () => {
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (pageYOffset >= (sectionTop - 200)) {
-            current = section.getAttribute('id');
-        }
-    });
+window.addEventListener(
+    'scroll',
+    () => {
+        let current = '';
+        sections.forEach(section => {
+            if (window.scrollY >= section.offsetTop - 200) {
+                current = section.getAttribute('id');
+            }
+        });
 
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href').includes(current)) {
-            link.classList.add('active');
-        }
-    });
-});
+        navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href').includes(current));
+        });
+    },
+    { passive: true }
+);
 
 /**
- * Smooth Scroll for Safari/Older Browsers (Optional polyfill-like behavior)
- * ensuring standard behavior works across the board.
+ * Smooth scroll
  */
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80, // Offset for fixed header
-                behavior: 'smooth'
-            });
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
         }
     });
 });
+
 /**
- * Typewriter Effect
+ * Typewriter
  */
 function initTypewriter() {
-    const roleElement = document.querySelector('.hero-role');
-    if (!roleElement) return;
+    const el = document.querySelector('.hero-role');
+    if (!el) return;
 
-    const texts = roleElement.getAttribute('data-typing-text').split('|');
+    const texts = el.getAttribute('data-typing-text').split('|');
     let textIndex = 0;
     let charIndex = 0;
-    let isDeleting = false;
-    let typeSpeed = 100;
+    let deleting = false;
 
-    function type() {
-        const currentText = texts[textIndex];
-        
-        if (isDeleting) {
-            roleElement.textContent = currentText.substring(0, charIndex - 1);
+    const tick = () => {
+        const current = texts[textIndex];
+        let delay = 70;
+
+        if (deleting) {
             charIndex--;
-            typeSpeed = 50;
+            delay = 35;
         } else {
-            roleElement.textContent = currentText.substring(0, charIndex + 1);
             charIndex++;
-            typeSpeed = 100;
+            delay = 55;
         }
 
-        // Handle typing states
-        if (!isDeleting && charIndex === currentText.length) {
-            // Finished typing word
-            isDeleting = true;
-            typeSpeed = 2000; // Pause at end
-        } else if (isDeleting && charIndex === 0) {
-            // Finished deleting word
-            isDeleting = false;
-            textIndex = (textIndex + 1) % texts.length; // Next word
-            typeSpeed = 500; // Pause before new word
+        el.innerHTML = `${current.substring(0, charIndex)}<span class="cursor"></span>`;
+
+        if (!deleting && charIndex === current.length) {
+            deleting = true;
+            delay = 2000;
+        } else if (deleting && charIndex === 0) {
+            deleting = false;
+            textIndex = (textIndex + 1) % texts.length;
+            delay = 400;
         }
 
-        // Add cursor visual
-        roleElement.innerHTML = `${roleElement.textContent}<span class="cursor">|</span>`;
+        setTimeout(tick, delay);
+    };
 
-        setTimeout(type, typeSpeed);
-    }
-
-    type();
+    tick();
 }
 
 /**
- * 3D Tilt Effect
- */
-function initTilt() {
-    const cards = document.querySelectorAll('.skill-card, .project-card, .certification-card');
-
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = ((y - centerY) / centerY) * -10; // Max rotation deg
-            const rotateY = ((x - centerX) / centerX) * 10;
-
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-            card.style.transition = 'transform 0.1s ease'; // Fast transition for smoothness
-        });
-
-        card.addEventListener('mouseleave', () => {
-             card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-             card.style.transition = 'transform 0.5s ease'; // Smooth return
-        });
-    });
-}
-
-/**
- * Background Particles
- */
-function initParticles() {
-    const heroSection = document.getElementById('hero');
-    if (!heroSection) return;
-
-    const particlesContainer = document.createElement('div');
-    particlesContainer.className = 'particles-container';
-    heroSection.appendChild(particlesContainer);
-
-    const particleCount = 20;
-
-    for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        
-        // Random size
-        const size = Math.random() * 20 + 5;
-        particle.style.width = `${size}px`;
-        particle.style.height = `${size}px`;
-        
-        // Random position
-        particle.style.left = `${Math.random() * 100}%`;
-        particle.style.top = `${Math.random() * 100}%`;
-        
-        // Random animation duration and delay
-        const duration = Math.random() * 10 + 10;
-        const delay = Math.random() * 5;
-        particle.style.animationDuration = `${duration}s`;
-        particle.style.animationDelay = `${delay}s`;
-        
-        particlesContainer.appendChild(particle);
-    }
-}
-
-/**
- * Custom Counter Logic
+ * Stat counters
  */
 function initCounters() {
     const counters = document.querySelectorAll('.stat-number');
-    
-    const animateCounter = (counter) => {
-        const target = parseInt(counter.getAttribute('data-target'));
-        const duration = 2000; // Animation duration in milliseconds
-        const startTime = performance.now();
-        const startValue = 0;
-        
-        const updateCounter = (currentTime) => {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            
-            // Easing function for smooth animation (easeOutQuart)
-            const easeProgress = 1 - Math.pow(1 - progress, 4);
-            
-            const currentValue = Math.floor(startValue + (target - startValue) * easeProgress);
-            counter.textContent = currentValue;
-            
-            if (progress < 1) {
-                requestAnimationFrame(updateCounter);
-            } else {
-                counter.textContent = target; // Ensure final value is exact
-            }
+
+    const run = counter => {
+        const target = parseInt(counter.dataset.target, 10);
+        const duration = 1800;
+        const start = performance.now();
+
+        const step = now => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 4);
+            counter.textContent = Math.floor(target * eased);
+            if (progress < 1) requestAnimationFrame(step);
+            else counter.textContent = target;
         };
-        
-        requestAnimationFrame(updateCounter);
+
+        requestAnimationFrame(step);
     };
-    
-    // Use IntersectionObserver to trigger animation when counters are visible
-    const observerOptions = {
-        threshold: 0.5, // Trigger when 50% of the element is visible
-        rootMargin: '0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
-                entry.target.classList.add('counted'); // Prevent re-animation
-                animateCounter(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    counters.forEach(counter => {
-        observer.observe(counter);
+
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                    entry.target.classList.add('counted');
+                    run(entry.target);
+                }
+            });
+        },
+        { threshold: 0.5 }
+    );
+
+    counters.forEach(c => observer.observe(c));
+}
+
+/**
+ * Form focus states
+ */
+function initFormAnimations() {
+    document.querySelectorAll('.form-group input, .form-group textarea').forEach(input => {
+        input.addEventListener('focus', () => input.parentElement.classList.add('is-focused'));
+        input.addEventListener('blur', () => input.parentElement.classList.remove('is-focused'));
     });
 }
 
+/**
+ * Back to top
+ */
+function initBackToTop() {
+    const btn = document.querySelector('.back-to-top');
+    if (!btn) return;
 
-// Initialize all animations
-document.addEventListener('DOMContentLoaded', () => {
-    initTypewriter();
-    initTilt();
-    initParticles();
-    initCounters();
-});
+    window.addEventListener(
+        'scroll',
+        () => btn.classList.toggle('active', window.scrollY > 300),
+        { passive: true }
+    );
 
-// Back to Top Button Logic
-document.addEventListener('DOMContentLoaded', () => {
-    const backToTopBtn = document.querySelector('.back-to-top');
-
-    if (backToTopBtn) {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.add('active');
-            } else {
-                backToTopBtn.classList.remove('active');
-            }
-        });
-
-        backToTopBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-    }
-});
+    btn.addEventListener('click', e => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
 
 /**
- * Background Music Logic (Hybrid: Autoplay + Button)
+ * Background music
  */
-document.addEventListener('DOMContentLoaded', () => {
+function initMusic() {
     const music = document.getElementById('bg-music');
     const toggleBtn = document.getElementById('music-toggle');
-    
-    if (music && toggleBtn) {
-        const icon = toggleBtn.querySelector('i');
-        music.volume = 0.3;
+    if (!music || !toggleBtn) return;
 
-        // updateIcon function
-        const updateIcon = () => {
-            if (music.paused) {
-                toggleBtn.classList.remove('playing');
-                icon.classList.remove('fa-pause');
-                icon.classList.add('fa-music');
-            } else {
-                toggleBtn.classList.add('playing');
-                icon.classList.remove('fa-music');
-                icon.classList.add('fa-pause');
-            }
-        };
+    const icon = toggleBtn.querySelector('i');
+    music.volume = 0.3;
 
-        // 1. Try Autoplay logic
-        const tryPlayMusic = () => {
-            // If already playing, don't do anything
-            if (!music.paused) return;
+    const updateIcon = () => {
+        const playing = !music.paused;
+        toggleBtn.classList.toggle('playing', playing);
+        icon.classList.toggle('fa-pause', playing);
+        icon.classList.toggle('fa-music', !playing);
+    };
 
-            const playPromise = music.play();
-            if (playPromise !== undefined) {
-                playPromise.then(_ => {
-                    console.log("Music started playing via autoplay/interaction.");
-                    updateIcon();
-                    // Cleanup interactions
-                    document.removeEventListener('click', tryPlayMusic);
-                    document.removeEventListener('keydown', tryPlayMusic);
-                }).catch(error => {
-                    console.log("Autoplay prevented. Waiting for user interaction.");
-                    updateIcon(); // Ensure icon reflects paused state
-                });
-            }
-        };
+    const tryPlay = () => {
+        if (!music.paused) return;
+        music.play().then(updateIcon).catch(updateIcon);
+    };
 
-        // Try immediately
-        tryPlayMusic();
+    tryPlay();
+    document.addEventListener('click', tryPlay, { once: true });
+    document.addEventListener('keydown', tryPlay, { once: true });
 
-        // Fallback: Try on first interaction
-        document.addEventListener('click', tryPlayMusic, { once: true });
-        document.addEventListener('keydown', tryPlayMusic, { once: true });
+    toggleBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        if (music.paused) music.play().then(updateIcon).catch(console.error);
+        else {
+            music.pause();
+            updateIcon();
+        }
+    });
+}
 
-        // 2. Button Click Logic
-        toggleBtn.addEventListener('click', (e) => {
-            // Stop propagation so this click doesn't trigger the document-level "tryPlayMusic"
-            // although "tryPlayMusic" handles "if (!music.paused) return", it's cleaner.
-            e.stopPropagation();
+document.addEventListener('DOMContentLoaded', () => {
+    initPageLoader();
+    initScrollReveal();
+    initHeaderScroll();
+    initScrollProgress();
+    initGridStagger();
+    initHeroAbstract();
+    initCardSpotlight();
+    initTypewriter();
+    initCounters();
+    initFormAnimations();
+    initBackToTop();
+    initMusic();
 
-            if (music.paused) {
-                music.play().then(updateIcon).catch(console.error);
-            } else {
-                music.pause();
-                updateIcon();
-            }
-        });
+    if (prefersReducedMotion()) {
+        initHeroAnimations();
     }
 });

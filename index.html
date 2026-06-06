@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#06080f" />
+    <meta name="color-scheme" content="dark" />
     <meta
       name="description"
-      content="Portfolio of a Frontend Web Developer specializing in modern, responsive, and interactive web experiences."
+      content="Portfolio of a Full-stack Developer specializing in modern, responsive, and interactive web experiences."
     />
     <title>Portfolio: nadimShuvo</title>
 
@@ -13,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
       rel="stylesheet"
     />
 
@@ -27,6 +29,14 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="page-loader" aria-hidden="true">
+      <div class="loader-track"><div class="loader-fill"></div></div>
+    </div>
+
+    <div class="scroll-progress" aria-hidden="true">
+      <div class="scroll-progress-bar"></div>
+    </div>
+
     <!-- Header / Navigation -->
     <header class="header">
       <div class="container nav-container">
@@ -52,29 +62,61 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-bg-glow hero-bg-glow-1"></div>
+        <div class="hero-bg-glow hero-bg-glow-2"></div>
+        <div class="hero-bg-glow hero-bg-glow-3"></div>
+        <div class="hero-morph hero-morph-1"></div>
+        <div class="hero-morph hero-morph-2"></div>
+        <div class="hero-grid"></div>
+        <div class="hero-beam"></div>
+        <canvas class="hero-particles" id="hero-particles"></canvas>
+        <div class="hero-shapes">
+          <span class="hero-shape hero-shape-1"></span>
+          <span class="hero-shape hero-shape-2"></span>
+          <span class="hero-shape hero-shape-3"></span>
+          <span class="hero-shape hero-shape-4"></span>
+          <span class="hero-shape hero-shape-5"></span>
+        </div>
+      </div>
       <div class="container hero-container">
-        <div class="hero-content fade-in-up">
-          <span class="hero-subtitle">Hello, my name is</span>
+        <div class="hero-content">
+          <span class="hero-subtitle reveal" data-reveal="up">Hello, my name is</span>
           <h1 class="hero-title">
-            Nadim Mahmud <span class="highlight">Shuvo</span>
+            <span class="reveal-line"><span class="reveal" data-reveal="up" data-delay="1">Nadim Mahmud </span><span class="highlight reveal" data-reveal="up" data-delay="2">Shuvo</span></span>
           </h1>
           <h2
-            class="hero-role"
-            data-typing-text="Frontend Engineer|UI/UX Enthusiast|Open Source Contributor|Backend Enthusiast"
+            class="hero-role reveal"
+            data-reveal="up"
+            data-delay="3"
+            data-typing-text="Full-stack Engineer|UI/UX Enthusiast|Open Source Contributor|Backend Enthusiast"
           ></h2>
-          <p class="hero-description">
+          <p class="hero-description reveal" data-reveal="up" data-delay="4">
             I build accessible, pixel-perfect, and performant web experiences
             using modern technologies. Let's craft something amazing together.
           </p>
-          <div class="hero-buttons">
+          <div class="hero-buttons reveal" data-reveal="up" data-delay="5">
             <a href="#projects" class="btn btn-primary">View My Work</a>
             <a href="#contact" class="btn btn-outline">Contact Me</a>
           </div>
         </div>
-        <!-- Decorative abstract shape or illustration -->
-        <div class="hero-visual fade-in-up delay-200">
-          <div class="abstract-shape">
-            <div class="blob"></div>
+        <div class="hero-visual reveal" data-reveal="scale" data-delay="4">
+          <div class="hero-visual-inner">
+          <div class="hero-orbit-tracks" aria-hidden="true">
+            <svg class="hero-orbit-svg" viewBox="0 0 400 400" fill="none">
+              <ellipse class="hero-orbit-path hero-orbit-path-1" cx="200" cy="200" rx="190" ry="120" />
+              <ellipse class="hero-orbit-path hero-orbit-path-2" cx="200" cy="200" rx="150" ry="190" />
+              <circle class="hero-orbit-path hero-orbit-path-3" cx="200" cy="200" r="130" />
+            </svg>
+            <span class="hero-orbit-dot hero-orbit-dot-1"></span>
+            <span class="hero-orbit-dot hero-orbit-dot-2"></span>
+            <span class="hero-orbit-dot hero-orbit-dot-3"></span>
+          </div>
+          <div class="hero-orb" aria-hidden="true">
+            <div class="hero-orb-core"></div>
+            <div class="hero-orb-ring"></div>
+            <div class="hero-orb-ring hero-orb-ring-inner"></div>
+          </div>
           </div>
         </div>
       </div>
@@ -83,41 +125,53 @@
     <!-- About Section -->
     <section id="about" class="about section-padding">
       <div class="container">
-        <h2 class="section-title fade-in-up">About Me</h2>
-        <div class="about-content">
-          <div class="about-image fade-in-up delay-100">
-            <img src="me.png" alt="Nadim Mahmud Shuvo" class="profile-img" />
+        <h2 class="section-title fade-in-up"><span class="title-text">About Me</span><span class="title-line-accent" aria-hidden="true"></span></h2>
+        <div class="about-layout">
+          <div class="about-visual reveal" data-reveal="left" data-delay="1">
+            <div class="profile-card">
+              <div class="profile-card-accent" aria-hidden="true"></div>
+              <div class="profile-card-frame">
+                <img src="me.png" alt="Nadim Mahmud Shuvo" class="profile-img" />
+              </div>
+              <div class="profile-card-meta">
+                <span class="profile-status">
+                  <span class="profile-status-dot" aria-hidden="true"></span>
+                  Open to opportunities
+                </span>
+                <span class="profile-location">Software Engineer (Full-stack)</span>
+              </div>
+            </div>
           </div>
-          <div class="about-text fade-in-up delay-200">
-            <h3>Creative Developer based in the Cloud.</h3>
-            <p>
-              I'm a passionate Frontend Developer with a keen eye for design and
-              a strong foundation in coding. My journey started with simple HTML
-              pages and has evolved into building complex web applications. I
-              specialize in transforming designs into functional, responsive,
-              and interactive websites.
-              <br /><br />
-              I completed my B.Sc. and M.Sc. in Physics from the National
-              University of Bangladesh (2020).
-            </p>
-            <p>
-              When I'm not coding, you can find me exploring new design trends,
-              contributing to open source, or gaming.
-            </p>
-            <div class="stats-grid">
+
+          <div class="about-body reveal" data-reveal="right" data-delay="2">
+            <span class="about-eyebrow">Who I am</span>
+            <h3 class="about-heading">Creative Developer based in the Cloud.</h3>
+            <div class="about-copy">
+              <p>
+                I am a Full-Stack Developer specializing in transforming intricate designs into scalable, interactive web applications. My engineering journey spans from crafting responsive frontend interfaces to architecting robust backend microservices.
+              </p>
+              <p>
+                Leveraging an analytical foundation with a B.Sc. and M.Sc. in Physics from the National University of Bangladesh (2020), I thrive on technical problem-solving. Beyond code, I optimize digital workflows, edit cinematic media in DaVinci Resolve, and track emerging design systems.
+              </p>
+            </div>
+
+            <div class="about-stats">
               <div class="stat-item">
-                <span class="stat-number" data-target="2">0</span
-                ><span class="stat-suffix">+</span>
+                <div class="stat-value">
+                  <span class="stat-number" data-target="2">0</span><span class="stat-suffix">+</span>
+                </div>
                 <span class="stat-label">Years Exp.</span>
               </div>
               <div class="stat-item">
-                <span class="stat-number" data-target="15">0</span
-                ><span class="stat-suffix">+</span>
+                <div class="stat-value">
+                  <span class="stat-number" data-target="15">0</span><span class="stat-suffix">+</span>
+                </div>
                 <span class="stat-label">Projects</span>
               </div>
               <div class="stat-item">
-                <span class="stat-number" data-target="7">0</span
-                ><span class="stat-suffix">+</span>
+                <div class="stat-value">
+                  <span class="stat-number" data-target="7">0</span><span class="stat-suffix">+</span>
+                </div>
                 <span class="stat-label">Happy Clients</span>
               </div>
             </div>
@@ -129,9 +183,9 @@
     <!-- Skills Section -->
     <section id="skills" class="skills section-padding">
       <div class="container">
-        <h2 class="section-title fade-in-up">My Skills</h2>
+        <h2 class="section-title fade-in-up"><span class="title-text">My Skills</span><span class="title-line-accent" aria-hidden="true"></span></h2>
         <div class="skills-grid">
-          <!-- Group 1: Core & Frontend -->
+          <!-- Group 1: Core & Full-stack-->
           <div
             class="skill-card fade-in-up delay-100"
             style="--skill-color: #e34f26"
@@ -314,7 +368,7 @@
     <!-- Certifications Section -->
     <section id="certifications" class="certifications section-padding">
       <div class="container">
-        <h2 class="section-title fade-in-up">Certifications</h2>
+        <h2 class="section-title fade-in-up"><span class="title-text">Certifications</span><span class="title-line-accent" aria-hidden="true"></span></h2>
         <div class="certifications-grid">
           <!-- Cert 1 -->
           <a
@@ -442,7 +496,7 @@
     <!-- Swiper Structure -->
     <section id="projects" class="projects section-padding">
       <div class="container">
-        <h2 class="section-title fade-in-up">Recent Projects</h2>
+        <h2 class="section-title fade-in-up"><span class="title-text">Recent Projects</span><span class="title-line-accent" aria-hidden="true"></span></h2>
 
         <div class="projects-grid">
           <!-- Project 1 -->
@@ -549,7 +603,7 @@
     <!-- Contact Section -->
     <section id="contact" class="contact section-padding">
       <div class="container">
-        <h2 class="section-title fade-in-up">Get In Touch</h2>
+        <h2 class="section-title fade-in-up"><span class="title-text">Get In Touch</span><span class="title-line-accent" aria-hidden="true"></span></h2>
         <div class="contact-container fade-in-up delay-200">
           <div class="contact-info">
             <h3>Let's talk about everything.</h3>
@@ -625,9 +679,9 @@
     <!-- Footer -->
     <footer class="footer">
       <div class="container">
-        <p>&copy; 2025 Nadim Shuvo. All rights reserved.</p>
+        <p>&copy; 2026 Nadim Mahmud Shuvo</p>
         <p class="made-with">
-          Made with <i class="fa-solid fa-heart"></i> and Coffee.
+          Made with <i class="fa-solid fa-heart"></i> passion, and caffeine
         </p>
       </div>
     </footer>
