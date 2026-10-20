@@ -3,768 +3,408 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#06080f" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#06241c" />
+    <meta name="color-scheme" content="dark light" />
     <meta
       name="description"
-      content="Portfolio of a Full-stack Developer specializing in modern, responsive, and interactive web experiences."
+      content="Portfolio of Nadim Mahmud Shuvo, a full-stack engineer. Websites, apps, and software. Built to be used."
     />
-    <title>Portfolio: nadimShuvo</title>
-
-    <!-- Google Fonts -->
+    <title>Nadim Mahmud Shuvo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
-
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="page-loader" aria-hidden="true">
-      <div class="loader-track"><div class="loader-fill"></div></div>
-    </div>
-
-    <div class="scroll-progress" aria-hidden="true">
-      <div class="scroll-progress-bar"></div>
-    </div>
-
-    <!-- Header / Navigation -->
-    <header class="header">
-      <div class="container nav-container">
-        <a href="#hero" class="logo">nadim<span>Shuvo</span></a>
-
-        <nav class="nav-menu">
-          <ul class="nav-list">
-            <li><a href="#hero" class="nav-link active">Home</a></li>
-            <li><a href="#about" class="nav-link">About</a></li>
-            <li><a href="#skills" class="nav-link">Skills</a></li>
-            <li>
-              <a href="#certifications" class="nav-link">Certifications</a>
-            </li>
-            <li><a href="#projects" class="nav-link">Projects</a></li>
-            <li><a href="#contact" class="nav-link">Contact</a></li>
-          </ul>
+    <header class="nav-wrap">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Nadim Shuvo, home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          nadim
+        </a>
+        <button
+          class="menu-btn"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav-links"
+        >
+          Menu
+        </button>
+        <nav id="nav-links" class="nav-links">
+          <a href="#work">Work</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
         </nav>
-
-        <div class="hamburger">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </div>
+        <a class="nav-cta" href="#contact">Start a project</a>
       </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-      <div class="hero-bg" aria-hidden="true">
-        <div class="hero-bg-glow hero-bg-glow-1"></div>
-        <div class="hero-bg-glow hero-bg-glow-2"></div>
-        <div class="hero-bg-glow hero-bg-glow-3"></div>
-        <div class="hero-morph hero-morph-1"></div>
-        <div class="hero-morph hero-morph-2"></div>
-        <div class="hero-grid"></div>
-        <div class="hero-beam"></div>
-        <canvas class="hero-particles" id="hero-particles"></canvas>
-        <div class="hero-shapes">
-          <span class="hero-shape hero-shape-1"></span>
-          <span class="hero-shape hero-shape-2"></span>
-          <span class="hero-shape hero-shape-3"></span>
-          <span class="hero-shape hero-shape-4"></span>
-          <span class="hero-shape hero-shape-5"></span>
+    <main id="top">
+      <section class="hero">
+        <div class="hero-aurora" aria-hidden="true">
+          <canvas class="hero-glass" id="hero-glass"></canvas>
+          <div class="hero-shade"></div>
+          <div class="grain"></div>
         </div>
-      </div>
-      <div class="container hero-container">
-        <div class="hero-content">
-          <span class="hero-subtitle reveal" data-reveal="up"
-            >Hello, my name is</span
-          >
-          <h1 class="hero-title">
-            <span class="reveal-line"
-              ><span class="reveal" data-reveal="up" data-delay="1"
-                >Nadim Mahmud </span
-              ><span class="highlight reveal" data-reveal="up" data-delay="2"
-                >Shuvo</span
-              ></span
-            >
-          </h1>
-          <h2
-            class="hero-role reveal"
-            data-reveal="up"
-            data-delay="3"
-            data-typing-text="Full-stack Engineer|UI/UX Enthusiast|Open Source Contributor|Backend Enthusiast"
-          ></h2>
-          <p class="hero-description reveal" data-reveal="up" data-delay="4">
-            I build accessible, pixel-perfect, and performant web experiences
-            using modern technologies. Let's craft something amazing together.
+        <div class="hero-copy">
+          <h1 class="rise-in">Websites & Softwares<br /></h1>
+          <p class="rise" style="--d: 140ms">
+            I’m Nadim Mahmud Shuvo, a full-stack engineer. I turn careful
+            designs into fast websites, apps, and software — from the interface
+            to the service behind it.
           </p>
-          <div class="hero-buttons reveal" data-reveal="up" data-delay="5">
-            <a href="#projects" class="btn btn-primary">View My Work</a>
-            <a href="#contact" class="btn btn-outline">Contact Me</a>
-          </div>
+          <a class="btn btn-light rise" style="--d: 220ms" href="#work"
+            >View my work <span aria-hidden="true">→</span></a
+          >
         </div>
-        <div class="hero-visual reveal" data-reveal="scale" data-delay="4">
-          <div class="hero-visual-inner">
-            <div class="hero-orbit-tracks" aria-hidden="true">
-              <svg class="hero-orbit-svg" viewBox="0 0 400 400" fill="none">
-                <ellipse
-                  class="hero-orbit-path hero-orbit-path-1"
-                  cx="200"
-                  cy="200"
-                  rx="190"
-                  ry="120"
-                />
-                <ellipse
-                  class="hero-orbit-path hero-orbit-path-2"
-                  cx="200"
-                  cy="200"
-                  rx="150"
-                  ry="190"
-                />
-                <circle
-                  class="hero-orbit-path hero-orbit-path-3"
-                  cx="200"
-                  cy="200"
-                  r="130"
-                />
-              </svg>
-              <span class="hero-orbit-dot hero-orbit-dot-1"></span>
-              <span class="hero-orbit-dot hero-orbit-dot-2"></span>
-              <span class="hero-orbit-dot hero-orbit-dot-3"></span>
-            </div>
-            <div class="hero-orb" aria-hidden="true">
-              <div class="hero-orb-core"></div>
-              <div class="hero-orb-ring"></div>
-              <div class="hero-orb-ring hero-orb-ring-inner"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="about section-padding">
-      <div class="container">
-        <h2 class="section-title fade-in-up">
-          <span class="title-text">About Me</span
-          ><span class="title-line-accent" aria-hidden="true"></span>
-        </h2>
-        <div class="about-layout">
-          <div class="about-visual reveal" data-reveal="left" data-delay="1">
-            <div class="profile-card">
-              <div class="profile-card-accent" aria-hidden="true"></div>
-              <div class="profile-card-frame">
-                <img
-                  src="me.png"
-                  alt="Nadim Mahmud Shuvo"
-                  class="profile-img"
-                />
-              </div>
-              <div class="profile-card-meta">
-                <span class="profile-status">
-                  <span class="profile-status-dot" aria-hidden="true"></span>
-                  Open to opportunities
-                </span>
-                <span class="profile-location"
-                  >Software Engineer (Full-stack)</span
-                >
-              </div>
-            </div>
-          </div>
-
-          <div class="about-body reveal" data-reveal="right" data-delay="2">
-            <span class="about-eyebrow">Who I am</span>
-            <h3 class="about-heading">
-              Creative Developer based in the Cloud.
-            </h3>
-            <div class="about-copy">
-              <p>
-                I am a Full-Stack Developer specializing in transforming
-                intricate designs into scalable, interactive web applications.
-                My engineering journey spans from crafting responsive frontend
-                interfaces to architecting robust backend microservices.
-              </p>
-              <p>
-                Leveraging an analytical foundation with a B.Sc. and M.Sc. in
-                Physics from the National University of Bangladesh (2020), I
-                thrive on technical problem-solving. Beyond code, I optimize
-                digital workflows, edit cinematic media in DaVinci Resolve, and
-                track emerging design systems.
-              </p>
-            </div>
-
-            <div class="about-stats">
-              <div class="stat-item">
-                <div class="stat-value">
-                  <span class="stat-number" data-target="2">0</span
-                  ><span class="stat-suffix">+</span>
+        <div class="stage">
+          <div class="stage-grow" id="stage-grow">
+            <div class="term">
+              <div class="term-body">
+                <div class="term-chrome" aria-hidden="true">
+                  <i></i><i></i><i></i>
+                  <span>nadim — zsh</span>
                 </div>
-                <span class="stat-label">Years Exp.</span>
-              </div>
-              <div class="stat-item">
-                <div class="stat-value">
-                  <span class="stat-number" data-target="15">0</span
-                  ><span class="stat-suffix">+</span>
-                </div>
-                <span class="stat-label">Projects</span>
-              </div>
-              <div class="stat-item">
-                <div class="stat-value">
-                  <span class="stat-number" data-target="7">0</span
-                  ><span class="stat-suffix">+</span>
-                </div>
-                <span class="stat-label">Happy Clients</span>
+                <div
+                  class="term-screen"
+                  id="term-screen"
+                  aria-hidden="true"
+                ></div>
               </div>
             </div>
           </div>
+          <p class="sr-only">
+            Nadim Mahmud Shuvo, full-stack engineer, open to opportunities.
+            Physics, then software. B.Sc. and M.Sc., National University of
+            Bangladesh. Projects: Gartnerforbund, Vadio, and Pareto Securities.
+          </p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills section-padding">
-      <div class="container">
-        <h2 class="section-title fade-in-up">
-          <span class="title-text">My Skills</span
-          ><span class="title-line-accent" aria-hidden="true"></span>
-        </h2>
-        <div class="skills-grid">
-          <!-- Group 1: Core & Full-stack-->
-          <div
-            class="skill-card fade-in-up delay-100"
-            style="--skill-color: #e34f26"
-          >
-            <i class="fa-brands fa-html5 skill-icon"></i>
-            <h3>HTML5</h3>
+      <section id="about" class="band">
+        <div class="split">
+          <div class="portrait">
+            <img src="me.png" alt="Nadim Mahmud Shuvo" />
+            <span class="status"><i></i> Open to opportunities</span>
           </div>
-          <div
-            class="skill-card fade-in-up delay-100"
-            style="--skill-color: #264de4"
-          >
-            <i class="fa-brands fa-css3-alt skill-icon"></i>
-            <h3>CSS3</h3>
-          </div>
-          <div
-            class="skill-card fade-in-up delay-100"
-            style="--skill-color: #f7df1e"
-          >
-            <i class="fa-brands fa-js skill-icon"></i>
-            <h3>JavaScript</h3>
-          </div>
-          <div
-            class="skill-card fade-in-up delay-100"
-            style="--skill-color: #3178c6"
-          >
-            <i class="fa-brands fa-js skill-icon"></i>
-            <!-- Using JS icon as placeholder for TS if specific not found, or generic code -->
-            <h3>TypeScript</h3>
-          </div>
-          <div
-            class="skill-card fade-in-up delay-200"
-            style="--skill-color: #61dafb"
-          >
-            <i class="fa-brands fa-react skill-icon"></i>
-            <h3>React</h3>
-          </div>
-          <div
-            class="skill-card fade-in-up delay-200"
-            style="--skill-color: #000000"
-          >
-            <i class="fa-solid fa-layer-group skill-icon"></i>
-            <h3>Next.js</h3>
-          </div>
-          <div
-            class="skill-card fade-in-up delay-200"
-            style="--skill-color: #663399"
-          >
-            <i class="fa-solid fa-globe skill-icon"></i>
-            <h3>Gatsby</h3>
-          </div>
-          <div
-            class="skill-card fade-in-up delay-200"
-            style="--skill-color: #0055ff"
-          >
-            <i class="fa-solid fa-shapes skill-icon"></i>
-            <h3>Framer</h3>
-          </div>
-
-          <!-- Group 2: Styling & Tools -->
-          <div
-            class="skill-card fade-in-up delay-300"
-            style="--skill-color: #06b6d4"
-          >
-            <i class="fa-solid fa-wind skill-icon"></i>
-            <h3>Tailwind CSS</h3>
-          </div>
-          <div
-            class="skill-card fade-in-up delay-300"
-            style="--skill-color: #dd3a0a"
-          >
-            <i class="fa-brands fa-css3 skill-icon"></i>
-            <h3>PostCSS</h3>
-          </div>
-          <div
-            class="skill-card fade-in-up delay-300"
-            style="--skill-color: #f05032"
-          >
-            <i class="fa-brands fa-git-alt skill-icon"></i>
-            <h3>Git</h3>
-          </div>
-          <div
-            class="skill-card fade-in-up delay-300"
-            style="--skill-color: #cb3837"
-          >
-            <i class="fa-brands fa-npm skill-icon"></i>
-            <h3>npm</h3>
-          </div>
-          <div
-            class="skill-card fade-in-up delay-300"
-            style="--skill-color: #8dd6f9"
-          >
-            <i class="fa-solid fa-box-open skill-icon"></i>
-            <h3>Webpack</h3>
-          </div>
-
-          <!-- Group 3: Backend & CMS -->
-          <div
-            class="skill-card fade-in-up delay-400"
-            style="--skill-color: #339933"
-          >
-            <i class="fa-brands fa-node skill-icon"></i>
-            <h3>Node.js</h3>
-          </div>
-          <div
-            class="skill-card fade-in-up delay-400"
-            style="--skill-color: #e535ab"
-          >
-            <i class="fa-solid fa-project-diagram skill-icon"></i>
-            <h3>GraphQL</h3>
-          </div>
-          <div
-            class="skill-card fade-in-up delay-400"
-            style="--skill-color: #21759b"
-          >
-            <i class="fa-brands fa-wordpress skill-icon"></i>
-            <h3>WordPress</h3>
-          </div>
-          <div
-            class="skill-card fade-in-up delay-400"
-            style="--skill-color: #4353ff"
-          >
-            <i class="fa-solid fa-pen-nib skill-icon"></i>
-            <h3>Webflow</h3>
-          </div>
-          <div
-            class="skill-card fade-in-up delay-400"
-            style="--skill-color: #ff7a59"
-          >
-            <i class="fa-brands fa-hubspot skill-icon"></i>
-            <h3>HubSpot</h3>
-          </div>
-          <div
-            class="skill-card fade-in-up delay-400"
-            style="--skill-color: #f24e1e"
-          >
-            <i class="fa-brands fa-figma skill-icon"></i>
-            <h3>Figma</h3>
-          </div>
-
-          <!-- Group 4: Platforms & Others -->
-          <div
-            class="skill-card fade-in-up delay-500"
-            style="--skill-color: #000000"
-          >
-            <i class="fa-solid fa-triangle-exclamation skill-icon"></i>
-            <h3>Vercel</h3>
-          </div>
-          <div
-            class="skill-card fade-in-up delay-500"
-            style="--skill-color: #00c7b7"
-          >
-            <i class="fa-solid fa-cloud skill-icon"></i>
-            <h3>Netlify</h3>
-          </div>
-          <div
-            class="skill-card fade-in-up delay-500"
-            style="--skill-color: #000000"
-          >
-            <i class="fa-solid fa-vr-cardboard skill-icon"></i>
-            <h3>3D Vista</h3>
-          </div>
-          <div
-            class="skill-card fade-in-up delay-500"
-            style="--skill-color: #6332f6"
-          >
-            <i class="fa-solid fa-images skill-icon"></i>
-            <h3>Swiper JS & Sitevision CMS</h3>
-          </div>
-          <div
-            class="skill-card fade-in-up delay-500"
-            style="--skill-color: #000000"
-          >
-            <i class="fa-solid fa-video skill-icon"></i>
-            <h3>DaVinci Resolve</h3>
+          <div>
+            <p class="eyebrow">About</p>
+            <h2>A physicist who stayed for the interfaces.</h2>
+            <p class="lede">
+              I build full-stack web applications, from responsive interfaces to
+              the services behind them. B.Sc. and M.Sc. in Physics, National
+              University of Bangladesh, 2020.
+            </p>
+            <p class="muted">
+              Outside client work I edit in DaVinci Resolve and pay attention to
+              design systems that still feel right a year later.
+            </p>
+            <dl class="stats">
+              <div>
+                <dt>3+</dt>
+                <dd>Years</dd>
+              </div>
+              <div>
+                <dt>20+</dt>
+                <dd>Projects</dd>
+              </div>
+              <div>
+                <dt>11+</dt>
+                <dd>Clients</dd>
+              </div>
+            </dl>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Certifications Section -->
-    <section id="certifications" class="certifications section-padding">
-      <div class="container">
-        <h2 class="section-title fade-in-up">
-          <span class="title-text">Certifications</span
-          ><span class="title-line-accent" aria-hidden="true"></span>
-        </h2>
-        <div class="certifications-grid">
-          <!-- Cert 1 -->
-          <a
-            href="https://www.udemy.com/certificate/UC-2c0c722e-43ab-4a47-b4a5-674accae4c61/"
-            target="_blank"
-            class="certification-card fade-in-up delay-100"
-          >
-            <i
-              class="fa-solid fa-graduation-cap skill-icon"
-              style="color: #a435f0"
-            ></i>
-            <h3>Udemy</h3>
-          </a>
-          <!-- Cert 2 -->
-          <a
-            href="https://www.freecodecamp.org/certification/nadimshuvo/responsive-web-design"
-            target="_blank"
-            class="certification-card fade-in-up delay-200"
-          >
-            <i
-              class="fa-brands fa-free-code-camp skill-icon"
-              style="color: #0a0a23"
-            ></i>
-            <h3>FreeCodeCamp</h3>
-          </a>
-          <!-- Cert 3 -->
-
-          <!-- Cert 4 -->
-          <a
-            href="https://university.webflow.com/"
-            target="_blank"
-            class="certification-card fade-in-up delay-500"
-          >
-            <i
-              class="fa-brands fa-webflow skill-icon"
-              style="color: #4353ff"
-            ></i>
-            <h3>Webflow University</h3>
-          </a>
-          <!-- Cert 5 -->
-          <a
-            href="https://pll.harvard.edu/course/cs50-introduction-computer-science"
-            target="_blank"
-            class="certification-card fade-in-up delay-600"
-          >
-            <i
-              class="fa-solid fa-building-columns skill-icon"
-              style="color: #a51c30"
-            ></i>
-            <h3>CS50 Harvard University</h3>
-          </a>
-          <!-- Cert 6 -->
-          <a
-            href="https://www.linkedin.com/in/nadimmahmudshuvo/details/certifications/1194951285/multiple-media-viewer/?profileId=ACoAADGMeM8Bt3x8uLz1rvwQIWG3E8Mx9waVkEY&treasuryMediaId=1635541953928"
-            target="_blank"
-            class="certification-card fade-in-up delay-400"
-          >
-            <i class="fa-solid fa-code skill-icon" style="color: #04aa6d"></i>
-            <h3>Programming Hero</h3>
-          </a>
-          <!-- Cert 7 -->
-          <a
-            href="https://www.linkedin.com/learning/certificates/d4452bd612ff69b5dde896904c203ee992e31471d2689bc7207fc6ff08c734b4?trk=share_certificate&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bb%2BQTSvaRRfKxALmJjEZcuA%3D%3D"
-            target="_blank"
-            class="certification-card fade-in-up delay-300"
-          >
-            <i
-              class="fa-brands fa-linkedin skill-icon"
-              style="color: #0077b5"
-            ></i>
-            <h3>Graphic Design Careers</h3>
-          </a>
-          <!-- Cert 8 -->
-          <a
-            href="https://www.linkedin.com/learning/certificates/4f54bc444f0c4c4defee5c32ef59af387de9425c015e1a9c8d1a4624dee7f3fd?trk=backfilled_certificate&lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bb%2BQTSvaRRfKxALmJjEZcuA%3D%3D"
-            target="_blank"
-            class="certification-card fade-in-up delay-300"
-          >
-            <i
-              class="fa-brands fa-linkedin skill-icon"
-              style="color: #0077b5"
-            ></i>
-            <h3>HTML Essential Training</h3>
-          </a>
-          <!-- Cert 9 -->
-          <a
-            href="https://www.linkedin.com/learning/certificates/2aaceedc8a8b208b76694ea0a4c59053188c5e4222de9d0f4ee63f74e15ebd09?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bb%2BQTSvaRRfKxALmJjEZcuA%3D%3D"
-            target="_blank"
-            class="certification-card fade-in-up delay-300"
-          >
-            <i
-              class="fa-brands fa-linkedin skill-icon"
-              style="color: #0077b5"
-            ></i>
-            <h3>CSS Essential Training</h3>
-          </a>
-          <!-- Cert 10 -->
-          <a
-            href="https://www.linkedin.com/learning/certificates/a68bed7864eb82a5192d5bea352de57d12bc0f33fe5909a4c0d6f4e73804de04?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bb%2BQTSvaRRfKxALmJjEZcuA%3D%3D"
-            target="_blank"
-            class="certification-card fade-in-up delay-300"
-          >
-            <i
-              class="fa-brands fa-linkedin skill-icon"
-              style="color: #0077b5"
-            ></i>
-            <h3>Programming Foundations: Databases</h3>
-          </a>
-          <!-- Cert 11 -->
-          <a
-            href="https://www.linkedin.com/learning/certificates/86bc57a31f802938406007a22a52230f9cc275f48322c3d33b9ccb9b0c6f007c?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bb%2BQTSvaRRfKxALmJjEZcuA%3D%3D"
-            target="_blank"
-            class="certification-card fade-in-up delay-300"
-          >
-            <i
-              class="fa-brands fa-linkedin skill-icon"
-              style="color: #0077b5"
-            ></i>
-            <h3>JavaScript Essential Training</h3>
-          </a>
+      <section id="work" class="band band-tight">
+        <div class="section-head">
+          <p class="eyebrow">Selected work</p>
+          <h2>Three builds. Real teams.</h2>
         </div>
-      </div>
-    </section>
-
-    <!-- Swiper Structure -->
-    <section id="projects" class="projects section-padding">
-      <div class="container">
-        <h2 class="section-title fade-in-up">
-          <span class="title-text">Recent Projects</span
-          ><span class="title-line-accent" aria-hidden="true"></span>
-        </h2>
-
-        <div class="projects-grid">
-          <!-- Project 1 -->
-          <article class="project-card fade-in-up delay-100">
-            <div class="project-image">
-              <img
-                src="gartner.png"
-                alt="Norsk Gartnerforbund Image"
-                class="project-thumb"
-              />
-              <div class="project-overlay"></div>
-            </div>
-            <div class="project-info">
+        <div class="projects">
+          <article class="project">
+            <a
+              class="shot"
+              href="https://9643---gartnerforbundet-nettsider.webflow.io/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src="gartner.png" alt="" />
+            </a>
+            <div class="project-copy">
               <h3>Norsk Gartnerforbund</h3>
               <p>
-                Supports the horticultural industry with cooperation,
-                development, sustainability, innovation, growth, resilience.
+                Cooperation, development, and a more resilient horticultural
+                industry.
               </p>
-              <div class="project-tags">
-                <span>Webflow</span>
-                <span>CSS</span>
-                <span>React</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/nadimshuvo" class="btn-icon"
-                  ><i class="fa-brands fa-github"></i
-                ></a>
-                <a
-                  target="_blank"
-                  href="https://9643---gartnerforbundet-nettsider.webflow.io/"
-                  class="btn-icon"
-                  ><i class="fa-solid fa-arrow-up-right-from-square"></i
-                ></a>
-              </div>
+              <p class="tags">Webflow · CSS · React</p>
+              <a
+                class="text-link"
+                href="https://9643---gartnerforbundet-nettsider.webflow.io/"
+                target="_blank"
+                rel="noreferrer"
+                >Visit site <span aria-hidden="true">→</span></a
+              >
             </div>
           </article>
-
-          <!-- Project 2 -->
-          <article class="project-card fade-in-up delay-200">
-            <div class="project-image">
-              <img src="vadio.png" alt="Vadio Image" class="project-thumb" />
-              <div class="project-overlay"></div>
-            </div>
-            <div class="project-info">
-              <h3>Vadio App</h3>
+          <article class="project">
+            <a
+              class="shot"
+              href="https://www.vadio.no/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src="vadio.png" alt="" />
+            </a>
+            <div class="project-copy">
+              <h3>Vadio</h3>
               <p>
-                Connect instantly, inspect remotely, save time, costs,
-                emissions, resources, efficiency, trust.
+                Remote inspection that cuts the trip, the cost, and the
+                emissions.
               </p>
-              <div class="project-tags">
-                <span>JavaScript</span>
-                <span>Webflow</span>
-                <span>React</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/nadimshuvo" class="btn-icon"
-                  ><i class="fa-brands fa-github"></i
-                ></a>
-                <a target="_blank" href="https://www.vadio.no/" class="btn-icon"
-                  ><i class="fa-solid fa-arrow-up-right-from-square"></i
-                ></a>
-              </div>
+              <p class="tags">JavaScript · Webflow · React</p>
+              <a
+                class="text-link"
+                href="https://www.vadio.no/"
+                target="_blank"
+                rel="noreferrer"
+                >Visit site <span aria-hidden="true">→</span></a
+              >
             </div>
           </article>
-
-          <!-- Project 3 -->
-          <article class="project-card fade-in-up delay-300">
-            <div class="project-image">
-              <img
-                src="pareto.png"
-                alt="Pareto Securities Company Image"
-                class="project-thumb"
-              />
-              <div class="project-overlay"></div>
-            </div>
-            <div class="project-info">
+          <article class="project">
+            <a
+              class="shot"
+              href="https://paretosec.com/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <img src="pareto.png" alt="" />
+            </a>
+            <div class="project-copy">
               <h3>Pareto Securities</h3>
-              <p>
-                Independent investment bank, global reach, Nordic expertise,
-                sustainable financial solutions.
-              </p>
-              <div class="project-tags">
-                <span>Sitevision</span>
-                <span>JavaScript</span>
-                <span>React</span>
-              </div>
-              <div class="project-links">
-                <a href="https://github.com/nadimshuvo" class="btn-icon"
-                  ><i class="fa-brands fa-github"></i
-                ></a>
-                <a
-                  target="_blank"
-                  href="https://paretosec.com/"
-                  class="btn-icon"
-                  ><i class="fa-solid fa-arrow-up-right-from-square"></i
-                ></a>
-              </div>
+              <p>An independent Nordic investment bank, with global reach.</p>
+              <p class="tags">Sitevision · JavaScript · React</p>
+              <a
+                class="text-link"
+                href="https://paretosec.com/"
+                target="_blank"
+                rel="noreferrer"
+                >Visit site <span aria-hidden="true">→</span></a
+              >
             </div>
           </article>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact section-padding">
-      <div class="container">
-        <h2 class="section-title fade-in-up">
-          <span class="title-text">Get In Touch</span
-          ><span class="title-line-accent" aria-hidden="true"></span>
-        </h2>
-        <div class="contact-container fade-in-up delay-200">
-          <div class="contact-info">
-            <h3>Let's talk about everything.</h3>
-            <p>Don't like forms? Send me an email. 👋</p>
-            <a href="mailto:nadimshuvo1997@gmail.com" class="contact-email"
+      <section id="skills" class="band">
+        <div class="section-head">
+          <p class="eyebrow">Skills</p>
+          <h2>The tools I actually ship with.</h2>
+        </div>
+        <div class="skill-grid">
+          <div>
+            <h3>Interface</h3>
+            <p>
+              HTML, CSS, JavaScript, TypeScript, React, Next.js, Tailwind,
+              Framer
+            </p>
+          </div>
+          <div>
+            <h3>Platforms</h3>
+            <p>
+              Webflow, WordPress, HubSpot, Sitevision, Gatsby, Netlify, Vercel
+            </p>
+          </div>
+          <div>
+            <h3>Engineering</h3>
+            <p>Node.js, GraphQL, Git, npm, Webpack, PostCSS</p>
+          </div>
+          <div>
+            <h3>Craft</h3>
+            <p>Figma, DaVinci Resolve, 3D Vista, Swiper</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="study" class="band band-tight">
+        <div class="section-head">
+          <p class="eyebrow">Study</p>
+          <h2>Certificates, linked.</h2>
+        </div>
+        <ul class="study-list">
+          <li>
+            <a
+              href="https://pll.harvard.edu/course/cs50-introduction-computer-science"
+              target="_blank"
+              rel="noreferrer"
+              >CS50 — Harvard</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.freecodecamp.org/certification/nadimshuvo/responsive-web-design"
+              target="_blank"
+              rel="noreferrer"
+              >freeCodeCamp — Responsive Web Design</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://university.webflow.com/"
+              target="_blank"
+              rel="noreferrer"
+              >Webflow University</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.udemy.com/certificate/UC-2c0c722e-43ab-4a47-b4a5-674accae4c61/"
+              target="_blank"
+              rel="noreferrer"
+              >Udemy</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/nadimmahmudshuvo/details/certifications/1194951285/multiple-media-viewer/?profileId=ACoAADGMeM8Bt3x8uLz1rvwQIWG3E8Mx9waVkEY&treasuryMediaId=1635541953928"
+              target="_blank"
+              rel="noreferrer"
+              >Programming Hero</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/learning/certificates/d4452bd612ff69b5dde896904c203ee992e31471d2689bc7207fc6ff08c734b4"
+              target="_blank"
+              rel="noreferrer"
+              >Graphic Design Careers</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/learning/certificates/4f54bc444f0c4c4defee5c32ef59af387de9425c015e1a9c8d1a4624dee7f3fd"
+              target="_blank"
+              rel="noreferrer"
+              >HTML Essential Training</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/learning/certificates/2aaceedc8a8b208b76694ea0a4c59053188c5e4222de9d0f4ee63f74e15ebd09"
+              target="_blank"
+              rel="noreferrer"
+              >CSS Essential Training</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/learning/certificates/a68bed7864eb82a5192d5bea352de57d12bc0f33fe5909a4c0d6f4e73804de04"
+              target="_blank"
+              rel="noreferrer"
+              >Programming Foundations: Databases</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/learning/certificates/86bc57a31f802938406007a22a52230f9cc275f48322c3d33b9ccb9b0c6f007c"
+              target="_blank"
+              rel="noreferrer"
+              >JavaScript Essential Training</a
+            >
+          </li>
+        </ul>
+      </section>
+
+      <section id="contact" class="band">
+        <div class="contact">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h2>Let’s talk about the next one.</h2>
+            <p class="lede">Don’t like forms? Send an email. I read them.</p>
+            <a class="mail" href="mailto:nadimshuvo1997@gmail.com"
               >nadimshuvo1997@gmail.com</a
             >
-            <a href="tel:+8801680761472" class="contact-email"
-              >+8801680761472</a
-            >
-
-            <div class="social-links">
-              <a target="_blank" href="https://x.com/nadimshuvo_"
-                ><i class="fa-brands fa-twitter"></i
-              ></a>
+            <a class="mail" href="tel:+8801680761472">+880 1680 761472</a>
+            <div class="socials">
               <a
-                target="_blank"
-                href="https://www.linkedin.com/in/nadimmahmudshuvo/"
-                ><i class="fa-brands fa-linkedin-in"></i
-              ></a>
-              <a target="_blank" href="https://www.facebook.com/nadimmShuvo/"
-                ><i class="fa-brands fa-facebook"></i
-              ></a>
-              <a
-                target="_blank"
                 href="https://github.com/nadimshuvo?tab=repositories"
-                ><i class="fa-brands fa-github"></i
-              ></a>
-              <a target="_blank" href="https://www.youtube.com/@nadimsss"
-                ><i class="fa-brands fa-youtube"></i
-              ></a>
-              <a target="_blank" href="https://wa.me/8801680761472"
-                ><i class="fa-brands fa-whatsapp"></i
-              ></a>
-              <a target="_blank" href="https://academy71.slack.com/ssb/redirect"
-                ><i class="fa-brands fa-slack"></i
-              ></a>
+                target="_blank"
+                rel="noreferrer"
+                >GitHub</a
+              >
+              <a
+                href="https://www.linkedin.com/in/nadimmahmudshuvo/"
+                target="_blank"
+                rel="noreferrer"
+                >LinkedIn</a
+              >
+              <a
+                href="https://x.com/nadimshuvo_"
+                target="_blank"
+                rel="noreferrer"
+                >X</a
+              >
+              <a
+                href="https://www.youtube.com/@nadimsss"
+                target="_blank"
+                rel="noreferrer"
+                >YouTube</a
+              >
+              <a
+                href="https://wa.me/8801680761472"
+                target="_blank"
+                rel="noreferrer"
+                >WhatsApp</a
+              >
             </div>
           </div>
-
           <form
-            class="contact-form"
+            class="form"
             action="https://formspree.io/f/mykgwdrp"
             method="POST"
           >
-            <div class="form-group">
-              <input type="text" name="name" placeholder="Your Name" required />
-            </div>
-            <div class="form-group">
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                required
-              />
-            </div>
-            <div class="form-group">
-              <label for="message" class="sr-only">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                placeholder="Message"
-                required
-              ></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
+            <label>
+              Name
+              <input type="text" name="name" required autocomplete="name" />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" required autocomplete="email" />
+            </label>
+            <label>
+              Message
+              <textarea name="message" rows="5" required></textarea>
+            </label>
+            <button class="btn btn-dark" type="submit">
+              Send message <span aria-hidden="true">→</span>
+            </button>
           </form>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- Footer -->
     <footer class="footer">
-      <div class="container">
-        <p>&copy; 2026 Nadim Mahmud Shuvo</p>
-        <p class="made-with">
-          Made with <i class="fa-solid fa-heart"></i> passion, and caffeine
-        </p>
-      </div>
+      <p>© 2026 Nadim Mahmud Shuvo</p>
+      <a href="#top">Back to top</a>
     </footer>
-
-    <!-- Back to Top Button -->
-    <a href="#hero" class="back-to-top" aria-label="Go to top">
-      <i class="fa-solid fa-arrow-up"></i>
-    </a>
-
-    <!-- Background Music -->
-    <audio id="bg-music" autoplay loop>
+    <audio id="bg-music" loop preload="auto">
       <source src="background-music.mp3" type="audio/mpeg" />
     </audio>
-    <button
-      id="music-toggle"
-      class="music-toggle"
-      aria-label="Toggle background music"
-    >
-      <i class="fa-solid fa-music"></i>
+    <button id="music-toggle" class="music-toggle" type="button" aria-pressed="false" aria-label="Play background music">
+      <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor" d="M9 7.2v9.6c0 .6.7 1 1.2.6l7.2-4.8c.5-.3.5-.9 0-1.2L10.2 6.6c-.5-.4-1.2 0-1.2.6Z" />
+      </svg>
+      <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor" d="M7 6.5h3.2v11H7v-11Zm6.8 0H17v11h-3.2v-11Z" />
+      </svg>
     </button>
-
-    <!-- Custom Scripts -->
     <script src="script.js"></script>
   </body>
 </html>
