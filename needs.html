@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#06241c" />
+    <meta name="color-scheme" content="dark light" />
+    <meta name="description" content="One hundred daily needs, in ten groups. Tick what today already asked for." />
+    <title>Needs — Nadim Mahmud Shuvo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="nav-wrap">
+      <div class="nav">
+        <a class="brand" href="index.html" aria-label="Nadim Shuvo, home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          nadim
+        </a>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="nav-links">
+          Menu
+        </button>
+        <nav id="nav-links" class="nav-links">
+          <a href="index.html#work">Work</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#skills">Skills</a>
+          <a href="daily.html">Daily</a>
+          <a href="fullstack.html">Fullstack</a>
+          <a href="index.html#contact">Contact</a>
+        </nav>
+        <a class="nav-cta" href="index.html#contact">Start a project</a>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="page-hero">
+        <div class="grain" aria-hidden="true"></div>
+        <div class="hero-copy">
+          <p class="eyebrow">Needs</p>
+          <h1 class="rise-in">One hundred needs.</h1>
+          <p class="rise" style="--d: 140ms">Ten groups. Tick what today already asked for. Tomorrow the marks go.</p>
+        </div>
+      </section>
+
+      <section class="band band-tight">
+        <div class="needs">
+          <p class="need-count" id="need-count">0 of 100</p>
+          <div class="need-chips" id="need-chips" role="group" aria-label="Groups"></div>
+          <div id="need-groups"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 Nadim Mahmud Shuvo</p>
+      <a href="daily.html">Back to Daily</a>
+    </footer>
+    <audio id="bg-music" loop preload="auto">
+      <source src="background-music.mp3" type="audio/mpeg" />
+    </audio>
+    <button id="music-toggle" class="music-toggle" type="button" aria-pressed="false" aria-label="Play background music">
+      <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor" d="M9 7.2v9.6c0 .6.7 1 1.2.6l7.2-4.8c.5-.3.5-.9 0-1.2L10.2 6.6c-.5-.4-1.2 0-1.2.6Z" />
+      </svg>
+      <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true">
+        <path fill="currentColor" d="M7 6.5h3.2v11H7v-11Zm6.8 0H17v11h-3.2v-11Z" />
+      </svg>
+    </button>
+    <script src="script.js"></script>
+    <script>
+      (function () {
+        var groups = [
+          ["Wake", ["Open the curtains", "Make the bed", "Brush", "Wash the face", "Drink water", "Clothes", "Shoes", "The bag", "The mirror", "A place for breakfast"]],
+          ["Body", ["Stretch", "Wash the hands", "Nails", "Hair", "Sun on the skin", "Lips", "Feet", "Rest the eyes", "Stand up", "One rest"]],
+          ["Kitchen", ["The kettle", "The dishes", "The fridge", "The bin", "Wipe the table", "Water", "The bottle", "Leftovers", "Stove off", "The cloth"]],
+          ["Home", ["Sweep", "Dust", "Clothes in", "Clothes out", "Windows", "Plants", "Bin outside", "The toilet", "Towels", "Lights"]],
+          ["Out", ["Umbrella", "Wallet", "Charge", "The route", "A ticket", "Water", "A snack", "The time", "Shoes", "One look before the door"]],
+          ["Work", ["One task", "The inbox", "The calendar", "Notes", "Files", "A break", "The desk", "Water", "Shut down", "Tomorrow's first line"]],
+          ["Money", ["Cash", "A receipt", "One due", "Change", "The market", "The fare", "A split", "The pocket", "One price", "What left today"]],
+          ["People", ["One call", "One message", "Home", "One reply", "A name", "A visit", "A thank-you", "Quiet", "A meal together", "One boundary"]],
+          ["Evening", ["A walk", "Pages", "Supper", "Dishes", "Tomorrow's clothes", "The bag", "The night tick", "The lamp", "Windows", "The lock"]],
+          ["Night", ["Dim the lights", "Phone away", "Water by the bed", "The alarm", "Curtains", "A cool room", "One breath", "One line", "Time to sleep", "The door"]]
+        ];
+        var items = [];
+        groups.forEach(function (group) {
+          group[1].forEach(function (label, index) {
+            items.push({ id: group[0].toLowerCase() + "-" + index, group: group[0], label: label });
+          });
+        });
+        var today = (function () {
+          var now = new Date();
+          return now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
+        })();
+        var on = {};
+        try {
+          var saved = JSON.parse(localStorage.getItem("daily-needs") || "null");
+          if (saved && saved.date === today && saved.on) on = saved.on;
+        } catch (err) {}
+        var filter = "All";
+        var count = document.getElementById("need-count");
+        var chips = document.getElementById("need-chips");
+        var board = document.getElementById("need-groups");
+
+        function known(id) {
+          return items.some(function (item) { return item.id === id; });
+        }
+        function paint() {
+          var total = 0;
+          items.forEach(function (item) { if (on[item.id]) total += 1; });
+          count.textContent = total + " of 100";
+          board.querySelectorAll("[data-need]").forEach(function (button) {
+            button.setAttribute("aria-pressed", on[button.dataset.need] ? "true" : "false");
+          });
+          board.querySelectorAll("[data-group]").forEach(function (block) {
+            block.hidden = filter !== "All" && block.dataset.group !== filter;
+          });
+          chips.querySelectorAll("button").forEach(function (chip) {
+            chip.setAttribute("aria-pressed", chip.dataset.filter === filter ? "true" : "false");
+          });
+          var clean = {};
+          Object.keys(on).forEach(function (id) { if (on[id] && known(id)) clean[id] = true; });
+          on = clean;
+          try { localStorage.setItem("daily-needs", JSON.stringify({ date: today, on: on })); } catch (err) {}
+        }
+
+        ["All"].concat(groups.map(function (group) { return group[0]; })).forEach(function (label) {
+          var chip = document.createElement("button");
+          chip.type = "button";
+          chip.dataset.filter = label;
+          chip.textContent = label;
+          chip.addEventListener("click", function () { filter = label; paint(); });
+          chips.append(chip);
+        });
+
+        groups.forEach(function (group) {
+          var block = document.createElement("section");
+          block.className = "need-group";
+          block.dataset.group = group[0];
+          var heading = document.createElement("h2");
+          heading.textContent = group[0];
+          var list = document.createElement("div");
+          list.className = "need-list";
+          group[1].forEach(function (label, index) {
+            var button = document.createElement("button");
+            button.type = "button";
+            button.dataset.need = group[0].toLowerCase() + "-" + index;
+            var text = document.createElement("span");
+            text.textContent = label;
+            button.append(text);
+            button.addEventListener("click", function () {
+              var id = button.dataset.need;
+              on[id] = !on[id];
+              paint();
+            });
+            list.append(button);
+          });
+          block.append(heading, list);
+          board.append(block);
+        });
+        paint();
+      })();
+    </script>
+  </body>
+</html>

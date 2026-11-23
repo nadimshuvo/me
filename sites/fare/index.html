@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fare — minutes out</title>
+    <meta name="description" content="Fare. Minutes on foot, on the bus, and in a ride." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink: #1a2430; --muted: #5c6b7a; --paper: #eef3f6; --line: #1f4d6b; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "DM Sans", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: var(--line); }
+      header, main, footer { width: min(640px, calc(100% - 2rem)); margin: 0 auto; }
+      header, footer { display: flex; justify-content: space-between; align-items: baseline; }
+      header { padding: 1.3rem 0; }
+      .mark { font-family: Syne, sans-serif; font-weight: 700; font-size: 1.45rem; color: var(--ink); text-decoration: none; }
+      h1 { font-family: Syne, sans-serif; font-weight: 700; font-size: clamp(2.3rem, 7vw, 3.6rem); letter-spacing: -0.04em; line-height: 0.95; }
+      .lede { margin: 0.8rem 0 1.1rem; color: var(--muted); }
+      .track { position: relative; height: 92px; border-radius: 28px; background: #d7e3ea; overflow: hidden; }
+      .track::before { content: ""; position: absolute; left: 8%; right: 8%; top: 50%; height: 3px; background: #1a2430; opacity: 0.25; }
+      .marker {
+        position: absolute; top: 28px; left: 18%; width: 36px; height: 36px; margin-left: -18px;
+        border-radius: 50%; background: #1f4d6b; transition: left 0.55s ease;
+      }
+      .track[data-mode="bus"] .marker { left: 50%; }
+      .track[data-mode="ride"] .marker { left: 82%; }
+      .modes, .adds { display: flex; gap: 0.45rem; margin-top: 1rem; }
+      button { font: inherit; font-weight: 500; cursor: pointer; }
+      .modes button, .adds button { border: 0; background: white; border-radius: 999px; padding: 0.5rem 0.95rem; color: var(--ink); }
+      .modes button[aria-pressed="true"] { background: #1f4d6b; color: white; }
+      .read { margin-top: 1rem; font-family: Syne, sans-serif; font-size: clamp(2.4rem, 7vw, 3.4rem); letter-spacing: -0.04em; }
+      .fine { color: var(--muted); }
+      footer { padding: 2.2rem 0 3rem; color: var(--muted); font-size: 0.9rem; }
+      @media (prefers-reduced-motion: reduce) { .marker { transition: none; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Fare</a>
+      <span>Out the door</span>
+    </header>
+    <main id="top">
+      <h1>Walk, bus, or ride.</h1>
+      <p class="lede">Minutes only. How long each way took today.</p>
+      <div class="track" id="track" data-mode="walk" aria-hidden="true"><div class="marker"></div></div>
+      <div class="modes" role="group" aria-label="Way">
+        <button type="button" data-mode="walk" aria-pressed="true">Walk</button>
+        <button type="button" data-mode="bus" aria-pressed="false">Bus</button>
+        <button type="button" data-mode="ride" aria-pressed="false">Ride</button>
+      </div>
+      <p class="read" id="read">0 min</p>
+      <div class="adds">
+        <button type="button" id="five">+5</button>
+        <button type="button" id="fifteen">+15</button>
+      </div>
+      <p class="fine" id="fine">0 minutes out today.</p>
+    </main>
+    <footer>
+      <span>The road</span>
+      <a href="../../daily.html">Back to Daily</a>
+    </footer>
+    <script>
+      var today = (function () { var n = new Date(); return n.getFullYear() + "-" + String(n.getMonth() + 1).padStart(2, "0") + "-" + String(n.getDate()).padStart(2, "0"); })();
+      var mins = { walk: 0, bus: 0, ride: 0 };
+      var mode = "walk";
+      try {
+        var saved = JSON.parse(localStorage.getItem("daily-fare") || "null");
+        if (saved && saved.date === today && saved.mins) mins = saved.mins;
+      } catch (e) {}
+      var track = document.getElementById("track");
+      var read = document.getElementById("read");
+      var fine = document.getElementById("fine");
+      function paint() {
+        track.dataset.mode = mode;
+        read.textContent = mins[mode] + " min";
+        var total = mins.walk + mins.bus + mins.ride;
+        fine.textContent = total + " minutes out today.";
+        document.querySelectorAll(".modes button").forEach(function (button) {
+          button.setAttribute("aria-pressed", String(button.dataset.mode === mode));
+        });
+        try { localStorage.setItem("daily-fare", JSON.stringify({ date: today, mins: mins })); } catch (e) {}
+      }
+      document.querySelectorAll(".modes button").forEach(function (button) {
+        button.addEventListener("click", function () { mode = button.dataset.mode; paint(); });
+      });
+      document.getElementById("five").addEventListener("click", function () { mins[mode] += 5; paint(); });
+      document.getElementById("fifteen").addEventListener("click", function () { mins[mode] += 15; paint(); });
+      paint();
+    </script>
+  </body>
+</html>

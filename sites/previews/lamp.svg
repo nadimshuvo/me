@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#14110e"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="28" fill="#f4efe4">Lamp</text>
+  <text x="744" y="62" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#b7a89a">Last light</text>
+  <circle cx="400" cy="190" r="28" fill="#f0c14a" opacity="0.18"/>
+  <rect x="56" y="300" width="210" height="52" rx="14" fill="#231c16" stroke="#b4532a"/>
+  <text x="161" y="332" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#f4efe4">Lights</text>
+  <rect x="286" y="300" width="220" height="52" rx="14" fill="#231c16" stroke="#b4532a"/>
+  <text x="396" y="332" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#f4efe4">Windows</text>
+  <rect x="526" y="300" width="210" height="52" rx="14" fill="#231c16" stroke="#b4532a"/>
+  <text x="631" y="332" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#f4efe4">Lock</text>
+</svg>

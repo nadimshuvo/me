@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dose — three marks in a day</title>
+    <meta name="description" content="Dose. Mark morning, noon, and night. A checklist, not advice." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,650&family=Sora:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink: #1c3330; --muted: #5d7370; --paper: #e7f2ef; --leaf: #1f6b52; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: Sora, sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: var(--leaf); }
+      header, main, footer { width: min(640px, calc(100% - 2rem)); margin: 0 auto; }
+      header, footer { display: flex; justify-content: space-between; align-items: baseline; }
+      header { padding: 1.3rem 0; }
+      .mark { font-family: Literata, serif; font-weight: 650; font-size: 1.5rem; color: var(--ink); text-decoration: none; }
+      h1 { font-family: Literata, serif; font-weight: 500; font-size: clamp(2.4rem, 7vw, 3.8rem); letter-spacing: -0.04em; line-height: 0.95; }
+      .lede { margin: 0.8rem 0 1.1rem; color: var(--muted); }
+      .cups { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem; }
+      .cups button { font: inherit; color: inherit; background: #f5fbf9; border: 1px solid transparent; border-radius: 20px; padding: 1rem 0.6rem 0.9rem; cursor: pointer; display: grid; justify-items: center; gap: 0.55rem; }
+      .cups button[aria-pressed="true"] { border-color: var(--leaf); }
+      .cup { width: 46px; height: 36px; border: 3px solid var(--ink); border-top: 0; border-radius: 0 0 16px 16px; position: relative; }
+      .cup::before { content: ""; position: absolute; left: -8px; right: -8px; top: -8px; height: 4px; background: var(--ink); border-radius: 4px; }
+      .steam { width: 4px; height: 16px; border-radius: 4px; background: #9dccc0; animation: rise 1.6s ease-in-out infinite; }
+      .cups button[aria-pressed="true"] .steam { animation: none; opacity: 0.2; }
+      @keyframes rise { 50% { transform: translateY(-6px); opacity: 0.4; } }
+      .note { margin-top: 0.9rem; color: var(--muted); font-size: 0.92rem; }
+      footer { padding: 2.2rem 0 3rem; color: var(--muted); font-size: 0.9rem; }
+      @media (prefers-reduced-motion: reduce) { .steam { animation: none; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Dose</a>
+      <span>Three marks</span>
+    </header>
+    <main id="top">
+      <h1>Morning, noon, night.</h1>
+      <p class="lede">A mark for each one you have taken. This is a list, not advice.</p>
+      <div class="cups" role="group" aria-label="Doses">
+        <button type="button" data-i="0" aria-pressed="false"><i class="steam"></i><span class="cup"></span>Morning</button>
+        <button type="button" data-i="1" aria-pressed="false"><i class="steam"></i><span class="cup"></span>Noon</button>
+        <button type="button" data-i="2" aria-pressed="false"><i class="steam"></i><span class="cup"></span>Night</button>
+      </div>
+      <p class="note" id="note">None yet.</p>
+    </main>
+    <footer>
+      <span>Today only</span>
+      <a href="../../daily.html">Back to Daily</a>
+    </footer>
+    <script>
+      var today = (function () { var n = new Date(); return n.getFullYear() + "-" + String(n.getMonth() + 1).padStart(2, "0") + "-" + String(n.getDate()).padStart(2, "0"); })();
+      var on = [false, false, false];
+      var names = ["Morning", "Noon", "Night"];
+      try {
+        var saved = JSON.parse(localStorage.getItem("daily-dose") || "null");
+        if (saved && saved.date === today && Array.isArray(saved.on)) on = saved.on;
+      } catch (e) {}
+      var note = document.getElementById("note");
+      function paint() {
+        var taken = names.filter(function (_, i) { return on[i]; });
+        note.textContent = taken.length ? taken.join(", ") + "." : "None yet.";
+        try { localStorage.setItem("daily-dose", JSON.stringify({ date: today, on: on })); } catch (e) {}
+      }
+      document.querySelectorAll(".cups button").forEach(function (button) {
+        var i = Number(button.dataset.i);
+        button.setAttribute("aria-pressed", String(!!on[i]));
+        button.addEventListener("click", function () {
+          on[i] = !on[i];
+          button.setAttribute("aria-pressed", String(on[i]));
+          paint();
+        });
+      });
+      paint();
+    </script>
+  </body>
+</html>

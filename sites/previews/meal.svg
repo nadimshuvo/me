@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f7f1e6"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="28" fill="#2a2118">Meal</text>
+  <text x="744" y="62" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#6d5c4e">The table</text>
+  <rect x="70" y="150" width="200" height="200" rx="20" fill="#fffaf3" stroke="#8c3d2f"/>
+  <rect x="300" y="150" width="200" height="200" rx="20" fill="#fffaf3"/>
+  <rect x="530" y="150" width="200" height="200" rx="20" fill="#fffaf3"/>
+  <ellipse cx="170" cy="240" rx="36" ry="12" fill="none" stroke="#2a2118" stroke-width="3"/>
+  <ellipse cx="400" cy="240" rx="36" ry="12" fill="none" stroke="#2a2118" stroke-width="3"/>
+  <ellipse cx="630" cy="240" rx="36" ry="12" fill="none" stroke="#2a2118" stroke-width="3"/>
+  <text x="170" y="310" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#2a2118">Breakfast</text>
+  <text x="400" y="310" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#2a2118">Lunch</text>
+  <text x="630" y="310" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#2a2118">Supper</text>
+</svg>

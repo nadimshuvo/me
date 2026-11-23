@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keys — before the door</title>
+    <meta name="description" content="Keys. Four things to check before the door opens." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Outfit:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink: #241c16; --muted: #6d5c4e; --paper: #f3efe6; --wood: #6b3f2a; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: Outfit, sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: var(--wood); }
+      header, main, footer { width: min(640px, calc(100% - 2rem)); margin: 0 auto; }
+      header, footer { display: flex; justify-content: space-between; align-items: baseline; }
+      header { padding: 1.3rem 0; }
+      .mark { font-family: Fraunces, serif; font-weight: 650; font-size: 1.45rem; color: var(--ink); text-decoration: none; }
+      h1 { font-family: Fraunces, serif; font-weight: 500; font-size: clamp(2.4rem, 7vw, 3.8rem); letter-spacing: -0.04em; line-height: 0.95; }
+      .lede { margin: 0.8rem 0 1.1rem; color: var(--muted); }
+      .frame { height: 220px; border-radius: 28px; background: #1c140f; display: grid; place-items: center; perspective: 800px; overflow: hidden; }
+      .door {
+        width: 110px; height: 170px; background: var(--wood); border-radius: 4px 8px 4px 4px;
+        transform-origin: left center; transition: transform 0.7s ease; position: relative;
+        box-shadow: inset -12px 0 0 rgba(0, 0, 0, 0.18);
+      }
+      .door::after { content: ""; position: absolute; right: 12px; top: 84px; width: 10px; height: 10px; border-radius: 50%; background: #e2b657; }
+      .frame[data-open="true"] .door { transform: rotateY(-62deg); }
+      .checks { display: grid; gap: 0.5rem; margin-top: 1rem; }
+      .checks button { text-align: left; font: inherit; color: inherit; background: #fffaf3; border: 1px solid transparent; border-radius: 14px; padding: 0.8rem 1rem; cursor: pointer; }
+      .checks button[aria-pressed="true"] { border-color: var(--wood); background: #f6e4d4; }
+      .note { margin-top: 0.9rem; color: var(--muted); }
+      footer { padding: 2.2rem 0 3rem; color: var(--muted); font-size: 0.9rem; }
+      @media (prefers-reduced-motion: reduce) { .door { transition: none; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Keys</a>
+      <span>By the door</span>
+    </header>
+    <main id="top">
+      <h1>Four things, then the door.</h1>
+      <p class="lede">Nothing clever. Just the pocket, before the latch turns.</p>
+      <div class="frame" id="frame" data-open="false" aria-hidden="true"><div class="door"></div></div>
+      <div class="checks" role="group" aria-label="Before leaving">
+        <button type="button" data-i="0" aria-pressed="false">Keys</button>
+        <button type="button" data-i="1" aria-pressed="false">Wallet</button>
+        <button type="button" data-i="2" aria-pressed="false">Phone</button>
+        <button type="button" data-i="3" aria-pressed="false">Charger</button>
+      </div>
+      <p class="note" id="note">The door stays shut.</p>
+    </main>
+    <footer>
+      <span>This morning</span>
+      <a href="../../daily.html">Back to Daily</a>
+    </footer>
+    <script>
+      var today = (function () { var n = new Date(); return n.getFullYear() + "-" + String(n.getMonth() + 1).padStart(2, "0") + "-" + String(n.getDate()).padStart(2, "0"); })();
+      var on = [false, false, false, false];
+      try {
+        var saved = JSON.parse(localStorage.getItem("daily-keys") || "null");
+        if (saved && saved.date === today && Array.isArray(saved.on)) on = saved.on;
+      } catch (e) {}
+      var frame = document.getElementById("frame");
+      var note = document.getElementById("note");
+      function paint() {
+        var open = on.every(Boolean);
+        frame.dataset.open = String(open);
+        note.textContent = open ? "All four. The door can open." : "The door stays shut.";
+        try { localStorage.setItem("daily-keys", JSON.stringify({ date: today, on: on })); } catch (e) {}
+      }
+      document.querySelectorAll(".checks button").forEach(function (button) {
+        var i = Number(button.dataset.i);
+        button.setAttribute("aria-pressed", String(!!on[i]));
+        button.addEventListener("click", function () {
+          on[i] = !on[i];
+          button.setAttribute("aria-pressed", String(on[i]));
+          paint();
+        });
+      });
+      paint();
+    </script>
+  </body>
+</html>

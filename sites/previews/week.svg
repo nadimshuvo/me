@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f4f6f2"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="28" fill="#14211c">Week</text>
+  <text x="744" y="62" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#5d6b64">This week</text>
+  <rect x="40" y="180" width="92" height="120" rx="16" fill="#ffffff"/>
+  <rect x="144" y="180" width="92" height="120" rx="16" fill="#d7efe6"/>
+  <rect x="248" y="180" width="92" height="120" rx="16" fill="#ffffff" stroke="#0c6b52" stroke-width="2"/>
+  <rect x="352" y="180" width="92" height="120" rx="16" fill="#ffffff"/>
+  <rect x="456" y="180" width="92" height="120" rx="16" fill="#d7efe6"/>
+  <rect x="560" y="180" width="92" height="120" rx="16" fill="#ffffff"/>
+  <rect x="664" y="180" width="92" height="120" rx="16" fill="#ffffff"/>
+  <text x="86" y="248" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#14211c">Sun</text>
+  <text x="190" y="248" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#14211c">Mon</text>
+  <text x="294" y="248" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#14211c">Tue</text>
+  <text x="398" y="248" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#14211c">Wed</text>
+  <text x="502" y="248" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#14211c">Thu</text>
+  <text x="606" y="248" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#14211c">Fri</text>
+  <text x="710" y="248" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#14211c">Sat</text>
+</svg>

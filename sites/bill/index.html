@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bill — split the table</title>
+    <meta name="description" content="Bill. Split one amount across the people at the table, in whole units." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink: #14211c; --muted: #5d6b64; --paper: #f6f4ef; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "IBM Plex Sans", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: #0c6b52; }
+      header, main, footer { width: min(640px, calc(100% - 2rem)); margin: 0 auto; }
+      header, footer { display: flex; justify-content: space-between; align-items: baseline; }
+      header { padding: 1.3rem 0; }
+      .mark { font-family: "Instrument Serif", serif; font-size: 1.7rem; color: var(--ink); text-decoration: none; }
+      h1 { font-family: "Instrument Serif", serif; font-weight: 400; font-size: clamp(2.6rem, 8vw, 4rem); letter-spacing: -0.03em; line-height: 0.95; }
+      .lede { margin: 0.8rem 0 1.1rem; color: var(--muted); }
+      label { display: grid; gap: 0.35rem; font-size: 0.82rem; font-weight: 500; }
+      input { font: inherit; border: 1px solid #e4e0d6; background: #fff; border-radius: 12px; padding: 0.75rem 0.85rem; color: var(--ink); }
+      .people { display: flex; gap: 0.4rem; margin: 0.9rem 0; }
+      .people button { font: inherit; font-weight: 500; border: 1px solid #e4e0d6; background: #fff; border-radius: 999px; padding: 0.45rem 0.85rem; cursor: pointer; }
+      .people button[aria-pressed="true"] { background: #14211c; color: #fff; border-color: #14211c; }
+      .share { margin-top: 0.4rem; font-family: "Instrument Serif", serif; font-size: clamp(2.2rem, 6vw, 3.2rem); letter-spacing: -0.03em; }
+      .fine { margin-top: 0.4rem; color: var(--muted); }
+      footer { padding: 2.2rem 0 3rem; color: var(--muted); font-size: 0.9rem; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Bill</a>
+      <span>The table</span>
+    </header>
+    <main id="top">
+      <h1>One amount. Fair shares.</h1>
+      <p class="lede">Whole units only. If it does not divide, a few people pay one more.</p>
+      <label>Amount <input id="amount" type="number" min="1" max="999999" step="1" inputmode="numeric" value="1200" /></label>
+      <div class="people" role="group" aria-label="People">
+        <button type="button" data-n="2" aria-pressed="true">2</button>
+        <button type="button" data-n="3" aria-pressed="false">3</button>
+        <button type="button" data-n="4" aria-pressed="false">4</button>
+        <button type="button" data-n="5" aria-pressed="false">5</button>
+      </div>
+      <p class="share" id="share">600 each</p>
+      <p class="fine" id="fine">It divides evenly.</p>
+    </main>
+    <footer>
+      <span>After the meal</span>
+      <a href="../../daily.html">Back to Daily</a>
+    </footer>
+    <script>
+      var amount = document.getElementById("amount");
+      var share = document.getElementById("share");
+      var fine = document.getElementById("fine");
+      var people = 2;
+      try {
+        var saved = JSON.parse(localStorage.getItem("daily-bill") || "null");
+        if (saved && saved.amount) amount.value = saved.amount;
+        if (saved && saved.people) people = saved.people;
+      } catch (e) {}
+      function paint() {
+        var total = Math.round(Number(amount.value));
+        var n = people;
+        if (!total || total < 1) { share.textContent = "—"; fine.textContent = "Enter the amount."; return; }
+        var base = Math.floor(total / n);
+        var extra = total % n;
+        if (extra === 0) {
+          share.textContent = base + " each";
+          fine.textContent = "It divides evenly.";
+        } else {
+          share.textContent = (base + 1) + " / " + base;
+          fine.textContent = extra + " pay " + (base + 1) + ". The rest pay " + base + ".";
+        }
+        try { localStorage.setItem("daily-bill", JSON.stringify({ amount: total, people: n })); } catch (e) {}
+      }
+      document.querySelectorAll(".people button").forEach(function (button) {
+        button.setAttribute("aria-pressed", String(Number(button.dataset.n) === people));
+        button.addEventListener("click", function () {
+          people = Number(button.dataset.n);
+          document.querySelectorAll(".people button").forEach(function (other) {
+            other.setAttribute("aria-pressed", String(other === button));
+          });
+          paint();
+        });
+      });
+      amount.addEventListener("input", paint);
+      paint();
+    </script>
+  </body>
+</html>

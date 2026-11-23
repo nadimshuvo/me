@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meal — three plates</title>
+    <meta name="description" content="Meal. Mark breakfast, lunch, and supper. A list, not a plan." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink: #2a2118; --muted: #6d5c4e; --paper: #f7f1e6; --clay: #8c3d2f; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "Work Sans", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: var(--clay); }
+      header, main, footer { width: min(640px, calc(100% - 2rem)); margin: 0 auto; }
+      header, footer { display: flex; justify-content: space-between; align-items: baseline; }
+      header { padding: 1.3rem 0; }
+      .mark { font-family: Lora, serif; font-size: 1.55rem; color: var(--ink); text-decoration: none; }
+      h1 { font-family: Lora, serif; font-weight: 500; font-size: clamp(2.4rem, 7vw, 3.8rem); letter-spacing: -0.03em; line-height: 0.95; }
+      .lede { margin: 0.8rem 0 1.1rem; color: var(--muted); }
+      .plates { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.7rem; }
+      .plates button { font: inherit; color: inherit; background: #fffaf3; border: 1px solid transparent; border-radius: 20px; padding: 1rem 0.5rem 0.9rem; cursor: pointer; display: grid; justify-items: center; gap: 0.55rem; }
+      .plates button[aria-pressed="true"] { border-color: var(--clay); }
+      .plate { width: 54px; height: 18px; border: 3px solid var(--ink); border-radius: 50%; position: relative; }
+      .steam { width: 4px; height: 16px; border-radius: 4px; background: #d7b89a; animation: rise 1.6s ease-in-out infinite; }
+      .plates button[aria-pressed="true"] .steam { animation: none; opacity: 0.25; }
+      @keyframes rise { 50% { transform: translateY(-6px); opacity: 0.35; } }
+      .note { margin-top: 0.9rem; color: var(--muted); }
+      footer { padding: 2.2rem 0 3rem; color: var(--muted); font-size: 0.9rem; }
+      @media (prefers-reduced-motion: reduce) { .steam { animation: none; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Meal</a>
+      <span>The table</span>
+    </header>
+    <main id="top">
+      <h1>Breakfast, lunch, supper.</h1>
+      <p class="lede">Mark the ones you have had. This is a list, not a plan.</p>
+      <div class="plates" role="group" aria-label="Meals">
+        <button type="button" data-i="0" aria-pressed="false"><i class="steam"></i><span class="plate"></span>Breakfast</button>
+        <button type="button" data-i="1" aria-pressed="false"><i class="steam"></i><span class="plate"></span>Lunch</button>
+        <button type="button" data-i="2" aria-pressed="false"><i class="steam"></i><span class="plate"></span>Supper</button>
+      </div>
+      <p class="note" id="note">None yet.</p>
+    </main>
+    <footer>
+      <span>Today only</span>
+      <a href="../../daily.html">Back to Daily</a>
+    </footer>
+    <script>
+      var today = (function () { var n = new Date(); return n.getFullYear() + "-" + String(n.getMonth() + 1).padStart(2, "0") + "-" + String(n.getDate()).padStart(2, "0"); })();
+      var on = [false, false, false];
+      var names = ["Breakfast", "Lunch", "Supper"];
+      try {
+        var saved = JSON.parse(localStorage.getItem("daily-meal") || "null");
+        if (saved && saved.date === today && Array.isArray(saved.on)) on = saved.on;
+      } catch (e) {}
+      var note = document.getElementById("note");
+      function paint() {
+        var had = names.filter(function (_, i) { return on[i]; });
+        note.textContent = had.length ? had.join(", ") + "." : "None yet.";
+        try { localStorage.setItem("daily-meal", JSON.stringify({ date: today, on: on })); } catch (e) {}
+      }
+      document.querySelectorAll(".plates button").forEach(function (button) {
+        var i = Number(button.dataset.i);
+        button.setAttribute("aria-pressed", String(!!on[i]));
+        button.addEventListener("click", function () {
+          on[i] = !on[i];
+          button.setAttribute("aria-pressed", String(on[i]));
+          paint();
+        });
+      });
+      paint();
+    </script>
+  </body>
+</html>

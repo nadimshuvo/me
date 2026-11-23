@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week — the seven days</title>
+    <meta name="description" content="Week. A strip of this week. Mark the days that are spoken for." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600&family=Source+Serif+4:opsz,wght@8..60,500&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink: #14211c; --muted: #5d6b64; --paper: #f4f6f2; --teal: #0c6b52; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "Space Grotesk", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: var(--teal); }
+      header, main, footer { width: min(720px, calc(100% - 2rem)); margin: 0 auto; }
+      header, footer { display: flex; justify-content: space-between; align-items: baseline; }
+      header { padding: 1.3rem 0; }
+      .mark { font-family: "Source Serif 4", serif; font-size: 1.6rem; color: var(--ink); text-decoration: none; }
+      h1 { font-family: "Source Serif 4", serif; font-weight: 500; font-size: clamp(2.4rem, 7vw, 3.8rem); letter-spacing: -0.03em; line-height: 0.95; }
+      .lede { margin: 0.8rem 0 1.1rem; color: var(--muted); }
+      .strip { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0.4rem; }
+      .strip button {
+        position: relative; overflow: hidden; font: inherit; font-weight: 600; color: var(--ink);
+        background: white; border: 1px solid transparent; border-radius: 16px; min-height: 92px; cursor: pointer;
+      }
+      .strip button[aria-current="date"] { border-color: var(--teal); }
+      .fill { position: absolute; inset: 0; background: #d7efe6; transform: scaleX(0); transform-origin: left center; transition: transform 0.35s ease; z-index: 0; }
+      .strip button[aria-pressed="true"] .fill { transform: scaleX(1); }
+      .label { position: relative; z-index: 1; }
+      .note { margin-top: 0.9rem; color: var(--muted); }
+      footer { padding: 2.2rem 0 3rem; color: var(--muted); font-size: 0.9rem; }
+      @media (prefers-reduced-motion: reduce) { .fill { transition: none; } }
+      @media (max-width: 560px) { .strip { gap: 0.25rem; } .strip button { min-height: 72px; font-size: 0.78rem; border-radius: 12px; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Week</a>
+      <span>This week</span>
+    </header>
+    <main id="top">
+      <h1>Seven days in a row.</h1>
+      <p class="lede">Mark the ones that are already spoken for. The rest stay open.</p>
+      <div class="strip" id="strip" role="group" aria-label="This week"></div>
+      <p class="note" id="note">None marked.</p>
+    </main>
+    <footer>
+      <span>Sunday to Saturday</span>
+      <a href="../../daily.html">Back to Daily</a>
+    </footer>
+    <script>
+      var names = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      var now = new Date();
+      var start = new Date(now.getFullYear(), now.getMonth(), now.getDate() - now.getDay());
+      var week = start.getFullYear() + "-" + String(start.getMonth() + 1).padStart(2, "0") + "-" + String(start.getDate()).padStart(2, "0");
+      var on = [false, false, false, false, false, false, false];
+      try {
+        var saved = JSON.parse(localStorage.getItem("daily-week") || "null");
+        if (saved && saved.week === week && Array.isArray(saved.on)) on = saved.on;
+      } catch (e) {}
+      var strip = document.getElementById("strip");
+      var note = document.getElementById("note");
+      function paint() {
+        var marked = names.filter(function (_, i) { return on[i]; });
+        note.textContent = marked.length ? marked.join(", ") + "." : "None marked.";
+        try { localStorage.setItem("daily-week", JSON.stringify({ week: week, on: on })); } catch (e) {}
+      }
+      names.forEach(function (name, index) {
+        var button = document.createElement("button");
+        button.type = "button";
+        button.setAttribute("aria-pressed", String(on[index]));
+        if (index === now.getDay()) button.setAttribute("aria-current", "date");
+        var fill = document.createElement("span");
+        fill.className = "fill";
+        fill.setAttribute("aria-hidden", "true");
+        var label = document.createElement("span");
+        label.className = "label";
+        label.textContent = name;
+        button.append(fill, label);
+        button.addEventListener("click", function () {
+          on[index] = !on[index];
+          button.setAttribute("aria-pressed", String(on[index]));
+          paint();
+        });
+        strip.append(button);
+      });
+      paint();
+    </script>
+  </body>
+</html>

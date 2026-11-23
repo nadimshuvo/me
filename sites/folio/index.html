@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Folio — pages today</title>
+    <meta name="description" content="Folio. Count the pages you read today." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink: #2a2118; --muted: #6d5c4e; --paper: #f7f1e6; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "Source Sans 3", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: #8c3d2f; }
+      header, main, footer { width: min(640px, calc(100% - 2rem)); margin: 0 auto; }
+      header, footer { display: flex; justify-content: space-between; align-items: baseline; }
+      header { padding: 1.3rem 0; }
+      .mark { font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 1.7rem; color: var(--ink); text-decoration: none; }
+      h1 { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: clamp(2.6rem, 8vw, 4rem); letter-spacing: -0.03em; line-height: 0.95; }
+      .lede { margin: 0.8rem 0 1.1rem; color: var(--muted); }
+      .stack { height: 160px; display: grid; place-items: end center; }
+      .page {
+        width: min(220px, 70%); height: 28px; margin-top: -18px; background: #fffaf3; border: 1px solid #e4d8c8; border-radius: 2px 8px 2px 2px;
+        transform-origin: bottom center; transition: transform 0.35s ease;
+      }
+      .count { font-family: "Cormorant Garamond", serif; font-size: clamp(3.4rem, 10vw, 5rem); letter-spacing: -0.04em; line-height: 0.9; }
+      .row { display: flex; gap: 0.45rem; margin-top: 1rem; }
+      .row button, .clear { font: inherit; font-weight: 600; cursor: pointer; }
+      .row button { border: 0; background: var(--ink); color: #f7f1e6; border-radius: 999px; padding: 0.55rem 1rem; }
+      .clear { margin-top: 0.8rem; border: 0; background: transparent; color: #8c3d2f; padding: 0; }
+      footer { padding: 2.2rem 0 3rem; color: var(--muted); font-size: 0.9rem; }
+      @media (prefers-reduced-motion: reduce) { .page { transition: none; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Folio</a>
+      <span>Today's pages</span>
+    </header>
+    <main id="top">
+      <h1>How many pages today.</h1>
+      <p class="lede">One sitting, or ten. Tomorrow the count starts again.</p>
+      <div class="stack" id="stack" aria-hidden="true">
+        <div class="page"></div><div class="page"></div><div class="page"></div><div class="page"></div>
+      </div>
+      <p class="count" id="count">0</p>
+      <div class="row">
+        <button type="button" id="one">+1</button>
+        <button type="button" id="ten">+10</button>
+      </div>
+      <button class="clear" type="button" id="reset">Reset today</button>
+    </main>
+    <footer>
+      <span>The chair</span>
+      <a href="../../daily.html">Back to Daily</a>
+    </footer>
+    <script>
+      var today = (function () { var n = new Date(); return n.getFullYear() + "-" + String(n.getMonth() + 1).padStart(2, "0") + "-" + String(n.getDate()).padStart(2, "0"); })();
+      var pages = 0;
+      try {
+        var saved = JSON.parse(localStorage.getItem("daily-folio") || "null");
+        if (saved && saved.date === today && typeof saved.pages === "number") pages = saved.pages;
+      } catch (e) {}
+      var count = document.getElementById("count");
+      function paint() {
+        count.textContent = String(pages);
+        document.querySelectorAll(".page").forEach(function (sheet, index) {
+          var lift = Math.min(pages, 40) / 40;
+          sheet.style.transform = "translateY(" + (-4 * lift * (index + 1)) + "px) rotate(" + ((index - 1.5) * lift) + "deg)";
+        });
+        try { localStorage.setItem("daily-folio", JSON.stringify({ date: today, pages: pages })); } catch (e) {}
+      }
+      function add(n) { pages += n; paint(); }
+      document.getElementById("one").addEventListener("click", function () { add(1); });
+      document.getElementById("ten").addEventListener("click", function () { add(10); });
+      document.getElementById("reset").addEventListener("click", function () { pages = 0; paint(); });
+      paint();
+    </script>
+  </body>
+</html>

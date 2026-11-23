@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f6f4ef"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="28" fill="#14211c">Due</text>
+  <text x="744" y="62" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#5d6b64">Ahead</text>
+  <rect x="56" y="130" width="688" height="64" rx="12" fill="#ffffff" stroke="#e4e0d6"/>
+  <text x="76" y="170" font-family="Segoe UI, sans-serif" font-size="20" fill="#14211c">Rent</text>
+  <rect x="56" y="214" width="688" height="64" rx="12" fill="#ffffff" stroke="#e4e0d6"/>
+  <text x="76" y="254" font-family="Segoe UI, sans-serif" font-size="20" fill="#14211c">2026-11-27</text>
+  <rect x="56" y="310" width="688" height="10" rx="5" fill="#e4e0d6"/>
+  <rect x="56" y="310" width="180" height="10" rx="5" fill="#0c6b52"/>
+  <text x="56" y="400" font-family="Georgia, serif" font-size="56" fill="#14211c">3 days</text>
+</svg>

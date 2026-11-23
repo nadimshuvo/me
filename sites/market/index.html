@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Market — the short list</title>
+    <meta name="description" content="Market. A short list of things to buy, each with a price." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink: #2a2118; --muted: #6d5c4e; --paper: #f6f1e8; --leaf: #6b3f2a; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "Nunito Sans", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: var(--leaf); }
+      header, main, footer { width: min(640px, calc(100% - 2rem)); margin: 0 auto; }
+      header, footer { display: flex; justify-content: space-between; align-items: baseline; }
+      header { padding: 1.3rem 0; }
+      .mark { font-family: "Libre Baskerville", serif; font-size: 1.45rem; color: var(--ink); text-decoration: none; }
+      h1 { font-family: "Libre Baskerville", serif; font-weight: 400; font-size: clamp(2.4rem, 7vw, 3.6rem); letter-spacing: -0.03em; line-height: 1; }
+      .lede { margin: 0.8rem 0 1.1rem; color: var(--muted); }
+      form { display: grid; grid-template-columns: 1fr 110px auto; gap: 0.45rem; }
+      input, button { font: inherit; }
+      input { border: 1px solid #e4d8c8; background: #fffaf3; border-radius: 12px; padding: 0.7rem 0.8rem; color: var(--ink); }
+      form button, .clear { cursor: pointer; }
+      form button { border: 0; background: var(--ink); color: #f6f1e8; border-radius: 12px; padding: 0 0.9rem; font-weight: 600; }
+      ul { list-style: none; margin-top: 0.9rem; display: grid; gap: 0.4rem; }
+      li { display: flex; justify-content: space-between; gap: 1rem; background: #fffaf3; border-radius: 12px; padding: 0.7rem 0.85rem; animation: slip 0.35s ease; }
+      li button { border: 0; background: transparent; color: var(--leaf); cursor: pointer; font-weight: 600; }
+      .total { margin-top: 1rem; font-family: "Libre Baskerville", serif; font-size: clamp(2.2rem, 6vw, 3rem); }
+      .clear { margin-top: 0.6rem; border: 0; background: transparent; color: var(--leaf); padding: 0; font-weight: 600; }
+      footer { padding: 2.2rem 0 3rem; color: var(--muted); font-size: 0.9rem; }
+      @keyframes slip { from { opacity: 0; translate: 0 8px; } to { opacity: 1; translate: 0 0; } }
+      @media (prefers-reduced-motion: reduce) { li { animation: none; } }
+      @media (max-width: 520px) { form { grid-template-columns: 1fr 1fr; } form button { grid-column: 1 / -1; padding: 0.7rem; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Market</a>
+      <span>The bag</span>
+    </header>
+    <main id="top">
+      <h1>A short list, with prices.</h1>
+      <p class="lede">Name it, put a whole number beside it. The total stays exact.</p>
+      <form id="form">
+        <input id="name" type="text" maxlength="40" placeholder="Eggs" autocomplete="off" aria-label="Item" required />
+        <input id="price" type="number" min="1" max="999999" step="1" inputmode="numeric" placeholder="Price" aria-label="Price" required />
+        <button type="submit">Add</button>
+      </form>
+      <ul id="list"></ul>
+      <p class="total" id="total">0</p>
+      <button class="clear" type="button" id="clear">Clear the list</button>
+    </main>
+    <footer>
+      <span>Before the shop</span>
+      <a href="../../daily.html">Back to Daily</a>
+    </footer>
+    <script>
+      var today = (function () { var n = new Date(); return n.getFullYear() + "-" + String(n.getMonth() + 1).padStart(2, "0") + "-" + String(n.getDate()).padStart(2, "0"); })();
+      var items = [];
+      try {
+        var saved = JSON.parse(localStorage.getItem("daily-market") || "null");
+        if (saved && saved.date === today && Array.isArray(saved.items)) items = saved.items;
+      } catch (e) {}
+      var list = document.getElementById("list");
+      var total = document.getElementById("total");
+      function paint() {
+        list.replaceChildren();
+        var sum = 0;
+        items.forEach(function (item, index) {
+          sum += item.price;
+          var row = document.createElement("li");
+          var name = document.createElement("span");
+          name.textContent = item.name + "  " + item.price;
+          var remove = document.createElement("button");
+          remove.type = "button";
+          remove.textContent = "Remove";
+          remove.addEventListener("click", function () { items.splice(index, 1); paint(); });
+          row.append(name, remove);
+          list.append(row);
+        });
+        total.textContent = String(sum);
+        try { localStorage.setItem("daily-market", JSON.stringify({ date: today, items: items })); } catch (e) {}
+      }
+      document.getElementById("form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        if (items.length >= 12) return;
+        var name = document.getElementById("name").value.trim();
+        var price = Math.round(Number(document.getElementById("price").value));
+        if (!name || price < 1 || price > 999999) return;
+        items.push({ name: name, price: price });
+        event.target.reset();
+        paint();
+      });
+      document.getElementById("clear").addEventListener("click", function () { items = []; paint(); });
+      paint();
+    </script>
+  </body>
+</html>

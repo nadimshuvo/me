@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sleep — the hours between</title>
+    <meta name="description" content="Sleep. Set a bedtime and a waking time, and read the hours between." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Figtree:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink: #e7eefc; --muted: #a9b4d0; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: Figtree, sans-serif; background: #0e1624; color: var(--ink); min-height: 100vh; line-height: 1.5; }
+      a { color: #f0d48a; }
+      header, main, footer { width: min(640px, calc(100% - 2rem)); margin: 0 auto; }
+      header, footer { display: flex; justify-content: space-between; align-items: baseline; }
+      header { padding: 1.3rem 0; }
+      .mark { font-family: Newsreader, serif; font-size: 1.6rem; color: var(--ink); text-decoration: none; }
+      h1 { font-family: Newsreader, serif; font-weight: 500; font-size: clamp(2.5rem, 8vw, 4rem); letter-spacing: -0.03em; line-height: 0.95; }
+      .lede { margin: 0.8rem 0 1.1rem; color: var(--muted); }
+      .night { position: relative; height: 180px; border-radius: 28px; overflow: hidden; background: radial-gradient(circle at 70% 30%, #24345c, #0b1020 70%); }
+      .night span { position: absolute; width: 3px; height: 3px; border-radius: 50%; background: #fff; animation: drift 14s linear infinite; }
+      .night span:nth-child(1) { top: 24%; left: 18%; }
+      .night span:nth-child(2) { top: 40%; left: 46%; animation-duration: 18s; }
+      .night span:nth-child(3) { top: 22%; left: 72%; animation-duration: 11s; }
+      .night i { position: absolute; right: 18%; top: 22%; width: 42px; height: 42px; border-radius: 50%; background: #f0d48a; box-shadow: 0 0 24px rgba(240, 212, 138, 0.45); }
+      @keyframes drift { to { transform: translateX(-18px); } }
+      .times { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; margin-top: 1rem; }
+      label { display: grid; gap: 0.35rem; font-size: 0.82rem; color: var(--muted); }
+      input { font: inherit; color: var(--ink); background: #162033; border: 1px solid #2a3858; border-radius: 12px; padding: 0.7rem 0.8rem; }
+      .hours { margin-top: 1rem; font-family: Newsreader, serif; font-size: clamp(2.4rem, 7vw, 3.6rem); letter-spacing: -0.03em; }
+      footer { padding: 2.2rem 0 3rem; color: var(--muted); font-size: 0.9rem; }
+      @media (prefers-reduced-motion: reduce) { .night span { animation: none; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Sleep</a>
+      <span>Lights out</span>
+    </header>
+    <main id="top">
+      <h1>The hours between.</h1>
+      <p class="lede">Bedtime, then morning. The night does the counting.</p>
+      <div class="night" aria-hidden="true"><span></span><span></span><span></span><i></i></div>
+      <div class="times">
+        <label>Bed <input id="bed" type="time" value="23:00" /></label>
+        <label>Wake <input id="wake" type="time" value="07:00" /></label>
+      </div>
+      <p class="hours" id="hours">8 hours</p>
+    </main>
+    <footer>
+      <span>Last night</span>
+      <a href="../../daily.html">Back to Daily</a>
+    </footer>
+    <script>
+      var bed = document.getElementById("bed");
+      var wake = document.getElementById("wake");
+      var out = document.getElementById("hours");
+      try {
+        var saved = JSON.parse(localStorage.getItem("daily-sleep") || "null");
+        if (saved && saved.bed && saved.wake) { bed.value = saved.bed; wake.value = saved.wake; }
+      } catch (e) {}
+      function minutes(value) {
+        var parts = value.split(":");
+        return Number(parts[0]) * 60 + Number(parts[1]);
+      }
+      function paint() {
+        var start = minutes(bed.value);
+        var end = minutes(wake.value);
+        if (end <= start) end += 24 * 60;
+        var total = end - start;
+        var h = Math.floor(total / 60);
+        var m = total % 60;
+        out.textContent = m ? h + " h " + m + " m" : h + " hours";
+        try { localStorage.setItem("daily-sleep", JSON.stringify({ bed: bed.value, wake: wake.value })); } catch (e) {}
+      }
+      bed.addEventListener("input", paint);
+      wake.addEventListener("input", paint);
+      paint();
+    </script>
+  </body>
+</html>

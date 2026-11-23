@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sky — clear, cloud, rain</title>
+    <meta name="description" content="Sky. Set the day to clear, cloud, or rain." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Figtree:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink: #1c3344; --muted: #4d6574; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: Figtree, sans-serif; background: #e7f2f6; color: var(--ink); line-height: 1.5; }
+      a { color: #1f4d6b; }
+      header, main, footer { width: min(640px, calc(100% - 2rem)); margin: 0 auto; }
+      header, footer { display: flex; justify-content: space-between; align-items: baseline; }
+      header { padding: 1.3rem 0; }
+      .mark { font-family: Fraunces, serif; font-weight: 650; font-size: 1.5rem; color: var(--ink); text-decoration: none; }
+      h1 { font-family: Fraunces, serif; font-weight: 500; font-size: clamp(2.5rem, 8vw, 4rem); letter-spacing: -0.04em; line-height: 0.95; }
+      .lede { margin: 0.8rem 0 1.1rem; color: var(--muted); }
+      .stage { position: relative; height: 240px; border-radius: 28px; overflow: hidden; transition: background 0.5s ease; }
+      .stage[data-sky="clear"] { background: linear-gradient(#7eb6e0, #e7f3ea 72%); }
+      .stage[data-sky="cloud"] { background: linear-gradient(#8ea0b0, #d5dde4); }
+      .stage[data-sky="rain"] { background: linear-gradient(#2c3c4c, #121920); }
+      .sun { position: absolute; right: 16%; top: 18%; width: 54px; height: 54px; border-radius: 50%; background: #f2d36b; transition: opacity 0.4s ease; }
+      .stage[data-sky="rain"] .sun, .stage[data-sky="cloud"] .sun { opacity: 0.25; }
+      .cloud { position: absolute; height: 28px; border-radius: 20px; background: rgba(255, 255, 255, 0.85); animation: slide 9s ease-in-out infinite alternate; }
+      .cloud.c1 { width: 90px; top: 28%; left: 12%; }
+      .cloud.c2 { width: 64px; top: 42%; left: 38%; animation-duration: 12s; }
+      .stage[data-sky="clear"] .cloud { opacity: 0.35; }
+      .drops { position: absolute; inset: 0; opacity: 0; }
+      .umbrella {
+        position: absolute; left: 50%; top: 38%; width: 180px; height: 140px;
+        transform: translateX(-50%); opacity: 0;
+      }
+      .stage[data-sky="rain"] .drops, .stage[data-sky="rain"] .umbrella { opacity: 1; }
+      .drops i { position: absolute; top: -20px; width: 2px; height: 14px; background: rgba(210, 230, 245, 0.8); animation: fall 0.9s linear infinite; }
+      .drops i:nth-child(1) { left: 18%; }
+      .drops i:nth-child(2) { left: 40%; animation-delay: 0.3s; }
+      .drops i:nth-child(3) { left: 62%; animation-delay: 0.15s; }
+      .drops i:nth-child(4) { left: 78%; animation-delay: 0.45s; }
+      @keyframes slide { to { transform: translateX(24px); } }
+      @keyframes fall { to { transform: translateY(280px); } }
+      .skies { display: flex; gap: 0.45rem; margin-top: 1rem; }
+      .skies button { font: inherit; font-weight: 600; border: 0; background: white; border-radius: 999px; padding: 0.5rem 0.9rem; cursor: pointer; color: var(--ink); }
+      .skies button[aria-pressed="true"] { background: #1f4d6b; color: white; }
+      .note { margin-top: 0.9rem; color: var(--muted); }
+      footer { padding: 2.2rem 0 3rem; color: var(--muted); font-size: 0.9rem; }
+      @media (prefers-reduced-motion: reduce) {
+        .cloud, .drops i { animation: none; }
+        .stage { transition: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Sky</a>
+      <span>Look up</span>
+    </header>
+    <main id="top">
+      <h1>Clear, cloud, or rain.</h1>
+      <p class="lede">Set the day before you leave. Rain means the umbrella.</p>
+      <div class="stage" id="stage" data-sky="clear" aria-hidden="true">
+        <div class="sun"></div>
+        <div class="cloud c1"></div>
+        <div class="cloud c2"></div>
+        <div class="drops"><i></i><i></i><i></i><i></i></div>
+        <svg class="umbrella" viewBox="0 0 200 160" aria-hidden="true">
+          <path d="M20 78 Q100 10 180 78" fill="none" stroke="#e7f2f6" stroke-width="6" stroke-linecap="round"/>
+          <line x1="100" y1="78" x2="100" y2="128" stroke="#e7f2f6" stroke-width="4"/>
+        </svg>
+      </div>
+      <div class="skies" role="group" aria-label="Sky">
+        <button type="button" data-sky="clear" aria-pressed="true">Clear</button>
+        <button type="button" data-sky="cloud" aria-pressed="false">Cloud</button>
+        <button type="button" data-sky="rain" aria-pressed="false">Rain</button>
+      </div>
+      <p class="note" id="note">A clear day. Leave the umbrella.</p>
+    </main>
+    <footer>
+      <span>The window</span>
+      <a href="../../daily.html">Back to Daily</a>
+    </footer>
+    <script>
+      var lines = { clear: "A clear day. Leave the umbrella.", cloud: "Cloud. You can still walk.", rain: "Rain. Take the umbrella." };
+      var sky = "clear";
+      try {
+        var saved = localStorage.getItem("daily-sky");
+        if (saved && lines[saved]) sky = saved;
+      } catch (e) {}
+      var stage = document.getElementById("stage");
+      var note = document.getElementById("note");
+      function paint() {
+        stage.dataset.sky = sky;
+        note.textContent = lines[sky];
+        document.querySelectorAll(".skies button").forEach(function (button) {
+          button.setAttribute("aria-pressed", String(button.dataset.sky === sky));
+        });
+        try { localStorage.setItem("daily-sky", sky); } catch (e) {}
+      }
+      document.querySelectorAll(".skies button").forEach(function (button) {
+        button.addEventListener("click", function () { sky = button.dataset.sky; paint(); });
+      });
+      paint();
+    </script>
+  </body>
+</html>

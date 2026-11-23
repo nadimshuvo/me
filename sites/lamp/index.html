@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lamp — before sleep</title>
+    <meta name="description" content="Lamp. Lights, windows, and the lock. The room goes dark when all three are done." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Karla:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink: #241c16; --muted: #6d5c4e; --paper: #f4efe4; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: Karla, sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; transition: background 0.5s ease, color 0.5s ease; }
+      body[data-shut="true"] { background: #14110e; color: #f4efe4; }
+      a { color: #b4532a; }
+      body[data-shut="true"] a { color: #e2b657; }
+      header, main, footer { width: min(640px, calc(100% - 2rem)); margin: 0 auto; }
+      header, footer { display: flex; justify-content: space-between; align-items: baseline; }
+      header { padding: 1.3rem 0; }
+      .mark { font-family: "Playfair Display", serif; font-size: 1.6rem; color: inherit; text-decoration: none; }
+      h1 { font-family: "Playfair Display", serif; font-weight: 500; font-size: clamp(2.4rem, 7vw, 3.8rem); letter-spacing: -0.03em; line-height: 0.95; }
+      .lede { margin: 0.8rem 0 1.1rem; color: var(--muted); }
+      body[data-shut="true"] .lede, body[data-shut="true"] footer { color: #b7a89a; }
+      .room { height: 180px; border-radius: 28px; background: #fff8ec; display: grid; place-items: center; transition: background 0.5s ease; }
+      body[data-shut="true"] .room { background: #0c0a08; }
+      .glow { width: 54px; height: 54px; border-radius: 50%; background: #f0c14a; box-shadow: 0 0 36px rgba(240, 193, 74, 0.7); transition: opacity 0.5s ease, transform 0.5s ease; }
+      body[data-shut="true"] .glow { opacity: 0.12; transform: scale(0.7); }
+      .checks { display: grid; gap: 0.5rem; margin-top: 1rem; }
+      .checks button { text-align: left; font: inherit; color: inherit; background: #fffaf3; border: 1px solid transparent; border-radius: 14px; padding: 0.8rem 1rem; cursor: pointer; }
+      body[data-shut="true"] .checks button { background: #231c16; }
+      .checks button[aria-pressed="true"] { border-color: #b4532a; }
+      .note { margin-top: 0.9rem; color: var(--muted); }
+      footer { padding: 2.2rem 0 3rem; color: var(--muted); font-size: 0.9rem; }
+      @media (prefers-reduced-motion: reduce) {
+        body, .room, .glow { transition: none; }
+      }
+    </style>
+  </head>
+  <body id="page" data-shut="false">
+    <header>
+      <a class="mark" href="#top">Lamp</a>
+      <span>Last light</span>
+    </header>
+    <main id="top">
+      <h1>Lights, windows, lock.</h1>
+      <p class="lede">Three things before the room goes dark.</p>
+      <div class="room" aria-hidden="true"><div class="glow"></div></div>
+      <div class="checks" role="group" aria-label="Before sleep">
+        <button type="button" data-i="0" aria-pressed="false">Lights</button>
+        <button type="button" data-i="1" aria-pressed="false">Windows</button>
+        <button type="button" data-i="2" aria-pressed="false">Lock</button>
+      </div>
+      <p class="note" id="note">The lamp is still on.</p>
+    </main>
+    <footer>
+      <span>Tonight</span>
+      <a href="../../daily.html">Back to Daily</a>
+    </footer>
+    <script>
+      var today = (function () { var n = new Date(); return n.getFullYear() + "-" + String(n.getMonth() + 1).padStart(2, "0") + "-" + String(n.getDate()).padStart(2, "0"); })();
+      var on = [false, false, false];
+      try {
+        var saved = JSON.parse(localStorage.getItem("daily-lamp") || "null");
+        if (saved && saved.date === today && Array.isArray(saved.on)) on = saved.on;
+      } catch (e) {}
+      var page = document.getElementById("page");
+      var note = document.getElementById("note");
+      function paint() {
+        var shut = on.every(Boolean);
+        page.dataset.shut = String(shut);
+        note.textContent = shut ? "The room is dark." : "The lamp is still on.";
+        try { localStorage.setItem("daily-lamp", JSON.stringify({ date: today, on: on })); } catch (e) {}
+      }
+      document.querySelectorAll(".checks button").forEach(function (button) {
+        var i = Number(button.dataset.i);
+        button.setAttribute("aria-pressed", String(!!on[i]));
+        button.addEventListener("click", function () {
+          on[i] = !on[i];
+          button.setAttribute("aria-pressed", String(on[i]));
+          paint();
+        });
+      });
+      paint();
+    </script>
+  </body>
+</html>

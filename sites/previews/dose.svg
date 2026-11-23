@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#e7f2ef"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="28" fill="#1c3330">Dose</text>
+  <text x="744" y="62" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#5d7370">Three marks</text>
+  <rect x="70" y="140" width="200" height="240" rx="20" fill="#f5fbf9" stroke="#1f6b52"/>
+  <rect x="300" y="140" width="200" height="240" rx="20" fill="#f5fbf9"/>
+  <rect x="530" y="140" width="200" height="240" rx="20" fill="#f5fbf9"/>
+  <rect x="148" y="210" width="44" height="6" rx="3" fill="#1c3330"/>
+  <path d="M154 216 v28 a16 16 0 0 0 32 0 v-28" fill="none" stroke="#1c3330" stroke-width="3"/>
+  <rect x="378" y="210" width="44" height="6" rx="3" fill="#1c3330"/>
+  <path d="M384 216 v28 a16 16 0 0 0 32 0 v-28" fill="none" stroke="#1c3330" stroke-width="3"/>
+  <rect x="608" y="210" width="44" height="6" rx="3" fill="#1c3330"/>
+  <path d="M614 216 v28 a16 16 0 0 0 32 0 v-28" fill="none" stroke="#1c3330" stroke-width="3"/>
+  <text x="170" y="340" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#1c3330">Morning</text>
+  <text x="400" y="340" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#1c3330">Noon</text>
+  <text x="630" y="340" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#1c3330">Night</text>
+</svg>

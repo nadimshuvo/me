@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f6f1e8"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="28" fill="#2a2118">Market</text>
+  <text x="744" y="62" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#6d5c4e">The bag</text>
+  <rect x="56" y="110" width="430" height="56" rx="12" fill="#fffaf3" stroke="#e4d8c8"/>
+  <text x="76" y="145" font-family="Segoe UI, sans-serif" font-size="18" fill="#6d5c4e">Eggs</text>
+  <rect x="500" y="110" width="140" height="56" rx="12" fill="#fffaf3" stroke="#e4d8c8"/>
+  <text x="520" y="145" font-family="Segoe UI, sans-serif" font-size="18" fill="#6d5c4e">80</text>
+  <rect x="654" y="110" width="90" height="56" rx="12" fill="#2a2118"/>
+  <text x="699" y="145" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#f6f1e8">Add</text>
+  <rect x="56" y="190" width="688" height="56" rx="12" fill="#fffaf3"/>
+  <text x="76" y="225" font-family="Segoe UI, sans-serif" font-size="18" fill="#2a2118">Rice  120</text>
+  <rect x="56" y="258" width="688" height="56" rx="12" fill="#fffaf3"/>
+  <text x="76" y="293" font-family="Segoe UI, sans-serif" font-size="18" fill="#2a2118">Milk  90</text>
+  <text x="56" y="410" font-family="Georgia, serif" font-size="56" fill="#2a2118">210</text>
+</svg>

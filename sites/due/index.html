@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Due — the date ahead</title>
+    <meta name="description" content="Due. One thing, one date, and the whole days left." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@500;600&family=Mulish:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink: #14211c; --muted: #5d6b64; --paper: #f6f4ef; --teal: #0c6b52; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: Mulish, sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: var(--teal); }
+      header, main, footer { width: min(640px, calc(100% - 2rem)); margin: 0 auto; }
+      header, footer { display: flex; justify-content: space-between; align-items: baseline; }
+      header { padding: 1.3rem 0; }
+      .mark { font-family: Domine, serif; font-size: 1.55rem; color: var(--ink); text-decoration: none; }
+      h1 { font-family: Domine, serif; font-weight: 500; font-size: clamp(2.4rem, 7vw, 3.8rem); letter-spacing: -0.03em; line-height: 0.95; }
+      .lede { margin: 0.8rem 0 1.1rem; color: var(--muted); }
+      form { display: grid; gap: 0.55rem; }
+      label { display: grid; gap: 0.3rem; font-size: 0.82rem; font-weight: 600; }
+      input { font: inherit; color: var(--ink); background: white; border: 1px solid #e4e0d6; border-radius: 12px; padding: 0.7rem 0.8rem; }
+      .rail { margin-top: 1.1rem; height: 8px; border-radius: 8px; background: #e4e0d6; overflow: hidden; }
+      .rail i { display: block; height: 100%; width: 100%; background: var(--teal); transform: scaleX(0); transform-origin: left center; transition: transform 0.4s ease; }
+      .days { margin-top: 0.8rem; font-family: Domine, serif; font-size: clamp(2.4rem, 7vw, 3.4rem); letter-spacing: -0.03em; }
+      footer { padding: 2.2rem 0 3rem; color: var(--muted); font-size: 0.9rem; }
+      @media (prefers-reduced-motion: reduce) { .rail i { transition: none; } }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Due</a>
+      <span>Ahead</span>
+    </header>
+    <main id="top">
+      <h1>One date. Whole days.</h1>
+      <p class="lede">Name the thing, set the day. The count stays a whole number.</p>
+      <form id="form">
+        <label>What <input id="name" type="text" maxlength="40" placeholder="Rent" autocomplete="off" /></label>
+        <label>When <input id="when" type="date" /></label>
+      </form>
+      <div class="rail" aria-hidden="true"><i id="bar"></i></div>
+      <p class="days" id="days">Set a date.</p>
+    </main>
+    <footer>
+      <span>The calendar</span>
+      <a href="../../daily.html">Back to Daily</a>
+    </footer>
+    <script>
+      var what = document.getElementById("name");
+      var when = document.getElementById("when");
+      var days = document.getElementById("days");
+      var bar = document.getElementById("bar");
+      try {
+        var saved = JSON.parse(localStorage.getItem("daily-due") || "null");
+        if (saved) { what.value = saved.name || ""; when.value = saved.when || ""; }
+      } catch (e) {}
+      function paint() {
+        if (!when.value) { days.textContent = "Set a date."; bar.style.transform = "scaleX(0)"; return; }
+        var parts = when.value.split("-").map(Number);
+        var target = new Date(parts[0], parts[1] - 1, parts[2]);
+        var now = new Date();
+        var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+        var left = Math.round((target - today) / 86400000);
+        if (left > 1) days.textContent = left + " days";
+        else if (left === 1) days.textContent = "1 day";
+        else if (left === 0) days.textContent = "Today";
+        else if (left === -1) days.textContent = "1 day past";
+        else days.textContent = Math.abs(left) + " days past";
+        var span = left < 0 ? 0 : Math.min(left, 14) / 14;
+        bar.style.transform = "scaleX(" + span + ")";
+        try { localStorage.setItem("daily-due", JSON.stringify({ name: what.value.trim(), when: when.value })); } catch (e) {}
+      }
+      what.addEventListener("input", paint);
+      when.addEventListener("input", paint);
+      when.addEventListener("change", paint);
+      paint();
+    </script>
+  </body>
+</html>

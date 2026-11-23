@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f7f1e6"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="28" fill="#2a2118">Folio</text>
+  <text x="744" y="62" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#6d5c4e">Today's pages</text>
+  <rect x="250" y="210" width="300" height="18" rx="2" fill="#fffaf3" stroke="#e4d8c8"/>
+  <rect x="258" y="190" width="300" height="18" rx="2" fill="#fffaf3" stroke="#e4d8c8"/>
+  <rect x="246" y="170" width="300" height="18" rx="2" fill="#fffaf3" stroke="#e4d8c8"/>
+  <rect x="254" y="150" width="300" height="18" rx="2" fill="#fffaf3" stroke="#e4d8c8"/>
+  <text x="56" y="340" font-family="Georgia, serif" font-size="72" fill="#2a2118">12</text>
+  <rect x="56" y="400" width="80" height="44" rx="22" fill="#2a2118"/>
+  <text x="96" y="428" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="18" fill="#f7f1e6">+1</text>
+  <rect x="150" y="400" width="96" height="44" rx="22" fill="#2a2118"/>
+  <text x="198" y="428" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="18" fill="#f7f1e6">+10</text>
+</svg>
