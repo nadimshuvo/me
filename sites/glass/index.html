@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Glass — a small observatory</title>
+    <meta name="description" content="Glass. Point the telescope at the Moon, Vega, or Saturn." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700&family=Outfit:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      :root { --bg: #0b1020; --ink: #e7ecff; --muted: #a9b4d6; --line: #243056; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: Outfit, sans-serif; background: radial-gradient(circle at 50% 0%, #1a2450, var(--bg) 55%); color: var(--ink); min-height: 100vh; line-height: 1.5; }
+      a { color: #f0d48a; }
+      header, main, footer { width: min(680px, calc(100% - 2rem)); margin: 0 auto; }
+      header, footer { display: flex; justify-content: space-between; align-items: baseline; }
+      header { padding: 1.3rem 0; }
+      .mark { font-family: Syne, sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--ink); text-decoration: none; }
+      h1 { font-family: Syne, sans-serif; font-weight: 700; font-size: clamp(2.4rem, 7vw, 3.8rem); letter-spacing: -0.04em; line-height: 0.95; }
+      .lede { margin: 0.8rem 0 1.1rem; color: var(--muted); }
+      .scope { width: min(220px, 60vw); aspect-ratio: 1; margin: 0.4rem auto 1.1rem; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; }
+      .disc { border-radius: 50%; }
+      .moon { width: 72%; height: 72%; background: radial-gradient(circle at 35% 35%, #fff, #d9d3c4 60%, #b7b0a2); }
+      .vega { width: 18%; height: 18%; background: #f4fbff; box-shadow: 0 0 24px 8px rgba(180, 220, 255, 0.7); }
+      .saturn { width: 34%; height: 34%; background: #e6d2a2; box-shadow: 0 0 0 10px rgba(230, 210, 162, 0.35); }
+      .targets { display: flex; gap: 0.45rem; justify-content: center; flex-wrap: wrap; }
+      .targets button { font: inherit; font-weight: 500; color: var(--ink); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 0.45rem 0.85rem; cursor: pointer; }
+      .targets button[aria-pressed="true"] { background: #f0d48a; color: #1a1408; border-color: #f0d48a; }
+      .blurb { text-align: center; margin-top: 1rem; color: var(--muted); max-width: 28rem; margin-left: auto; margin-right: auto; }
+      footer { padding: 2.2rem 0 3rem; color: var(--muted); font-size: 0.9rem; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Glass</a>
+      <span>Clear nights</span>
+    </header>
+    <main id="top">
+      <h1>Point it, and wait.</h1>
+      <p class="lede">A dome on the hill, open when the cloud stays away.</p>
+      <div class="scope" aria-hidden="true"><div class="disc moon" id="disc"></div></div>
+      <div class="targets" role="group" aria-label="Target">
+        <button type="button" data-body="moon" aria-pressed="true">Moon</button>
+        <button type="button" data-body="vega" aria-pressed="false">Vega</button>
+        <button type="button" data-body="saturn" aria-pressed="false">Saturn</button>
+      </div>
+      <p class="blurb" id="blurb" role="status">Close, bright, and full of quiet seas. Easy for a first look.</p>
+    </main>
+    <footer>
+      <span>The hill dome</span>
+      <a href="../../index.html#studies">Nadim Mahmud Shuvo</a>
+    </footer>
+    <script>
+      var notes = {
+        moon: "Close, bright, and full of quiet seas. Easy for a first look.",
+        vega: "A hard white point. Let your eye settle, and it steadies.",
+        saturn: "A small disc with a ring you can just hold in the glass."
+      };
+      var disc = document.getElementById("disc");
+      document.querySelectorAll(".targets button").forEach(function (button) {
+        button.addEventListener("click", function () {
+          document.querySelectorAll(".targets button").forEach(function (other) {
+            other.setAttribute("aria-pressed", "false");
+          });
+          button.setAttribute("aria-pressed", "true");
+          disc.className = "disc " + button.dataset.body;
+          document.getElementById("blurb").textContent = notes[button.dataset.body];
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#07140e"/>
+  <text x="56" y="64" font-family="Segoe UI, sans-serif" font-size="26" font-weight="700" fill="#d7ffe4">Platform</text>
+  <text x="744" y="62" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#7dba90">Live board</text>
+  <text x="56" y="140" font-family="Consolas, monospace" font-size="48" fill="#d7ffe4">DEPARTURES</text>
+  <text x="56" y="200" font-family="Consolas, monospace" font-size="14" fill="#7dba90">TIME</text>
+  <text x="220" y="200" font-family="Consolas, monospace" font-size="14" fill="#7dba90">TO</text>
+  <text x="744" y="200" text-anchor="end" font-family="Consolas, monospace" font-size="14" fill="#7dba90">PLAT.</text>
+  <line x1="56" y1="220" x2="744" y2="220" stroke="#1c4632"/>
+  <text x="56" y="268" font-family="Consolas, monospace" font-size="26" fill="#e2c15a">08:12</text>
+  <text x="220" y="268" font-family="Consolas, monospace" font-size="26" fill="#e2c15a">Harbor</text>
+  <text x="744" y="268" text-anchor="end" font-family="Consolas, monospace" font-size="26" fill="#e2c15a">2</text>
+  <line x1="56" y1="292" x2="744" y2="292" stroke="#1c4632"/>
+  <text x="56" y="340" font-family="Consolas, monospace" font-size="26" fill="#d7ffe4">08:27</text>
+  <text x="220" y="340" font-family="Consolas, monospace" font-size="26" fill="#d7ffe4">North shed</text>
+  <text x="744" y="340" text-anchor="end" font-family="Consolas, monospace" font-size="26" fill="#d7ffe4">5</text>
+  <line x1="56" y1="364" x2="744" y2="364" stroke="#1c4632"/>
+  <text x="56" y="412" font-family="Consolas, monospace" font-size="26" fill="#d7ffe4">08:40</text>
+  <text x="220" y="412" font-family="Consolas, monospace" font-size="26" fill="#d7ffe4">Mill</text>
+  <text x="744" y="412" text-anchor="end" font-family="Consolas, monospace" font-size="26" fill="#d7ffe4">1</text>
+  <text x="56" y="468" font-family="Consolas, monospace" font-size="16" fill="#e2c15a">On time. Doors close one minute before.</text>
+</svg>

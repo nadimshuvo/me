@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f3efe6"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="28" fill="#241c16">Mobile</text>
+  <text x="744" y="62" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#6d5c4e">Studio draft</text>
+  <rect x="56" y="100" width="92" height="36" rx="18" fill="#241c16"/>
+  <text x="102" y="124" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#fffaf3">Calm</text>
+  <rect x="158" y="100" width="92" height="36" rx="18" fill="#fffaf3"/>
+  <text x="204" y="124" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#241c16">Draft</text>
+  <rect x="260" y="100" width="88" height="36" rx="18" fill="#fffaf3"/>
+  <text x="304" y="124" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#241c16">Gust</text>
+  <line x1="400" y1="150" x2="400" y2="188" stroke="#241c16" stroke-width="3"/>
+  <line x1="250" y1="188" x2="550" y2="188" stroke="#241c16" stroke-width="4" stroke-linecap="round"/>
+  <line x1="268" y1="188" x2="268" y2="300" stroke="#241c16" stroke-width="2"/>
+  <circle cx="268" cy="322" r="22" fill="#d4654a"/>
+  <line x1="400" y1="188" x2="400" y2="250" stroke="#241c16" stroke-width="2"/>
+  <circle cx="400" cy="266" r="10" fill="#1d3a34"/>
+  <line x1="532" y1="188" x2="532" y2="310" stroke="#241c16" stroke-width="2"/>
+  <rect x="518" y="310" width="28" height="58" rx="14" fill="#e2b657"/>
+  <line x1="430" y1="250" x2="560" y2="250" stroke="#241c16" stroke-width="4" stroke-linecap="round"/>
+  <rect x="418" y="330" width="26" height="26" rx="3" transform="rotate(45 431 343)" fill="#241c16"/>
+  <line x1="546" y1="250" x2="546" y2="340" stroke="#241c16" stroke-width="2"/>
+  <rect x="522" y="340" width="48" height="22" rx="11" fill="#c4554a"/>
+</svg>

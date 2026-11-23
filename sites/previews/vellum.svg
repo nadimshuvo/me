@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f7f1e8"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="30" fill="#241c16">Vellum</text>
+  <text x="744" y="62" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#6e6258">Printed to order</text>
+  <text x="56" y="140" font-family="Georgia, serif" font-size="52" fill="#241c16">The sheet comes first.</text>
+  <rect x="56" y="176" width="100" height="38" rx="19" fill="none" stroke="#ddd2c4"/>
+  <text x="106" y="201" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#241c16">Cotton</text>
+  <rect x="166" y="176" width="92" height="38" rx="19" fill="none" stroke="#ddd2c4"/>
+  <text x="212" y="201" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#241c16">News</text>
+  <rect x="268" y="176" width="96" height="38" rx="19" fill="#241c16"/>
+  <text x="316" y="201" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" font-weight="600" fill="#f7f1e8">Kraft</text>
+  <rect x="56" y="244" width="688" height="200" rx="8" fill="#c4a574"/>
+  <text x="88" y="320" font-family="Georgia, serif" font-size="42" fill="#241c16">Kraft</text>
+  <text x="88" y="368" font-family="Segoe UI, sans-serif" font-size="18" fill="#241c16">Warm and a little rough.</text>
+</svg>

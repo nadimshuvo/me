@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#161311"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="30" fill="#f3eadf">Room 4</text>
+  <text x="744" y="62" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#b5a89b">Doors at 8</text>
+  <text x="56" y="150" font-family="Georgia, serif" font-size="52" fill="#f3eadf">One record,</text>
+  <text x="56" y="212" font-family="Georgia, serif" font-size="52" fill="#f3eadf">all the way through.</text>
+  <text x="56" y="268" font-family="Segoe UI, sans-serif" font-size="18" fill="#e07a3d">Now playing &#183; Side A, track 1</text>
+  <line x1="56" y1="300" x2="744" y2="300" stroke="#2c2723"/>
+  <text x="56" y="338" font-family="Segoe UI, sans-serif" font-size="18" fill="#e07a3d">Side A, track 1</text>
+  <text x="744" y="338" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#b5a89b">4:12</text>
+  <line x1="56" y1="360" x2="744" y2="360" stroke="#2c2723"/>
+  <text x="56" y="398" font-family="Segoe UI, sans-serif" font-size="18" fill="#f3eadf">Side A, track 2</text>
+  <text x="744" y="398" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#b5a89b">3:40</text>
+  <line x1="56" y1="420" x2="744" y2="420" stroke="#2c2723"/>
+  <text x="56" y="458" font-family="Segoe UI, sans-serif" font-size="18" fill="#f3eadf">Side B, track 1</text>
+  <text x="744" y="458" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#b5a89b">5:05</text>
+</svg>

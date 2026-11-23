@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f6f6f3"/>
+  <text x="56" y="64" font-family="Segoe UI, sans-serif" font-size="20" fill="#141414">Sable</text>
+  <text x="744" y="64" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#5c5c5c">Your word</text>
+  <rect x="56" y="100" width="92" height="36" rx="18" fill="#141414"/>
+  <text x="102" y="124" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#d6f25c">Roman</text>
+  <rect x="158" y="100" width="88" height="36" rx="18" fill="#ffffff" stroke="#e4e4de"/>
+  <text x="202" y="124" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#141414">Italic</text>
+  <rect x="256" y="100" width="88" height="36" rx="18" fill="#ffffff" stroke="#e4e4de"/>
+  <text x="300" y="124" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#141414">Mono</text>
+  <text x="48" y="310" font-family="Georgia, serif" font-size="168" fill="#141414">Sable</text>
+  <text x="56" y="390" font-family="Consolas, monospace" font-size="16" fill="#5c5c5c">Roman &#183; a text face for long reading</text>
+</svg>

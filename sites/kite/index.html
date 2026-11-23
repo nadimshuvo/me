@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kite — three winds</title>
+    <meta name="description" content="Kite. The same kite in three winds." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Figtree:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink: #1c3344; --muted: #4d6574; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: Figtree, sans-serif; background: #e7f2f6; color: var(--ink); line-height: 1.5; }
+      a { color: #1f4d6b; }
+      header, main, footer { width: min(680px, calc(100% - 2rem)); margin: 0 auto; }
+      header, footer { display: flex; justify-content: space-between; align-items: baseline; }
+      header { padding: 1.3rem 0; }
+      .mark { font-family: Fraunces, serif; font-weight: 650; font-size: 1.5rem; color: var(--ink); text-decoration: none; }
+      h1 { font-family: Fraunces, serif; font-weight: 500; font-size: clamp(2.6rem, 8vw, 4.2rem); letter-spacing: -0.04em; line-height: 0.95; }
+      .lede { margin: 0.8rem 0 1.1rem; color: var(--muted); }
+      .sky {
+        position: relative;
+        height: 380px;
+        border-radius: 28px;
+        overflow: hidden;
+        background: linear-gradient(#8ebde0, #e7f3ea 72%);
+        --time: 5.2s;
+        --drift: 10px;
+        --lift: 8px;
+      }
+      .sky[data-wind="breeze"] { --time: 2.3s; --drift: 64px; --lift: 26px; }
+      .sky[data-wind="gale"] { --time: 0.9s; --drift: 120px; --lift: 46px; }
+      .kite {
+        position: absolute;
+        left: 22%;
+        bottom: 28%;
+        width: 72px;
+        height: 180px;
+        animation: fly var(--time) ease-in-out infinite;
+      }
+      .sail {
+        display: block;
+        width: 72px;
+        height: 96px;
+        background: linear-gradient(135deg, #e25b45 50%, #f2d36b 50%);
+        clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+      }
+      .string {
+        position: absolute;
+        left: 35px;
+        top: 92px;
+        width: 2px;
+        height: 240px;
+        background: #2a2118;
+        transform-origin: top center;
+        animation: line var(--time) ease-in-out infinite;
+      }
+      .tail {
+        position: absolute;
+        left: 28px;
+        top: 108px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: #1f4d6b;
+        box-shadow: 0 20px 0 #e25b45, 0 40px 0 #f2d36b;
+      }
+      @keyframes fly {
+        0%, 100% { transform: translate(0, 0) rotate(-8deg); }
+        50% { transform: translate(var(--drift), calc(var(--lift) * -1)) rotate(12deg); }
+      }
+      @keyframes line {
+        0%, 100% { transform: rotate(-4deg); }
+        50% { transform: rotate(16deg); }
+      }
+      .winds { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-top: 1rem; }
+      .winds button { font: inherit; font-weight: 600; color: var(--ink); background: white; border: 1px solid transparent; border-radius: 999px; padding: 0.5rem 0.95rem; cursor: pointer; }
+      .winds button[aria-pressed="true"] { background: #1f4d6b; color: white; }
+      .note { margin-top: 0.9rem; color: var(--muted); }
+      footer { padding: 2.2rem 0 3rem; color: var(--muted); font-size: 0.9rem; }
+      @media (prefers-reduced-motion: reduce) {
+        .kite, .string { animation: none; }
+        .kite { transform: translate(var(--drift), calc(var(--lift) * -1)) rotate(8deg); }
+      }
+      @media (max-width: 520px) {
+        .sky[data-wind="gale"] { --drift: 72px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Kite</a>
+      <span>Field edge</span>
+    </header>
+    <main id="top">
+      <h1>Hold the string. Let the wind decide.</h1>
+      <p class="lede">One kite, three winds. The shape does not change. The path does.</p>
+      <div class="sky" id="sky" data-wind="still">
+        <div class="kite" aria-hidden="true">
+          <span class="sail"></span>
+          <span class="string"></span>
+          <span class="tail"></span>
+        </div>
+      </div>
+      <div class="winds" role="group" aria-label="Wind">
+        <button type="button" data-wind="still" data-note="Almost still. It hangs, and barely nods." aria-pressed="true">Still</button>
+        <button type="button" data-wind="breeze" data-note="A breeze off the field. The tail follows a beat later." aria-pressed="false">Breeze</button>
+        <button type="button" data-wind="gale" data-note="A gale. Both hands on the string." aria-pressed="false">Gale</button>
+      </div>
+      <p class="note" id="note" aria-live="polite">Almost still. It hangs, and barely nods.</p>
+    </main>
+    <footer>
+      <span>Before the hill</span>
+      <a href="../../index.html#studies">Nadim Mahmud Shuvo</a>
+    </footer>
+    <script>
+      var sky = document.getElementById("sky");
+      var note = document.getElementById("note");
+      document.querySelectorAll(".winds button").forEach(function (button) {
+        button.addEventListener("click", function () {
+          document.querySelectorAll(".winds button").forEach(function (other) {
+            other.setAttribute("aria-pressed", "false");
+          });
+          button.setAttribute("aria-pressed", "true");
+          sky.dataset.wind = button.dataset.wind;
+          note.textContent = button.dataset.note;
+        });
+      });
+    </script>
+  </body>
+</html>

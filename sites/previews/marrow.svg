@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f4efe6"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="28" fill="#2a2118">Marrow</text>
+  <text x="744" y="62" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#6d5c4e">Opens at 7</text>
+  <text x="56" y="148" font-family="Georgia, serif" font-size="58" fill="#2a2118">Bread, before</text>
+  <text x="56" y="214" font-family="Georgia, serif" font-size="58" fill="#2a2118">the street wakes.</text>
+  <rect x="56" y="258" width="688" height="62" rx="16" fill="#fffaf3"/>
+  <text x="80" y="296" font-family="Georgia, serif" font-size="24" fill="#2a2118">Country</text>
+  <text x="716" y="296" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="18" fill="#2a2118">60</text>
+  <rect x="56" y="332" width="688" height="62" rx="16" fill="#fffaf3"/>
+  <text x="80" y="370" font-family="Georgia, serif" font-size="24" fill="#2a2118">Seed</text>
+  <text x="716" y="370" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="18" fill="#2a2118">70</text>
+  <rect x="56" y="406" width="500" height="54" rx="27" fill="#ffffff" stroke="#e0d5c6"/>
+  <text x="80" y="439" font-family="Segoe UI, sans-serif" font-size="16" fill="#a89888">Name for a loaf</text>
+  <rect x="572" y="406" width="172" height="54" rx="27" fill="#8c3d2f"/>
+  <text x="658" y="439" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" font-weight="600" fill="#fffaf3">Hold one</text>
+</svg>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vellum — a sheet of paper</title>
+    <meta name="description" content="Vellum. Choose a paper and read how it takes ink." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Nunito+Sans:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink: #241c16; --muted: #6e6258; --paper: #f7f1e8; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "Nunito Sans", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: inherit; }
+      header, main, footer { width: min(680px, calc(100% - 2rem)); margin: 0 auto; }
+      header, footer { display: flex; justify-content: space-between; align-items: baseline; }
+      header { padding: 1.3rem 0; }
+      .mark { font-family: "Cormorant Garamond", serif; font-size: 1.7rem; font-weight: 600; text-decoration: none; }
+      h1 { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: clamp(2.8rem, 8vw, 4.4rem); line-height: 0.92; letter-spacing: -0.03em; }
+      .lede { margin: 0.8rem 0 1.2rem; color: var(--muted); max-width: 34rem; }
+      .stocks { display: flex; gap: 0.45rem; flex-wrap: wrap; }
+      .stocks button { font: inherit; font-weight: 600; border: 1px solid #ddd2c4; background: transparent; border-radius: 999px; padding: 0.45rem 0.8rem; cursor: pointer; }
+      .stocks button[aria-pressed="true"] { background: var(--ink); color: #f7f1e8; border-color: var(--ink); }
+      .sheet { margin-top: 1.1rem; min-height: 220px; border-radius: 6px; padding: 1.6rem 1.4rem; box-shadow: 0 18px 40px rgba(36, 28, 22, 0.08); }
+      .sheet h2 { font-family: "Cormorant Garamond", serif; font-size: 2.4rem; font-weight: 500; }
+      .sheet p { margin-top: 0.4rem; max-width: 28rem; }
+      .cotton { background: #fffdf8; }
+      .news { background: #efe6d2; }
+      .kraft { background: #c4a574; }
+      footer { padding: 2.2rem 0 3rem; color: var(--muted); font-size: 0.9rem; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Vellum</a>
+      <span>Printed to order</span>
+    </header>
+    <main id="top">
+      <h1>The sheet comes first.</h1>
+      <p class="lede">Ink behaves differently on each paper. Pick one and the proof changes with it.</p>
+      <div class="stocks" role="group" aria-label="Paper">
+        <button type="button" data-stock="cotton" aria-pressed="true">Cotton</button>
+        <button type="button" data-stock="news" aria-pressed="false">News</button>
+        <button type="button" data-stock="kraft" aria-pressed="false">Kraft</button>
+      </div>
+      <article class="sheet cotton" id="sheet">
+        <h2 id="sheet-name">Cotton</h2>
+        <p id="sheet-copy">Soft, and the type sits on the surface. A letter you mean to keep.</p>
+      </article>
+    </main>
+    <footer>
+      <span>The back room</span>
+      <a href="../../index.html#studies">Nadim Mahmud Shuvo</a>
+    </footer>
+    <script>
+      var stocks = {
+        cotton: ["Cotton", "Soft, and the type sits on the surface. A letter you mean to keep."],
+        news: ["News", "Thin, and the ink sinks in. Good for a run of many, read once."],
+        kraft: ["Kraft", "Warm and a little rough. The fiber shows through the letter." ]
+      };
+      var sheet = document.getElementById("sheet");
+      document.querySelectorAll(".stocks button").forEach(function (button) {
+        button.addEventListener("click", function () {
+          document.querySelectorAll(".stocks button").forEach(function (other) {
+            other.setAttribute("aria-pressed", "false");
+          });
+          button.setAttribute("aria-pressed", "true");
+          var stock = stocks[button.dataset.stock];
+          sheet.className = "sheet " + button.dataset.stock;
+          document.getElementById("sheet-name").textContent = stock[0];
+          document.getElementById("sheet-copy").textContent = stock[1];
+        });
+      });
+    </script>
+  </body>
+</html>

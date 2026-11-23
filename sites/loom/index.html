@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loom — a shuttle and a cloth</title>
+    <meta name="description" content="Loom. Three weaves, one shuttle." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink: #2a2118; --muted: #6d5c4e; --linen: #efe6d6; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "Source Sans 3", sans-serif; background: #f7f1e6; color: var(--ink); line-height: 1.5; }
+      a { color: #8c3d2f; }
+      header, main, footer { width: min(680px, calc(100% - 2rem)); margin: 0 auto; }
+      header, footer { display: flex; justify-content: space-between; align-items: baseline; }
+      header { padding: 1.3rem 0; }
+      .mark { font-family: "Cormorant Garamond", serif; font-weight: 600; font-size: 1.7rem; color: var(--ink); text-decoration: none; }
+      h1 { font-family: "Cormorant Garamond", serif; font-weight: 500; font-size: clamp(2.6rem, 8vw, 4.2rem); letter-spacing: -0.03em; line-height: 0.92; }
+      .lede { margin: 0.8rem 0 1.1rem; color: var(--muted); }
+      .loom {
+        position: relative;
+        background: var(--linen);
+        border-radius: 28px;
+        padding: 1.3rem 1.1rem 1.4rem;
+        overflow: hidden;
+        --a: #8c3d2f;
+        --b: #f7f1e6;
+        --time: 1.7s;
+      }
+      .loom[data-weave="twill"] { --a: #2f4a3a; --b: #d7c4a3; --time: 0.85s; }
+      .loom[data-weave="band"] { --a: #1f4d6b; --b: #e2b657; --time: 2.5s; }
+      .reed { display: grid; grid-template-columns: repeat(18, 1fr); gap: 7px; height: 26px; }
+      .reed i { background: #6b5344; border-radius: 2px; display: block; }
+      .cloth { display: grid; gap: 5px; margin-top: 0.7rem; }
+      .cloth b {
+        display: block;
+        height: 18px;
+        border-radius: 2px;
+        background: repeating-linear-gradient(90deg, var(--a) 0 16px, var(--b) 16px 32px);
+        background-size: 32px 100%;
+        animation: feed var(--time) linear infinite;
+      }
+      .cloth b:nth-child(even) { animation-direction: reverse; }
+      .shuttle {
+        position: absolute;
+        top: 58px;
+        left: 8%;
+        width: 58px;
+        height: 18px;
+        border-radius: 12px;
+        background: var(--ink);
+        animation: pass var(--time) ease-in-out infinite alternate;
+      }
+      .shuttle::after {
+        content: "";
+        position: absolute;
+        left: 8px;
+        right: 8px;
+        top: 6px;
+        height: 6px;
+        border-radius: 6px;
+        background: #e2b657;
+      }
+      @keyframes feed { to { background-position: 32px 0; } }
+      @keyframes pass { to { left: calc(92% - 58px); } }
+      .weaves { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-top: 1rem; }
+      .weaves button { font: inherit; font-weight: 600; color: var(--ink); background: white; border: 1px solid transparent; border-radius: 999px; padding: 0.5rem 0.95rem; cursor: pointer; }
+      .weaves button[aria-pressed="true"] { background: var(--ink); color: #f7f1e6; }
+      .note { margin-top: 0.9rem; color: var(--muted); }
+      footer { padding: 2.2rem 0 3rem; color: var(--muted); font-size: 0.9rem; }
+      @media (prefers-reduced-motion: reduce) {
+        .cloth b, .shuttle { animation: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Loom</a>
+      <span>Warp dressed</span>
+    </header>
+    <main id="top">
+      <h1>The shuttle keeps its promise.</h1>
+      <p class="lede">Same threads. Three weaves. The cloth is whatever the pass repeats.</p>
+      <div class="loom" id="loom" data-weave="plain">
+        <div class="reed" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="shuttle" aria-hidden="true"></div>
+        <div class="cloth" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div>
+      </div>
+      <div class="weaves" role="group" aria-label="Weave">
+        <button type="button" data-weave="plain" data-note="Plain weave. Over, under, and back again." aria-pressed="true">Plain</button>
+        <button type="button" data-weave="twill" data-note="Twill. The diagonal shows up once the shuttle hurries." aria-pressed="false">Twill</button>
+        <button type="button" data-weave="band" data-note="A wide band. Blue, then a thread of brass." aria-pressed="false">Band</button>
+      </div>
+      <p class="note" id="note" aria-live="polite">Plain weave. Over, under, and back again.</p>
+    </main>
+    <footer>
+      <span>The north window</span>
+      <a href="../../index.html#studies">Nadim Mahmud Shuvo</a>
+    </footer>
+    <script>
+      var loom = document.getElementById("loom");
+      var note = document.getElementById("note");
+      document.querySelectorAll(".weaves button").forEach(function (button) {
+        button.addEventListener("click", function () {
+          document.querySelectorAll(".weaves button").forEach(function (other) {
+            other.setAttribute("aria-pressed", "false");
+          });
+          button.setAttribute("aria-pressed", "true");
+          loom.dataset.weave = button.dataset.weave;
+          note.textContent = button.dataset.note;
+        });
+      });
+    </script>
+  </body>
+</html>

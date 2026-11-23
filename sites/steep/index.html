@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Steep — tea, timed</title>
+    <meta name="description" content="Steep. Pick a tea and read the water and the minutes." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,650&family=Sora:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink: #1c3330; --muted: #5d7370; --paper: #e7f2ef; --card: #f5fbf9; --leaf: #1f6b52; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: Sora, sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: var(--leaf); }
+      header, main, footer { width: min(640px, calc(100% - 2rem)); margin: 0 auto; }
+      header, footer { display: flex; justify-content: space-between; align-items: baseline; }
+      header { padding: 1.3rem 0; }
+      .mark { font-family: Literata, serif; font-weight: 650; font-size: 1.45rem; color: var(--ink); text-decoration: none; }
+      h1 { font-family: Literata, serif; font-weight: 500; font-size: clamp(2.6rem, 8vw, 4rem); letter-spacing: -0.04em; line-height: 0.95; }
+      .lede { margin: 0.8rem 0 1.1rem; color: var(--muted); }
+      .teas { display: grid; gap: 0.55rem; }
+      .teas button { text-align: left; font: inherit; color: inherit; background: var(--card); border: 1px solid transparent; border-radius: 16px; padding: 0.85rem 1rem; cursor: pointer; display: flex; justify-content: space-between; gap: 1rem; }
+      .teas button[aria-pressed="true"] { border-color: var(--leaf); }
+      .teas strong { font-family: Literata, serif; font-size: 1.2rem; font-weight: 650; }
+      .card { margin-top: 1rem; background: var(--leaf); color: #f3fbf7; border-radius: 20px; padding: 1.2rem 1.2rem 1.3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+      .card span { display: block; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.8; }
+      .card b { font-family: Literata, serif; font-size: 1.8rem; font-weight: 500; }
+      footer { padding: 2.2rem 0 3rem; color: var(--muted); font-size: 0.9rem; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Steep</a>
+      <span>Kettle on</span>
+    </header>
+    <main id="top">
+      <h1>Water, leaves, minutes.</h1>
+      <p class="lede">The same pot, three teas. The clock is the only thing that changes.</p>
+      <div class="teas" role="group" aria-label="Tea">
+        <button type="button" data-min="3" data-temp="80°" aria-pressed="true"><strong>Green</strong><span>short</span></button>
+        <button type="button" data-min="4" data-temp="95°" aria-pressed="false"><strong>Black</strong><span>steady</span></button>
+        <button type="button" data-min="5" data-temp="100°" aria-pressed="false"><strong>Herb</strong><span>long</span></button>
+      </div>
+      <div class="card" aria-live="polite">
+        <p><span>Minutes</span><b id="minutes">3</b></p>
+        <p><span>Water</span><b id="water">80°</b></p>
+      </div>
+    </main>
+    <footer>
+      <span>The side counter</span>
+      <a href="../../index.html#studies">Nadim Mahmud Shuvo</a>
+    </footer>
+    <script>
+      document.querySelectorAll(".teas button").forEach(function (button) {
+        button.addEventListener("click", function () {
+          document.querySelectorAll(".teas button").forEach(function (other) {
+            other.setAttribute("aria-pressed", "false");
+          });
+          button.setAttribute("aria-pressed", "true");
+          document.getElementById("minutes").textContent = button.dataset.min;
+          document.getElementById("water").textContent = button.dataset.temp;
+        });
+      });
+    </script>
+  </body>
+</html>

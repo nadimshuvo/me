@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shutter — one lens, three speeds</title>
+    <meta name="description" content="Shutter. Open the lens at three speeds." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=IBM+Plex+Sans:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      :root { --bg: #12110e; --ink: #f4efe6; --muted: #b7aa9a; --brass: #c6a15a; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "IBM Plex Sans", sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; line-height: 1.5; }
+      a { color: var(--brass); }
+      header, main, footer { width: min(680px, calc(100% - 2rem)); margin: 0 auto; }
+      header, footer { display: flex; justify-content: space-between; align-items: baseline; }
+      header { padding: 1.3rem 0; }
+      .mark { font-family: "Instrument Serif", serif; font-size: 1.6rem; color: var(--ink); text-decoration: none; }
+      h1 { font-family: "Instrument Serif", serif; font-weight: 400; font-size: clamp(2.6rem, 8vw, 4.2rem); letter-spacing: -0.03em; line-height: 0.95; }
+      .lede { margin: 0.8rem 0 1.1rem; color: var(--muted); }
+      .housing {
+        height: 380px;
+        border-radius: 28px;
+        background:
+          radial-gradient(circle at 50% 42%, #2a241c, #0c0b09 68%);
+        display: grid;
+        place-items: center;
+        --dur: 2.8s;
+      }
+      .housing[data-speed="day"] { --dur: 1.15s; }
+      .housing[data-speed="freeze"] { --dur: 0.42s; }
+      .lens {
+        width: min(240px, 64vw);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: #1a1814;
+        box-shadow: 0 0 0 12px #2c2822, 0 0 0 16px var(--brass);
+        position: relative;
+        overflow: hidden;
+      }
+      .hole {
+        position: absolute;
+        inset: 22%;
+        border-radius: 50%;
+        background: radial-gradient(circle at 40% 38%, #fff6df, #e2b657 62%, #8a5a28 100%);
+        animation: open var(--dur) ease-in-out infinite;
+      }
+      .blades {
+        position: absolute;
+        inset: 8%;
+        border-radius: 50%;
+        background: repeating-conic-gradient(from 8deg, #070706 0 28deg, transparent 28deg 52deg);
+        animation: spin var(--dur) linear infinite;
+      }
+      @keyframes open {
+        0%, 100% { transform: scale(0.22); }
+        42%, 58% { transform: scale(1); }
+      }
+      @keyframes spin { to { transform: rotate(120deg); } }
+      .speeds { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-top: 1rem; }
+      .speeds button { font: inherit; color: var(--ink); background: transparent; border: 1px solid #3a342c; border-radius: 999px; padding: 0.5rem 0.9rem; cursor: pointer; }
+      .speeds button[aria-pressed="true"] { background: var(--brass); color: #1a1408; border-color: var(--brass); }
+      .note { margin-top: 0.9rem; color: var(--muted); }
+      footer { padding: 2.2rem 0 3rem; color: var(--muted); font-size: 0.9rem; }
+      @media (prefers-reduced-motion: reduce) {
+        .hole, .blades { animation: none; }
+        .hole { transform: scale(0.7); }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Shutter</a>
+      <span>Lens open</span>
+    </header>
+    <main id="top">
+      <h1>Open, then close.</h1>
+      <p class="lede">One lens. The only choice is how long the light is allowed to stay.</p>
+      <div class="housing" id="cam" data-speed="slow">
+        <div class="lens" aria-hidden="true">
+          <div class="hole"></div>
+          <div class="blades"></div>
+        </div>
+      </div>
+      <div class="speeds" role="group" aria-label="Shutter speed">
+        <button type="button" data-speed="slow" data-note="A long open. The room has time to arrive." aria-pressed="true">Slow</button>
+        <button type="button" data-speed="day" data-note="Daylight. The iris keeps a steady blink." aria-pressed="false">Day</button>
+        <button type="button" data-speed="freeze" data-note="Fast enough to stop a hand in mid air." aria-pressed="false">Freeze</button>
+      </div>
+      <p class="note" id="note" aria-live="polite">A long open. The room has time to arrive.</p>
+    </main>
+    <footer>
+      <span>On the table</span>
+      <a href="../../index.html#studies">Nadim Mahmud Shuvo</a>
+    </footer>
+    <script>
+      var cam = document.getElementById("cam");
+      var note = document.getElementById("note");
+      document.querySelectorAll(".speeds button").forEach(function (button) {
+        button.addEventListener("click", function () {
+          document.querySelectorAll(".speeds button").forEach(function (other) {
+            other.setAttribute("aria-pressed", "false");
+          });
+          button.setAttribute("aria-pressed", "true");
+          cam.dataset.speed = button.dataset.speed;
+          note.textContent = button.dataset.note;
+        });
+      });
+    </script>
+  </body>
+</html>

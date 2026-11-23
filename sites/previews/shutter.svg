@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#12110e"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="28" fill="#f4efe6">Shutter</text>
+  <text x="744" y="62" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#b7aa9a">Lens open</text>
+  <rect x="56" y="96" width="88" height="36" rx="18" fill="#c6a15a"/>
+  <text x="100" y="120" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#1a1408">Slow</text>
+  <rect x="156" y="96" width="80" height="36" rx="18" fill="none" stroke="#3a342c"/>
+  <text x="196" y="120" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#f4efe6">Day</text>
+  <rect x="248" y="96" width="96" height="36" rx="18" fill="none" stroke="#3a342c"/>
+  <text x="296" y="120" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#f4efe6">Freeze</text>
+  <circle cx="400" cy="310" r="118" fill="#1a1814" stroke="#c6a15a" stroke-width="8"/>
+  <circle cx="400" cy="310" r="96" fill="none" stroke="#2c2822" stroke-width="16"/>
+  <circle cx="400" cy="310" r="52" fill="#e2b657"/>
+  <path d="M400 214 L430 280 L400 310 L370 280 Z" fill="#070706" opacity="0.85"/>
+  <path d="M496 310 L430 340 L400 310 L430 280 Z" fill="#070706" opacity="0.85"/>
+  <path d="M400 406 L370 340 L400 310 L430 340 Z" fill="#070706" opacity="0.85"/>
+  <path d="M304 310 L370 280 L400 310 L370 340 Z" fill="#070706" opacity="0.85"/>
+</svg>

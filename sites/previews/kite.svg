@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8ebde0"/>
+      <stop offset="0.72" stop-color="#e7f3ea"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#sky)"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="28" fill="#1c3344">Kite</text>
+  <text x="744" y="62" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#4d6574">Field edge</text>
+  <rect x="56" y="96" width="84" height="36" rx="18" fill="#1f4d6b"/>
+  <text x="98" y="120" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#ffffff">Still</text>
+  <rect x="150" y="96" width="96" height="36" rx="18" fill="#ffffff"/>
+  <text x="198" y="120" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#1c3344">Breeze</text>
+  <rect x="256" y="96" width="84" height="36" rx="18" fill="#ffffff"/>
+  <text x="298" y="120" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="15" fill="#1c3344">Gale</text>
+  <line x1="250" y1="500" x2="360" y2="250" stroke="#2a2118" stroke-width="2"/>
+  <polygon points="360,150 430,230 360,310 290,230" fill="#e25b45"/>
+  <polygon points="360,230 430,230 360,310 290,230" fill="#f2d36b"/>
+  <line x1="360" y1="310" x2="360" y2="360" stroke="#2a2118" stroke-width="2"/>
+  <circle cx="360" cy="372" r="8" fill="#1f4d6b"/>
+  <circle cx="360" cy="396" r="8" fill="#e25b45"/>
+  <circle cx="360" cy="420" r="8" fill="#f2d36b"/>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#e7f2ef"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="30" fill="#1c3330">Steep</text>
+  <text x="744" y="62" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#5d7370">Kettle on</text>
+  <text x="56" y="140" font-family="Georgia, serif" font-size="48" fill="#1c3330">Water, leaves,</text>
+  <text x="56" y="196" font-family="Georgia, serif" font-size="48" fill="#1c3330">minutes.</text>
+  <rect x="56" y="230" width="688" height="58" rx="16" fill="#f5fbf9" stroke="#1f6b52" stroke-width="2"/>
+  <text x="80" y="266" font-family="Georgia, serif" font-size="24" fill="#1c3330">Green</text>
+  <text x="716" y="266" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#5d7370">short</text>
+  <rect x="56" y="300" width="688" height="58" rx="16" fill="#f5fbf9"/>
+  <text x="80" y="336" font-family="Georgia, serif" font-size="24" fill="#1c3330">Black</text>
+  <text x="716" y="336" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#5d7370">steady</text>
+  <rect x="56" y="372" width="332" height="88" rx="18" fill="#1f6b52"/>
+  <text x="80" y="404" font-family="Segoe UI, sans-serif" font-size="12" fill="#d5efe6">MINUTES</text>
+  <text x="80" y="442" font-family="Georgia, serif" font-size="32" fill="#f3fbf7">3</text>
+  <rect x="412" y="372" width="332" height="88" rx="18" fill="#1f6b52"/>
+  <text x="436" y="404" font-family="Segoe UI, sans-serif" font-size="12" fill="#d5efe6">WATER</text>
+  <text x="436" y="442" font-family="Georgia, serif" font-size="32" fill="#f3fbf7">80&#176;</text>
+</svg>

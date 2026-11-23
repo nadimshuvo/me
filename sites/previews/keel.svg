@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#10242c"/>
+  <path d="M0 360 C160 320 280 400 420 350 C560 300 660 380 800 330 L800 500 L0 500 Z" fill="#17333d"/>
+  <path d="M0 390 C180 360 300 430 460 390 C600 356 700 410 800 370" fill="none" stroke="#d7b56d" stroke-width="2" opacity="0.7"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="28" fill="#e7efe8">Keel</text>
+  <text x="744" y="62" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#b7c7c0">Six seats</text>
+  <text x="56" y="160" font-family="Georgia, serif" font-size="58" fill="#e7efe8">A day on</text>
+  <text x="56" y="226" font-family="Georgia, serif" font-size="58" fill="#e7efe8">the water.</text>
+  <rect x="56" y="262" width="108" height="40" rx="20" fill="#d7b56d"/>
+  <text x="110" y="288" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" font-weight="600" fill="#1a1408">Dawn</text>
+  <rect x="176" y="262" width="108" height="40" rx="20" fill="none" stroke="#2c4a54"/>
+  <text x="230" y="288" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#e7efe8">Noon</text>
+  <rect x="296" y="262" width="108" height="40" rx="20" fill="none" stroke="#2c4a54"/>
+  <text x="350" y="288" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" fill="#e7efe8">Dusk</text>
+  <text x="56" y="340" font-family="Segoe UI, sans-serif" font-size="18" fill="#d7b56d">Leaves 5:40 &#183; back by 9</text>
+</svg>

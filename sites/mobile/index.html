@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile — a hanging mobile</title>
+    <meta name="description" content="Mobile. A hanging mobile, and three kinds of air." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Outfit:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink: #241c16; --muted: #6d5c4e; --paper: #f3efe6; --card: #fffaf3; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: Outfit, sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: #8c3d2f; }
+      header, main, footer { width: min(680px, calc(100% - 2rem)); margin: 0 auto; }
+      header, footer { display: flex; justify-content: space-between; align-items: baseline; }
+      header { padding: 1.3rem 0; }
+      .mark { font-family: Fraunces, serif; font-weight: 650; font-size: 1.45rem; color: var(--ink); text-decoration: none; }
+      h1 { font-family: Fraunces, serif; font-weight: 500; font-size: clamp(2.5rem, 7vw, 4rem); letter-spacing: -0.04em; line-height: 0.95; }
+      .lede { margin: 0.8rem 0 1.1rem; color: var(--muted); }
+      .stage {
+        position: relative;
+        height: 380px;
+        border-radius: 28px;
+        background: radial-gradient(circle at 50% 0%, #fff, transparent 58%), var(--card);
+        overflow: hidden;
+        --swing: 6deg;
+        --time: 5s;
+      }
+      .stage[data-air="draft"] { --swing: 14deg; --time: 2.2s; }
+      .stage[data-air="gust"] { --swing: 24deg; --time: 0.95s; }
+      .cord { position: absolute; left: 50%; top: 0; width: 2px; height: 42px; background: var(--ink); }
+      .beam {
+        position: absolute;
+        height: 4px;
+        border-radius: 4px;
+        background: var(--ink);
+        transform-origin: 50% 50%;
+        animation: sway var(--time) ease-in-out infinite;
+      }
+      .beam.a { width: min(260px, 78%); left: 50%; top: 42px; margin-left: calc(min(260px, 78%) / -2); }
+      .beam.b {
+        width: min(156px, 48%);
+        left: 62%;
+        top: 168px;
+        margin-left: calc(min(156px, 48%) / -2);
+        animation-duration: calc(var(--time) * 0.68);
+        animation-direction: reverse;
+      }
+      .hang { position: absolute; top: 0; width: 1.5px; background: var(--ink); }
+      .hang b { position: absolute; left: 50%; bottom: 0; transform: translate(-50%, 42%); display: block; }
+      .h1 { left: 4px; height: 108px; }
+      .h2 { left: 50%; height: 64px; }
+      .h3 { right: 4px; height: 128px; }
+      .h4 { left: 2px; height: 78px; }
+      .h5 { right: 2px; height: 96px; }
+      .c1 { width: 34px; height: 34px; border-radius: 50%; background: #d4654a; }
+      .c2 { width: 16px; height: 16px; border-radius: 50%; background: #1d3a34; }
+      .c3 { width: 24px; height: 52px; border-radius: 40px; background: #e2b657; }
+      .c4 { width: 28px; height: 28px; border-radius: 4px; background: #241c16; transform: translate(-50%, 42%) rotate(45deg); }
+      .c5 { width: 42px; height: 20px; border-radius: 20px; background: #c4554a; }
+      @keyframes sway {
+        0%, 100% { transform: rotate(calc(var(--swing) * -1)); }
+        50% { transform: rotate(var(--swing)); }
+      }
+      .airs { display: flex; gap: 0.45rem; flex-wrap: wrap; margin-top: 1rem; }
+      .airs button { font: inherit; font-weight: 500; color: var(--ink); background: var(--card); border: 1px solid transparent; border-radius: 999px; padding: 0.5rem 0.95rem; cursor: pointer; }
+      .airs button[aria-pressed="true"] { background: var(--ink); color: #fffaf3; }
+      .note { margin-top: 0.9rem; color: var(--muted); }
+      footer { padding: 2.2rem 0 3rem; color: var(--muted); font-size: 0.9rem; }
+      @media (prefers-reduced-motion: reduce) {
+        .beam { animation: none; transform: rotate(var(--swing)); }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Mobile</a>
+      <span>Studio draft</span>
+    </header>
+    <main id="top">
+      <h1>It only moves with the air.</h1>
+      <p class="lede">The shapes stay where they were hung. The swing is the only setting.</p>
+      <div class="stage" id="stage" data-air="calm" aria-hidden="true">
+        <div class="cord"></div>
+        <div class="beam a">
+          <i class="hang h1"><b class="c1"></b></i>
+          <i class="hang h2"><b class="c2"></b></i>
+          <i class="hang h3"><b class="c3"></b></i>
+        </div>
+        <div class="beam b">
+          <i class="hang h4"><b class="c4"></b></i>
+          <i class="hang h5"><b class="c5"></b></i>
+        </div>
+      </div>
+      <div class="airs" role="group" aria-label="Air">
+        <button type="button" data-air="calm" data-note="Barely moving. The studio door is shut." aria-pressed="true">Calm</button>
+        <button type="button" data-air="draft" data-note="A draft from the hall. The lower bar answers first." aria-pressed="false">Draft</button>
+        <button type="button" data-air="gust" data-note="The window is open. Everything takes a wider swing." aria-pressed="false">Gust</button>
+      </div>
+      <p class="note" id="note" aria-live="polite">Barely moving. The studio door is shut.</p>
+    </main>
+    <footer>
+      <span>Hung this morning</span>
+      <a href="../../index.html#studies">Nadim Mahmud Shuvo</a>
+    </footer>
+    <script>
+      var stage = document.getElementById("stage");
+      var note = document.getElementById("note");
+      document.querySelectorAll(".airs button").forEach(function (button) {
+        button.addEventListener("click", function () {
+          document.querySelectorAll(".airs button").forEach(function (other) {
+            other.setAttribute("aria-pressed", "false");
+          });
+          button.setAttribute("aria-pressed", "true");
+          stage.dataset.air = button.dataset.air;
+          note.textContent = button.dataset.note;
+        });
+      });
+    </script>
+  </body>
+</html>

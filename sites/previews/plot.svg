@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#eef3e6"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="30" fill="#1c2a1a">Plot</text>
+  <text x="744" y="62" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#526354">Season opens in March</text>
+  <text x="56" y="148" font-family="Georgia, serif" font-size="48" fill="#1c2a1a">A square of ground,</text>
+  <text x="56" y="206" font-family="Georgia, serif" font-size="48" fill="#1c2a1a">for a season.</text>
+  <rect x="56" y="248" width="688" height="64" rx="16" fill="#f7faf3" stroke="#2f6a3a" stroke-width="2"/>
+  <circle cx="88" cy="280" r="8" fill="#2f6a3a"/>
+  <text x="112" y="286" font-family="Georgia, serif" font-size="24" fill="#1c2a1a">Half</text>
+  <text x="716" y="286" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="18" fill="#1c2a1a">900</text>
+  <rect x="56" y="324" width="688" height="64" rx="16" fill="#f7faf3"/>
+  <circle cx="88" cy="356" r="8" fill="none" stroke="#2f6a3a" stroke-width="2"/>
+  <text x="112" y="362" font-family="Georgia, serif" font-size="24" fill="#1c2a1a">Full</text>
+  <text x="716" y="362" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="18" fill="#1c2a1a">1600</text>
+  <rect x="56" y="400" width="688" height="64" rx="16" fill="#f7faf3"/>
+  <circle cx="88" cy="432" r="8" fill="none" stroke="#2f6a3a" stroke-width="2"/>
+  <text x="112" y="438" font-family="Georgia, serif" font-size="24" fill="#1c2a1a">A pair</text>
+  <text x="716" y="438" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="18" fill="#1c2a1a">2800</text>
+</svg>
