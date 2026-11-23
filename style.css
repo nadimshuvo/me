@@ -327,7 +327,7 @@ button, input, textarea { font: inherit; }
 
 .band { padding: 5rem 1.25rem; }
 .band-tight { padding-top: 1rem; }
-.split, .section-head, .projects, .skill-grid, .study-list, .contact {
+.split, .section-head, .projects, .studies, .skill-grid, .study-list, .contact {
   width: min(1080px, 100%);
   margin: 0 auto;
 }
@@ -421,6 +421,51 @@ h2 {
   font-weight: 800;
   border-bottom: 1px solid var(--ink);
 }
+
+.studies {
+  margin-top: 0.2rem;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+.study {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  overflow: hidden;
+  min-height: 100%;
+}
+.study:nth-child(4),
+.study:nth-child(5) { grid-column: span 3; }
+.poster {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  min-height: 168px;
+  padding: 1rem 1.05rem;
+}
+.poster b { font-size: 1.7rem; letter-spacing: -0.04em; line-height: 1; }
+.poster i {
+  font-style: normal;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+.poster-marrow { background: #8c3d2f; color: #f4efe6; }
+.poster-keel { background: #10242c; color: #e7efe8; }
+.poster-keel i { color: #d7b56d; }
+.poster-sable { background: #141414; color: #f6f6f3; }
+.poster-sable i { color: #d6f25c; }
+.poster-room { background: #161311; color: #f3eadf; }
+.poster-room i { color: #e07a3d; }
+.poster-plot { background: #2f6a3a; color: #f7faf3; }
+.study-copy { display: grid; gap: 0.2rem; padding: 0.9rem 1rem 1.05rem; }
+.study-copy strong { letter-spacing: -0.03em; }
+.study-copy em { font-style: normal; color: var(--muted); font-size: 0.92rem; }
+.study:hover .poster { filter: saturate(1.08) brightness(1.06); }
 
 .skill-grid {
   display: grid;
@@ -760,6 +805,8 @@ h2 {
   .split, .project, .project:nth-child(even), .skill-grid, .contact, .study-list {
     grid-template-columns: 1fr;
   }
+  .studies { grid-template-columns: 1fr 1fr; }
+  .study, .study:nth-child(4), .study:nth-child(5) { grid-column: auto; }
   .path, .stack-grid, .builds, .material-list { grid-template-columns: 1fr 1fr; }
   .map-index { grid-template-columns: 1fr; }
   .page-hero { padding-top: 120px; }
@@ -770,7 +817,7 @@ h2 {
 }
 
 @media (max-width: 560px) {
-  .path, .stack-grid, .builds, .material-list { grid-template-columns: 1fr; }
+  .path, .stack-grid, .builds, .material-list, .studies { grid-template-columns: 1fr; }
 }
 
 @media (prefers-reduced-motion: reduce) {

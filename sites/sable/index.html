@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sable — a type specimen</title>
+    <meta name="description" content="Sable, a small type specimen. Set your own word." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink: #141414; --muted: #5c5c5c; --paper: #f6f6f3; --line: #e4e4de; --lime: #d6f25c; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "IBM Plex Sans", sans-serif; background: var(--paper); color: var(--ink); }
+      a { color: inherit; }
+      header, main, footer { width: min(920px, calc(100% - 2rem)); margin: 0 auto; }
+      header { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 0; font-size: 0.92rem; }
+      .mark { font-weight: 500; text-decoration: none; }
+      label { display: flex; flex-direction: column; gap: 0.35rem; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+      input { font: 1rem "IBM Plex Sans", sans-serif; border: 0; border-bottom: 1px solid var(--ink); background: transparent; padding: 0.35rem 0; color: var(--ink); min-width: 10rem; }
+      .styles { display: flex; gap: 0.4rem; margin: 1.2rem 0; }
+      .styles button { font: inherit; border: 1px solid var(--line); background: white; border-radius: 999px; padding: 0.4rem 0.75rem; cursor: pointer; }
+      .styles button[aria-pressed="true"] { background: var(--ink); color: var(--lime); border-color: var(--ink); }
+      .specimen { font-size: clamp(4rem, 14vw, 9rem); line-height: 0.9; letter-spacing: -0.045em; min-height: 1.1em; word-break: break-word; }
+      .specimen.italic { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; }
+      .specimen.roman { font-family: "Instrument Serif", serif; font-weight: 400; }
+      .specimen.mono { font-family: "IBM Plex Mono", monospace; font-size: clamp(2.4rem, 8vw, 5rem); letter-spacing: -0.04em; }
+      .meta { margin-top: 1rem; color: var(--muted); font-family: "IBM Plex Mono", monospace; font-size: 0.82rem; }
+      footer { padding: 2.5rem 0 3rem; display: flex; justify-content: space-between; color: var(--muted); font-size: 0.9rem; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Sable</a>
+      <label>Your word <input id="word" value="Sable" maxlength="18" /></label>
+    </header>
+    <main id="top">
+      <div class="styles" role="group" aria-label="Style">
+        <button type="button" data-style="roman" aria-pressed="true">Roman</button>
+        <button type="button" data-style="italic" aria-pressed="false">Italic</button>
+        <button type="button" data-style="mono" aria-pressed="false">Mono</button>
+      </div>
+      <p class="specimen roman" id="specimen">Sable</p>
+      <p class="meta" id="meta">Roman · a text face for long reading</p>
+    </main>
+    <footer>
+      <span>Specimen 01</span>
+      <a href="../../index.html#studies">Nadim Mahmud Shuvo</a>
+    </footer>
+    <script>
+      var notes = {
+        roman: "Roman · a text face for long reading",
+        italic: "Italic · for a title, or a word you mean",
+        mono: "Mono · for the thing the machine said"
+      };
+      var specimen = document.getElementById("specimen");
+      var word = document.getElementById("word");
+      word.addEventListener("input", function () {
+        specimen.textContent = word.value || "Sable";
+      });
+      document.querySelectorAll(".styles button").forEach(function (button) {
+        button.addEventListener("click", function () {
+          document.querySelectorAll(".styles button").forEach(function (other) {
+            other.setAttribute("aria-pressed", "false");
+          });
+          button.setAttribute("aria-pressed", "true");
+          specimen.className = "specimen " + button.dataset.style;
+          document.getElementById("meta").textContent = notes[button.dataset.style];
+        });
+      });
+    </script>
+  </body>
+</html>

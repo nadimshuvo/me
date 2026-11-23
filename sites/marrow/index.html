@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marrow — bread before the street wakes</title>
+    <meta name="description" content="Marrow, a small bakery. Three loaves, baked early." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,620&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink: #2a2118; --muted: #6d5c4e; --paper: #f4efe6; --card: #fffaf3; --accent: #8c3d2f; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: Outfit, sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: inherit; }
+      header, main, footer { width: min(720px, calc(100% - 2rem)); margin: 0 auto; }
+      header { display: flex; justify-content: space-between; align-items: baseline; padding: 1.4rem 0; }
+      .mark { font-family: Fraunces, serif; font-weight: 620; font-size: 1.4rem; letter-spacing: -0.03em; text-decoration: none; }
+      header span { color: var(--muted); font-size: 0.92rem; }
+      h1 { font-family: Fraunces, serif; font-weight: 500; font-size: clamp(2.6rem, 7vw, 4.4rem); letter-spacing: -0.04em; line-height: 0.95; }
+      .lede { margin: 1rem 0 1.6rem; max-width: 36rem; color: var(--muted); font-size: 1.05rem; }
+      .loaves { display: grid; gap: 0.7rem; }
+      .loaf { background: var(--card); border-radius: 18px; padding: 1rem 1.1rem; display: grid; grid-template-columns: 1fr auto; gap: 0.2rem 1rem; }
+      .loaf h2 { font-family: Fraunces, serif; font-weight: 560; font-size: 1.35rem; }
+      .loaf p { grid-column: 1; color: var(--muted); }
+      .price { font-weight: 600; }
+      form { margin-top: 1.4rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+      input, button { font: inherit; border-radius: 999px; padding: 0.7rem 1rem; }
+      input { border: 1px solid #e0d5c6; background: white; min-width: min(100%, 220px); flex: 1; }
+      button { background: var(--accent); color: #fffaf3; border: 0; font-weight: 600; cursor: pointer; }
+      .note { margin-top: 0.8rem; min-height: 1.4rem; font-weight: 600; }
+      footer { padding: 2.4rem 0 3rem; color: var(--muted); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 1rem; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Marrow</a>
+      <span>Opens at 7</span>
+    </header>
+    <main id="top">
+      <h1>Bread, before the street wakes.</h1>
+      <p class="lede">Three loaves. Flour, salt, water, and time. What is left at noon is tomorrow’s crumb.</p>
+      <div class="loaves">
+        <article class="loaf">
+          <h2>Country</h2>
+          <span class="price">60</span>
+          <p>A round loaf, crackled crust, for toast and soup.</p>
+        </article>
+        <article class="loaf">
+          <h2>Seed</h2>
+          <span class="price">70</span>
+          <p>Rye and a handful of seeds. Dense, and better on the second day.</p>
+        </article>
+        <article class="loaf">
+          <h2>Morning bun</h2>
+          <span class="price">35</span>
+          <p>Butter, sugar, and a little cardamom. Gone by nine.</p>
+        </article>
+      </div>
+      <form id="hold">
+        <input name="name" required placeholder="Name for a loaf" autocomplete="name" />
+        <button type="submit">Hold one</button>
+      </form>
+      <p class="note" id="note" role="status"></p>
+    </main>
+    <footer>
+      <span>Tue–Sun · the side street</span>
+      <a href="../../index.html#studies">Nadim Mahmud Shuvo</a>
+    </footer>
+    <script>
+      document.getElementById("hold").addEventListener("submit", function (event) {
+        event.preventDefault();
+        var name = new FormData(event.target).get("name");
+        document.getElementById("note").textContent = "Held for " + name + ". Come before noon.";
+        event.target.reset();
+      });
+    </script>
+  </body>
+</html>

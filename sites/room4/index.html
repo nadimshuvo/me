@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Room 4 — a listening bar</title>
+    <meta name="description" content="Room 4. One record a night, played loud enough, and no louder." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,450;6..72,560&family=Outfit:wght@400;500&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink: #f3eadf; --muted: #b5a89b; --bg: #161311; --card: #221e1a; --amber: #e07a3d; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: Outfit, sans-serif; background: var(--bg); color: var(--ink); line-height: 1.5; }
+      a { color: var(--amber); }
+      header, main, footer { width: min(680px, calc(100% - 2rem)); margin: 0 auto; }
+      header { display: flex; justify-content: space-between; padding: 1.4rem 0; }
+      .mark { font-family: Newsreader, serif; font-size: 1.5rem; color: var(--ink); text-decoration: none; }
+      h1 { font-family: Newsreader, serif; font-weight: 450; font-size: clamp(2.8rem, 8vw, 4.5rem); letter-spacing: -0.03em; line-height: 0.95; }
+      .lede { margin: 1rem 0 1.3rem; color: var(--muted); }
+      .now { color: var(--amber); font-weight: 500; min-height: 1.4rem; }
+      ol { list-style: none; margin-top: 0.8rem; }
+      li + li { border-top: 1px solid #2c2723; }
+      button { width: 100%; text-align: left; font: inherit; color: inherit; background: transparent; border: 0; padding: 0.85rem 0; cursor: pointer; display: flex; justify-content: space-between; gap: 1rem; }
+      button[aria-current="true"] { color: var(--amber); }
+      .side { color: var(--muted); }
+      footer { padding: 2.2rem 0 3rem; display: flex; justify-content: space-between; color: var(--muted); font-size: 0.9rem; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Room 4</a>
+      <span>Doors at 8</span>
+    </header>
+    <main id="top">
+      <h1>One record, all the way through.</h1>
+      <p class="lede">A small room, a good system, and the lights low enough to listen.</p>
+      <p class="now" id="now" role="status">Now playing · Side A, track 1</p>
+      <ol>
+        <li><button type="button" aria-current="true">Side A, track 1 <span class="side">4:12</span></button></li>
+        <li><button type="button">Side A, track 2 <span class="side">3:40</span></button></li>
+        <li><button type="button">Side B, track 1 <span class="side">5:05</span></button></li>
+        <li><button type="button">Side B, track 2 <span class="side">6:18</span></button></li>
+      </ol>
+    </main>
+    <footer>
+      <span>Up the stairs · 18 seats</span>
+      <a href="../../index.html#studies">Nadim Mahmud Shuvo</a>
+    </footer>
+    <script>
+      var now = document.getElementById("now");
+      document.querySelectorAll("ol button").forEach(function (button) {
+        button.addEventListener("click", function () {
+          document.querySelectorAll("ol button").forEach(function (other) {
+            other.removeAttribute("aria-current");
+          });
+          button.setAttribute("aria-current", "true");
+          now.textContent = "Now playing · " + button.firstChild.textContent.trim();
+        });
+      });
+    </script>
+  </body>
+</html>

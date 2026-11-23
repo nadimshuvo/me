@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Keel — a day on the water</title>
+    <meta name="description" content="Keel runs three departures. Pick a tide and read what the day holds." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500&family=Figtree:wght@400;600&display=swap" rel="stylesheet" />
+    <style>
+      :root { --ink: #e7efe8; --muted: #b7c7c0; --deep: #10242c; --card: #17333d; --gold: #d7b56d; }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: Figtree, sans-serif; background: var(--deep); color: var(--ink); line-height: 1.5; min-height: 100vh; }
+      a { color: var(--gold); }
+      header, main, footer { width: min(760px, calc(100% - 2rem)); margin: 0 auto; }
+      header { display: flex; justify-content: space-between; padding: 1.4rem 0; }
+      .mark { font-family: Fraunces, serif; font-size: 1.4rem; color: var(--ink); text-decoration: none; }
+      h1 { font-family: Fraunces, serif; font-weight: 500; font-size: clamp(2.7rem, 8vw, 4.6rem); letter-spacing: -0.04em; line-height: 0.95; }
+      .lede { margin: 1rem 0 1.4rem; color: var(--muted); max-width: 34rem; }
+      .tides { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+      .tides button { font: inherit; font-weight: 600; color: var(--ink); background: transparent; border: 1px solid #2c4a54; border-radius: 999px; padding: 0.55rem 0.9rem; cursor: pointer; }
+      .tides button[aria-selected="true"] { background: var(--gold); color: #1a1408; border-color: var(--gold); }
+      .panel { margin-top: 1rem; background: var(--card); border-radius: 22px; padding: 1.3rem 1.3rem 1.4rem; }
+      .panel h2 { font-family: Fraunces, serif; font-weight: 500; font-size: 1.8rem; }
+      .panel p { margin-top: 0.45rem; color: var(--muted); }
+      .when { display: inline-block; margin-top: 0.9rem; color: var(--gold); font-weight: 600; }
+      footer { padding: 2.2rem 0 3rem; display: flex; justify-content: space-between; color: var(--muted); font-size: 0.9rem; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Keel</a>
+      <span>Six seats</span>
+    </header>
+    <main id="top">
+      <h1>A day on the water.</h1>
+      <p class="lede">You bring a coat. We bring the boat, a thermos, and someone who knows the channel.</p>
+      <div class="tides" role="tablist" aria-label="Departures">
+        <button type="button" role="tab" id="tab-dawn" aria-selected="true" aria-controls="panel">Dawn</button>
+        <button type="button" role="tab" id="tab-noon" aria-selected="false" aria-controls="panel">Noon</button>
+        <button type="button" role="tab" id="tab-dusk" aria-selected="false" aria-controls="panel">Dusk</button>
+      </div>
+      <article class="panel" id="panel" role="tabpanel" aria-labelledby="tab-dawn">
+        <h2 id="trip-title">Dawn</h2>
+        <p id="trip-copy">Out before the harbor is busy. Birds, a quiet engine, and coffee while the light comes up.</p>
+        <span class="when" id="trip-when">Leaves 5:40 · back by 9</span>
+      </article>
+    </main>
+    <footer>
+      <span>The small pier</span>
+      <a href="../../index.html#studies">Nadim Mahmud Shuvo</a>
+    </footer>
+    <script>
+      var trips = {
+        dawn: ["Dawn", "Out before the harbor is busy. Birds, a quiet engine, and coffee while the light comes up.", "Leaves 5:40 · back by 9"],
+        noon: ["Noon", "A reach across the bay and a swim where the water is clear. Lunch is bread and fruit.", "Leaves 11:30 · back by 3"],
+        dusk: ["Dusk", "The long way home, with the town lights coming on. Blankets are in the locker.", "Leaves 5:10 · back by 8"]
+      };
+      document.querySelectorAll(".tides button").forEach(function (button) {
+        button.addEventListener("click", function () {
+          document.querySelectorAll(".tides button").forEach(function (other) {
+            other.setAttribute("aria-selected", "false");
+          });
+          button.setAttribute("aria-selected", "true");
+          var trip = trips[button.id.replace("tab-", "")];
+          document.getElementById("trip-title").textContent = trip[0];
+          document.getElementById("trip-copy").textContent = trip[1];
+          document.getElementById("trip-when").textContent = trip[2];
+          document.getElementById("panel").setAttribute("aria-labelledby", button.id);
+        });
+      });
+    </script>
+  </body>
+</html>
