@@ -344,21 +344,28 @@ if (termScreen) {
     }
   });
 
-  const addLine = (className) => {
+  const sizer = document.createElement("div");
+  sizer.className = "term-sizer";
+  sizer.setAttribute("aria-hidden", "true");
+  const live = document.createElement("div");
+  live.className = "term-live";
+  termScreen.append(sizer, live);
+
+  const addLine = (parent, className) => {
     const line = document.createElement("div");
     if (className) line.className = className;
-    termScreen.appendChild(line);
+    parent.appendChild(line);
     return line;
   };
 
-  const promptLine = () => {
-    const line = addLine("term-line");
+  const promptLine = (parent) => {
+    const line = addLine(parent, "term-line");
     line.innerHTML = '<span class="term-prompt">nadim@portfolio</span> <span class="term-dim">~</span> ';
     return line;
   };
 
-  const addProjects = () => {
-    const list = addLine("term-projects");
+  const addProjects = (parent) => {
+    const list = addLine(parent, "term-projects");
     projects.forEach(([name, tag, href]) => {
       const row = document.createElement("div");
       const link = document.createElement("a");
@@ -373,12 +380,14 @@ if (termScreen) {
     });
   };
 
-  const addProfile = () => {
+  const addProfile = (parent) => {
     const card = document.createElement("div");
     card.className = "term-card";
     const img = document.createElement("img");
     img.src = "me.png";
     img.alt = "";
+    img.width = 64;
+    img.height = 64;
     const copy = document.createElement("div");
     const name = document.createElement("strong");
     name.textContent = "Nadim Mahmud Shuvo";
@@ -389,24 +398,24 @@ if (termScreen) {
     meta.append(mail, document.createTextNode(" · 2+ years · 15+ projects"));
     copy.append(name, meta);
     card.append(img, copy);
-    termScreen.appendChild(card);
+    parent.appendChild(card);
   };
 
-  const paintAll = () => {
-    termScreen.replaceChildren();
+  const paintAll = (parent) => {
+    parent.replaceChildren();
     steps.forEach((step) => {
-      const line = promptLine();
+      const line = promptLine(parent);
       const typed = document.createElement("span");
       typed.textContent = step.cmd;
       line.appendChild(typed);
-      if (step.projects) addProjects();
-      else addLine().textContent = step.out;
+      if (step.projects) addProjects(parent);
+      else addLine(parent).textContent = step.out;
     });
-    const idle = promptLine();
+    const idle = promptLine(parent);
     const caret = document.createElement("span");
     caret.className = "term-cursor";
     idle.appendChild(caret);
-    addProfile();
+    addProfile(parent);
   };
 
   const typeInto = async (el, text) => {
@@ -417,9 +426,9 @@ if (termScreen) {
   };
 
   const run = async () => {
-    termScreen.replaceChildren();
+    live.replaceChildren();
     for (const step of steps) {
-      const line = promptLine();
+      const line = promptLine(live);
       const typed = document.createElement("span");
       const caret = document.createElement("span");
       caret.className = "term-cursor";
@@ -427,20 +436,21 @@ if (termScreen) {
       await typeInto(typed, step.cmd);
       caret.remove();
       await sleep(160);
-      if (step.projects) addProjects();
-      else addLine().textContent = step.out;
+      if (step.projects) addProjects(live);
+      else addLine(live).textContent = step.out;
       await sleep(260);
     }
-    const idle = promptLine();
+    const idle = promptLine(live);
     const caret = document.createElement("span");
     caret.className = "term-cursor";
     idle.appendChild(caret);
-    addProfile();
+    addProfile(live);
     await sleep(2800);
     run();
   };
 
-  if (reduceMotion) paintAll();
+  paintAll(sizer);
+  if (reduceMotion) paintAll(live);
   else run();
 }
 

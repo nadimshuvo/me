@@ -295,12 +295,19 @@ button, input, textarea { font: inherit; }
   color: #8fb9a2;
 }
 .term-screen {
-  min-height: 420px;
-  padding: 1.2rem 1.3rem 1.4rem;
+  position: relative;
   font-family: "IBM Plex Mono", ui-monospace, monospace;
   font-size: 0.98rem;
   line-height: 1.7;
   color: #f3fff8;
+}
+.term-sizer,
+.term-live { padding: 1.2rem 1.3rem 1.4rem; }
+.term-sizer { visibility: hidden; pointer-events: none; }
+.term-live {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
 }
 .term-prompt { color: #6ee7a8; }
 .term-dim { color: #8fb9a2; }
@@ -890,7 +897,8 @@ h2 {
   .page-hero { padding-top: 120px; }
   .project:nth-child(even) .shot { order: 0; }
   .portrait img, .shot img { height: 240px; }
-  .term-screen { min-height: 360px; font-size: 0.84rem; padding: 1rem; }
+  .term-screen { font-size: 0.84rem; }
+  .term-sizer, .term-live { padding: 1rem; }
   .hero { padding-top: 120px; }
 }
 
