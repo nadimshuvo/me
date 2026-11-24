@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Greenhouse — A drop on the glass.</title>
+    <meta name="description" content="Greenhouse. Warm inside, weather outside." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;600&amp;display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --ink: #1e3328; --muted: #5c7568; --paper: #f2f7f3;
+        --card: #f7fbf8; --accent: #7eb8e0;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "Red Hat Text", Georgia, "Segoe UI", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: inherit; }
+      header, main, footer { width: min(720px, calc(100% - 2rem)); margin: 0 auto; }
+      header { display: flex; justify-content: space-between; align-items: baseline; padding: 1.4rem 0; gap: 1rem; }
+      .mark { font-weight: 600; font-size: 1.35rem; letter-spacing: -0.03em; text-decoration: none; }
+      header span { color: var(--muted); font-size: 0.92rem; }
+      h1 { font-weight: 600; font-size: clamp(2.3rem, 7vw, 4rem); letter-spacing: -0.045em; line-height: 0.96; }
+      .lede { margin: 1rem 0 1.5rem; max-width: 36rem; color: var(--muted); font-size: 1.05rem; }
+      .stage { position: relative; height: 250px; border-radius: 28px; overflow: hidden; background: var(--card); }
+      footer { padding: 2.4rem 0 3rem; color: var(--muted); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 1rem; }
+      .glass{position:absolute;inset:20px;background:repeating-linear-gradient(90deg,transparent 0 24%,rgba(30,51,40,.25) 24% 25%),repeating-linear-gradient(transparent 0 32%,rgba(30,51,40,.25) 32% 33%),#e7f4ea}.drop{position:absolute;left:46%;top:24px;width:10px;height:16px;background:var(--accent);border-radius:8px;animation:drip 2.6s linear infinite}@keyframes drip{to{top:200px;opacity:.2}}
+      @media (prefers-reduced-motion: reduce) {
+        .go, .go * { animation: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Greenhouse</a>
+      <span>The panes</span>
+    </header>
+    <main id="top">
+      <h1>A drop on the glass.</h1>
+      <p class="lede">Warm inside, weather outside.</p>
+      <div class="stage" aria-hidden="true"><span class="glass"></span><span class="go drop"></span></div>
+    </main>
+    <footer>
+      <span>The panes</span>
+      <a href="../../atlas.html">Nadim Mahmud Shuvo</a>
+    </footer>
+  </body>
+</html>

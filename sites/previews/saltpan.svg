@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f7f4ee"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#3a342c">Salt pan</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#8a8176">The flats</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#3a342c">The pan goes pale.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#fffdf9"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect x="80" y="40" width="528" height="110" rx="8" fill="#f4f1ea"/></svg>
+</svg>

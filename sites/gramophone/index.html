@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gramophone — The record goes round.</title>
+    <meta name="description" content="Gramophone. A horn, and a needle." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600&amp;display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --ink: #2e261c; --muted: #8a7a68; --paper: #f4efe8;
+        --card: #faf7f3; --accent: #1c1c1c;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "IBM Plex Sans", Georgia, "Segoe UI", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: inherit; }
+      header, main, footer { width: min(720px, calc(100% - 2rem)); margin: 0 auto; }
+      header { display: flex; justify-content: space-between; align-items: baseline; padding: 1.4rem 0; gap: 1rem; }
+      .mark { font-weight: 600; font-size: 1.35rem; letter-spacing: -0.03em; text-decoration: none; }
+      header span { color: var(--muted); font-size: 0.92rem; }
+      h1 { font-weight: 600; font-size: clamp(2.3rem, 7vw, 4rem); letter-spacing: -0.045em; line-height: 0.96; }
+      .lede { margin: 1rem 0 1.5rem; max-width: 36rem; color: var(--muted); font-size: 1.05rem; }
+      .stage { position: relative; height: 250px; border-radius: 28px; overflow: hidden; background: var(--card); }
+      footer { padding: 2.4rem 0 3rem; color: var(--muted); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 1rem; }
+      .disc{position:absolute;left:28%;top:40px;width:130px;height:130px;border-radius:50%;background:repeating-radial-gradient(circle,var(--accent) 0 2px,#3a3a3a 3px 8px);animation:spin 2.4s linear infinite}.horn{position:absolute;right:16%;top:30px;width:90px;height:70px;background:#d4b483;border-radius:0 40px 40px 0}@keyframes spin{to{transform:rotate(360deg)}}
+      @media (prefers-reduced-motion: reduce) {
+        .go, .go * { animation: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Gramophone</a>
+      <span>The parlour</span>
+    </header>
+    <main id="top">
+      <h1>The record goes round.</h1>
+      <p class="lede">A horn, and a needle.</p>
+      <div class="stage" aria-hidden="true"><span class="go disc"></span><span class="horn"></span></div>
+    </main>
+    <footer>
+      <span>The parlour</span>
+      <a href="../../atlas.html">Nadim Mahmud Shuvo</a>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f3f6f4"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#1c3028">Folded map</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#5c7068">The glove box</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#1c3028">A coast, opened flat.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#f7faf8"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect x="80" y="30" width="520" height="120" fill="#d7e4da"/><path d="M120 50 Q240 90 400 40 T620 80" fill="none" stroke="#1c3028" stroke-width="3"/></svg>
+</svg>

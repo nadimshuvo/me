@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#121826"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#e7eefc">Observatory</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#9aabc4">Clear nights</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#e7eefc">The slit turns with the sky.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#0e1420"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect width="688" height="180" fill="#0e1420"/><path d="M254 150 a90 90 0 0 1 180 0 z" fill="#243044"/><rect x="336" y="70" width="16" height="80" fill="#d5e2ff"/></svg>
+</svg>

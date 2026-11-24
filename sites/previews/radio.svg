@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f3f1ec"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#242428">Radio</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#6e6e76">The shelf</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#242428">The dial looks for a voice.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#fafaf8"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect x="220" y="30" width="248" height="120" rx="12" fill="#2c3038"/><rect x="400" y="70" width="4" height="40" fill="#e23b3b"/></svg>
+</svg>

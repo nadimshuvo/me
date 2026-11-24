@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#1c2430"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#f2efe6">Lantern</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#b7c0c8">After dusk</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#f2efe6">A small light, carried.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#121820"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect width="688" height="180" fill="#121820"/><rect x="80" y="60" width="34" height="46" rx="6" fill="#f0c56e"/></svg>
+</svg>

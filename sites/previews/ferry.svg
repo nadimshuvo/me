@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#e4f0ea"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#163028">Ferry</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#4e6b60">On the hour</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#163028">One crossing.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#f4fbf7"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect y="120" width="688" height="60" fill="#b7ddd0"/><rect x="70" y="96" width="90" height="26" rx="0" fill="#1f7a62"/><rect x="100" y="72" width="8" height="24" fill="#163028"/></svg>
+</svg>

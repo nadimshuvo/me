@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f4f6f4"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#1e2a24">Compass</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#5e7068">The pocket</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#1e2a24">The needle looks north.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#f8faf8"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><circle cx="344" cy="90" r="70" fill="none" stroke="#c9d2cc" stroke-width="2"/><polygon points="344,30 356,100 332,100" fill="#c4372f"/></svg>
+</svg>

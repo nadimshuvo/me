@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f4f2ec"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#242824">Kiosk</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#6e756c">The corner</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#242824">The shutter lifts.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#fbfaf6"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect x="244" y="20" width="200" height="150" fill="#d9e2da"/><rect x="244" y="20" width="200" height="28" fill="#2f6b4f"/></svg>
+</svg>

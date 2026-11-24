@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cellar — A bottle on its side.</title>
+    <meta name="description" content="Cellar. Cool, and left alone." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600&amp;display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --ink: #2c2424; --muted: #7a6c6c; --paper: #f3eee8;
+        --card: #faf7f4; --accent: #7d1d2e;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "Unbounded", Georgia, "Segoe UI", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: inherit; }
+      header, main, footer { width: min(720px, calc(100% - 2rem)); margin: 0 auto; }
+      header { display: flex; justify-content: space-between; align-items: baseline; padding: 1.4rem 0; gap: 1rem; }
+      .mark { font-weight: 600; font-size: 1.35rem; letter-spacing: -0.03em; text-decoration: none; }
+      header span { color: var(--muted); font-size: 0.92rem; }
+      h1 { font-weight: 600; font-size: clamp(2.3rem, 7vw, 4rem); letter-spacing: -0.045em; line-height: 0.96; }
+      .lede { margin: 1rem 0 1.5rem; max-width: 36rem; color: var(--muted); font-size: 1.05rem; }
+      .stage { position: relative; height: 250px; border-radius: 28px; overflow: hidden; background: var(--card); }
+      footer { padding: 2.4rem 0 3rem; color: var(--muted); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 1rem; }
+      .rack{position:absolute;left:10%;right:10%;top:70px;height:80px;background:#e4d5c8;border-radius:8px}.bottle{position:absolute;left:16%;top:86px;width:90px;height:22px;background:var(--accent);border-radius:4px 12px 12px 4px;animation:roll 4s ease-in-out infinite}@keyframes roll{50%{left:62%}}
+      @media (prefers-reduced-motion: reduce) {
+        .go, .go * { animation: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Cellar</a>
+      <span>The rack</span>
+    </header>
+    <main id="top">
+      <h1>A bottle on its side.</h1>
+      <p class="lede">Cool, and left alone.</p>
+      <div class="stage" aria-hidden="true"><span class="rack"></span><span class="go bottle"></span></div>
+    </main>
+    <footer>
+      <span>The rack</span>
+      <a href="../../atlas.html">Nadim Mahmud Shuvo</a>
+    </footer>
+  </body>
+</html>

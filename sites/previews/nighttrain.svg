@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#101418"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#e8eef2">Night train</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#9aa6b0">Last service</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#e8eef2">Windows, then none.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#0c1014"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect width="688" height="180" fill="#0c1014"/><rect x="80" y="90" width="360" height="34" rx="4" fill="#2a3340"/><rect x="96" y="98" width="18" height="12" fill="#f2d48a"/><rect x="140" y="98" width="18" height="12" fill="#f2d48a"/></svg>
+</svg>

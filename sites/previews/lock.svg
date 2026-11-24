@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#e6eef0"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#1b3038">Lock</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#567078">Upstream</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#1b3038">The gates hold the river.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#f4fafa"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect y="130" width="688" height="50" fill="#b7dbe2"/><rect x="190" y="40" width="16" height="110" fill="#1b3038"/><rect x="480" y="40" width="16" height="110" fill="#1b3038"/></svg>
+</svg>

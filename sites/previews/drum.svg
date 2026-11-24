@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f4f2ec"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#2a2824">Drum</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#76726c">The floor</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#2a2824">The skin answers.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#fafaf7"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect x="250" y="40" width="180" height="90" rx="8" fill="#e6d3b0" stroke="#2a2824" stroke-width="6"/><circle cx="344" cy="84" r="20" fill="none" stroke="#c4553a" stroke-width="3"/></svg>
+</svg>

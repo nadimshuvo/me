@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f6f4ee"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#2a2820">Ledger</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#747064">The book</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#2a2820">A line for the day.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#fbfaf7"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect x="100" y="20" width="488" height="140" fill="#fff"/><rect x="140" y="48" width="360" height="3" fill="#1d3fbf"/></svg>
+</svg>

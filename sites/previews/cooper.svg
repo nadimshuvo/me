@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f4efe6"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#3a2e22">Cooper</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#8a7660">The yard</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#3a2e22">The hoop closes the staves.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#fffaf4"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect x="280" y="24" width="128" height="140" rx="16" fill="#e6c89a"/><rect x="270" y="110" width="148" height="12" rx="6" fill="none" stroke="#8d4b2a" stroke-width="4"/></svg>
+</svg>

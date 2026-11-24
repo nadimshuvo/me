@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#2a2118"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#f8f1e6">Candle</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#d9cbb8">The table</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#f8f1e6">The flame leans.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#1c1612"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect width="688" height="180" fill="#1c1612"/><rect x="336" y="60" width="16" height="100" fill="#f4efe4"/><ellipse cx="344" cy="48" rx="9" ry="16" fill="#ffb15a"/></svg>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f4f3f0"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#242428">Arcade</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#6e6e78">The passage</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#242428">A row of lamps, in order.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#fbfaf8"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><circle cx="140" cy="90" r="18" fill="#ddd8d0"/><circle cx="270" cy="90" r="18" fill="#f0c14a"/><circle cx="400" cy="90" r="18" fill="#ddd8d0"/><circle cx="530" cy="90" r="18" fill="#ddd8d0"/></svg>
+</svg>

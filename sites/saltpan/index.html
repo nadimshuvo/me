@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salt pan — The pan goes pale.</title>
+    <meta name="description" content="Salt pan. Sun leaves the salt behind." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Yeseva+One:wght@400;600&amp;display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --ink: #3a342c; --muted: #8a8176; --paper: #f7f4ee;
+        --card: #fffdf9; --accent: #f4f1ea;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "Yeseva One", Georgia, "Segoe UI", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: inherit; }
+      header, main, footer { width: min(720px, calc(100% - 2rem)); margin: 0 auto; }
+      header { display: flex; justify-content: space-between; align-items: baseline; padding: 1.4rem 0; gap: 1rem; }
+      .mark { font-weight: 600; font-size: 1.35rem; letter-spacing: -0.03em; text-decoration: none; }
+      header span { color: var(--muted); font-size: 0.92rem; }
+      h1 { font-weight: 600; font-size: clamp(2.3rem, 7vw, 4rem); letter-spacing: -0.045em; line-height: 0.96; }
+      .lede { margin: 1rem 0 1.5rem; max-width: 36rem; color: var(--muted); font-size: 1.05rem; }
+      .stage { position: relative; height: 250px; border-radius: 28px; overflow: hidden; background: var(--card); }
+      footer { padding: 2.4rem 0 3rem; color: var(--muted); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 1rem; }
+      .pan{position:absolute;left:12%;right:12%;top:50px;height:120px;background:#d7c4a4;border-radius:8px}.salt{position:absolute;left:14%;right:14%;top:54px;height:0;background:var(--accent);animation:crust 4.5s ease-out infinite}@keyframes crust{to{height:112px}}
+      @media (prefers-reduced-motion: reduce) {
+        .go, .go * { animation: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Salt pan</a>
+      <span>The flats</span>
+    </header>
+    <main id="top">
+      <h1>The pan goes pale.</h1>
+      <p class="lede">Sun leaves the salt behind.</p>
+      <div class="stage" aria-hidden="true"><span class="pan"></span><span class="go salt"></span></div>
+    </main>
+    <footer>
+      <span>The flats</span>
+      <a href="../../atlas.html">Nadim Mahmud Shuvo</a>
+    </footer>
+  </body>
+</html>

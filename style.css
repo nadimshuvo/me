@@ -1079,6 +1079,14 @@ h2 {
 .case h2 { font-size: 1.35rem; letter-spacing: -0.03em; }
 .case p { color: var(--muted); }
 
+.atlas {
+  width: min(1080px, calc(100% - 6.5rem));
+  margin: 0 auto;
+}
+.atlas .studies { width: 100%; }
+.atlas-group { margin-bottom: 1.8rem; }
+.atlas-group h2 { font-size: 1.2rem; letter-spacing: -0.03em; margin: 0 0 0.7rem; }
+
 .needs {
   width: min(1080px, calc(100% - 6.5rem));
   margin: 0 auto;
@@ -1163,7 +1171,7 @@ h2 {
 
 @media (max-width: 560px) {
   .nav { width: min(1040px, 100%); }
-  .split, .section-head, .projects, .studies, .skill-grid, .study-list, .contact, .day-grid, .needs, .case {
+  .split, .section-head, .projects, .studies, .skill-grid, .study-list, .contact, .day-grid, .needs, .case, .atlas {
     width: min(1080px, 100%);
   }
   .footer { width: min(1080px, calc(100% - 2.5rem)); }
@@ -1196,6 +1204,7 @@ h2 {
 .path li:nth-child(4n + 3) { animation-delay: 130ms; }
 .skill-grid > div:nth-child(4),
 .path li:nth-child(4n) { animation-delay: 190ms; }
+.atlas .study { animation: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }

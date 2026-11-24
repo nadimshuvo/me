@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#17140f"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#f6f0e4">Inn</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#c9bba6">Late kitchen</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#f6f0e4">A room still lit.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#100e0b"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect width="688" height="180" fill="#100e0b"/><rect x="234" y="30" width="220" height="150" fill="#2a241c"/><rect x="270" y="70" width="44" height="44" fill="#f0c36a"/></svg>
+</svg>

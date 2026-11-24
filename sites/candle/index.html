@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Candle — The flame leans.</title>
+    <meta name="description" content="Candle. A draft, and it recovers." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Petrona:wght@400;600&amp;display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --ink: #f8f1e6; --muted: #d9cbb8; --paper: #2a2118;
+        --card: #1c1612; --accent: #ffb15a;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "Petrona", Georgia, "Segoe UI", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: inherit; }
+      header, main, footer { width: min(720px, calc(100% - 2rem)); margin: 0 auto; }
+      header { display: flex; justify-content: space-between; align-items: baseline; padding: 1.4rem 0; gap: 1rem; }
+      .mark { font-weight: 600; font-size: 1.35rem; letter-spacing: -0.03em; text-decoration: none; }
+      header span { color: var(--muted); font-size: 0.92rem; }
+      h1 { font-weight: 600; font-size: clamp(2.3rem, 7vw, 4rem); letter-spacing: -0.045em; line-height: 0.96; }
+      .lede { margin: 1rem 0 1.5rem; max-width: 36rem; color: var(--muted); font-size: 1.05rem; }
+      .stage { position: relative; height: 250px; border-radius: 28px; overflow: hidden; background: var(--card); }
+      footer { padding: 2.4rem 0 3rem; color: var(--muted); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 1rem; }
+      .stage{background:#1c1612}.stick{position:absolute;left:50%;bottom:30px;width:16px;height:110px;margin-left:-8px;background:#f4efe4;border-radius:3px}.flame{position:absolute;left:50%;bottom:132px;width:18px;height:32px;margin-left:-9px;background:var(--accent);border-radius:50% 50% 50% 50%;animation:lean 1.6s ease-in-out infinite}@keyframes lean{50%{transform:translateX(8px) scaleY(1.08)}}
+      @media (prefers-reduced-motion: reduce) {
+        .go, .go * { animation: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Candle</a>
+      <span>The table</span>
+    </header>
+    <main id="top">
+      <h1>The flame leans.</h1>
+      <p class="lede">A draft, and it recovers.</p>
+      <div class="stage" aria-hidden="true"><span class="stick"></span><span class="go flame"></span></div>
+    </main>
+    <footer>
+      <span>The table</span>
+      <a href="../../atlas.html">Nadim Mahmud Shuvo</a>
+    </footer>
+  </body>
+</html>

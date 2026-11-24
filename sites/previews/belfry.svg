@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#1b1e28"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#f4f2ea">Belfry</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#c4c6d0">The parish</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#f4f2ea">The hour, once.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#12141c"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect width="688" height="180" fill="#12141c"/><path d="M264 180 V70 a80 80 0 0 1 160 0 V180" fill="none" stroke="#2c3142" stroke-width="14"/><path d="M320 40 h48 v40 q0 16 -24 16 q-24 0 -24 -16 z" fill="#d9c07a"/></svg>
+</svg>

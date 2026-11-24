@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f5f4f2"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#242428">Tuning</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#707078">A440</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#242428">The fork hums after the</text><text x="56" y="180" font-family="Georgia, serif" font-size="44" fill="#242428">strike.</text>
+  <rect x="56" y="244" width="688" height="220" rx="24" fill="#fbfbfa"/>
+  <svg x="56" y="244" width="688" height="220" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><path d="M300 40 h16 v90 h-16 z M372 40 h16 v90 h-16 z M300 114 h88 v16 h-88 z" fill="#242428"/></svg>
+</svg>

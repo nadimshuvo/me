@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f6f3ec"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#2e2a22">Pantry</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#7d7668">The shelf</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#2e2a22">Jars in a row.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#fbfaf6"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect x="60" y="130" width="560" height="8" fill="#cbb89a"/><rect x="140" y="60" width="40" height="70" rx="4" fill="#f4efe4" stroke="#2e2a22"/><rect x="300" y="60" width="40" height="70" rx="4" fill="#f4efe4" stroke="#2e2a22"/><rect x="460" y="60" width="40" height="70" rx="4" fill="#f4efe4" stroke="#2e2a22"/></svg>
+</svg>

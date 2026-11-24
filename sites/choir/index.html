@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Choir — Voices, stacked.</title>
+    <meta name="description" content="Choir. Four lines, one chord." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&amp;display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --ink: #26243a; --muted: #6e6c84; --paper: #f4f3f6;
+        --card: #faf9fc; --accent: #6a5cff;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "Barlow", Georgia, "Segoe UI", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: inherit; }
+      header, main, footer { width: min(720px, calc(100% - 2rem)); margin: 0 auto; }
+      header { display: flex; justify-content: space-between; align-items: baseline; padding: 1.4rem 0; gap: 1rem; }
+      .mark { font-weight: 600; font-size: 1.35rem; letter-spacing: -0.03em; text-decoration: none; }
+      header span { color: var(--muted); font-size: 0.92rem; }
+      h1 { font-weight: 600; font-size: clamp(2.3rem, 7vw, 4rem); letter-spacing: -0.045em; line-height: 0.96; }
+      .lede { margin: 1rem 0 1.5rem; max-width: 36rem; color: var(--muted); font-size: 1.05rem; }
+      .stage { position: relative; height: 250px; border-radius: 28px; overflow: hidden; background: var(--card); }
+      footer { padding: 2.4rem 0 3rem; color: var(--muted); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 1rem; }
+      .bar{position:absolute;bottom:24px;width:28px;background:var(--accent);border-radius:6px 6px 0 0;height:20px}.a{left:22%;animation:chord 2.8s ease-in-out infinite}.b{left:38%;animation:chord 2.8s ease-in-out .15s infinite}.c{left:54%;animation:chord 2.8s ease-in-out .3s infinite}.d{left:70%;animation:chord 2.8s ease-in-out .45s infinite}@keyframes chord{50%{height:130px}}
+      @media (prefers-reduced-motion: reduce) {
+        .go, .go * { animation: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Choir</a>
+      <span>The loft</span>
+    </header>
+    <main id="top">
+      <h1>Voices, stacked.</h1>
+      <p class="lede">Four lines, one chord.</p>
+      <div class="stage" aria-hidden="true"><span class="go bar a"></span><span class="go bar b"></span><span class="go bar c"></span><span class="go bar d"></span></div>
+    </main>
+    <footer>
+      <span>The loft</span>
+      <a href="../../atlas.html">Nadim Mahmud Shuvo</a>
+    </footer>
+  </body>
+</html>

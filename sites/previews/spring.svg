@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f4f5f6"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#24282c">Spring</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#687078">The bench</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#24282c">Pressed, then let go.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#f8fafb"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect x="320" y="30" width="48" height="120" fill="#3d7ea6"/><rect x="300" y="22" width="80" height="12" fill="#24282c"/></svg>
+</svg>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Violin — The bow draws one note.</title>
+    <meta name="description" content="Violin. Horsehair, and a string." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600&amp;display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --ink: #2e241c; --muted: #8a7364; --paper: #f6f1ea;
+        --card: #fbf7f3; --accent: #c9a06a;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "Hanken Grotesk", Georgia, "Segoe UI", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: inherit; }
+      header, main, footer { width: min(720px, calc(100% - 2rem)); margin: 0 auto; }
+      header { display: flex; justify-content: space-between; align-items: baseline; padding: 1.4rem 0; gap: 1rem; }
+      .mark { font-weight: 600; font-size: 1.35rem; letter-spacing: -0.03em; text-decoration: none; }
+      header span { color: var(--muted); font-size: 0.92rem; }
+      h1 { font-weight: 600; font-size: clamp(2.3rem, 7vw, 4rem); letter-spacing: -0.045em; line-height: 0.96; }
+      .lede { margin: 1rem 0 1.5rem; max-width: 36rem; color: var(--muted); font-size: 1.05rem; }
+      .stage { position: relative; height: 250px; border-radius: 28px; overflow: hidden; background: var(--card); }
+      footer { padding: 2.4rem 0 3rem; color: var(--muted); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 1rem; }
+      .string{position:absolute;left:50%;top:20px;bottom:20px;width:2px;margin-left:-1px;background:var(--ink)}.bow{position:absolute;left:20%;top:40%;width:46%;height:6px;background:var(--accent);border-radius:4px;animation:draw 2.4s ease-in-out infinite}@keyframes draw{50%{transform:translateX(80px) rotate(-8deg)}}
+      @media (prefers-reduced-motion: reduce) {
+        .go, .go * { animation: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Violin</a>
+      <span>The practice room</span>
+    </header>
+    <main id="top">
+      <h1>The bow draws one note.</h1>
+      <p class="lede">Horsehair, and a string.</p>
+      <div class="stage" aria-hidden="true"><span class="string"></span><span class="go bow"></span></div>
+    </main>
+    <footer>
+      <span>The practice room</span>
+      <a href="../../atlas.html">Nadim Mahmud Shuvo</a>
+    </footer>
+  </body>
+</html>

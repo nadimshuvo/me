@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hollow — Mist stays low.</title>
+    <meta name="description" content="Hollow. The ground dips, and the air sits." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&amp;display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --ink: #24302c; --muted: #62706a; --paper: #f4f6f4;
+        --card: #f8faf8; --accent: #e7eeea;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "IBM Plex Mono", Georgia, "Segoe UI", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: inherit; }
+      header, main, footer { width: min(720px, calc(100% - 2rem)); margin: 0 auto; }
+      header { display: flex; justify-content: space-between; align-items: baseline; padding: 1.4rem 0; gap: 1rem; }
+      .mark { font-weight: 600; font-size: 1.35rem; letter-spacing: -0.03em; text-decoration: none; }
+      header span { color: var(--muted); font-size: 0.92rem; }
+      h1 { font-weight: 600; font-size: clamp(2.3rem, 7vw, 4rem); letter-spacing: -0.045em; line-height: 0.96; }
+      .lede { margin: 1rem 0 1.5rem; max-width: 36rem; color: var(--muted); font-size: 1.05rem; }
+      .stage { position: relative; height: 250px; border-radius: 28px; overflow: hidden; background: var(--card); }
+      footer { padding: 2.4rem 0 3rem; color: var(--muted); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 1rem; }
+      .ground{position:absolute;left:0;right:0;bottom:0;height:80px;background:#c9d5cc;border-radius:50% 50% 0 0}.mist{position:absolute;left:0;right:0;bottom:40px;height:40px;background:var(--accent);filter:blur(6px);opacity:.7;animation:rise 4s ease-in-out infinite}@keyframes rise{50%{height:90px;opacity:.9}}
+      @media (prefers-reduced-motion: reduce) {
+        .go, .go * { animation: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Hollow</a>
+      <span>The bottom</span>
+    </header>
+    <main id="top">
+      <h1>Mist stays low.</h1>
+      <p class="lede">The ground dips, and the air sits.</p>
+      <div class="stage" aria-hidden="true"><span class="ground"></span><span class="go mist"></span></div>
+    </main>
+    <footer>
+      <span>The bottom</span>
+      <a href="../../atlas.html">Nadim Mahmud Shuvo</a>
+    </footer>
+  </body>
+</html>

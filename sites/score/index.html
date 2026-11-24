@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Score — Notes, in their places.</title>
+    <meta name="description" content="Score. A page a player can hear." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600&amp;display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --ink: #222226; --muted: #6c6c74; --paper: #f7f6f3;
+        --card: #fcfcfb; --accent: #222226;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "Bricolage Grotesque", Georgia, "Segoe UI", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: inherit; }
+      header, main, footer { width: min(720px, calc(100% - 2rem)); margin: 0 auto; }
+      header { display: flex; justify-content: space-between; align-items: baseline; padding: 1.4rem 0; gap: 1rem; }
+      .mark { font-weight: 600; font-size: 1.35rem; letter-spacing: -0.03em; text-decoration: none; }
+      header span { color: var(--muted); font-size: 0.92rem; }
+      h1 { font-weight: 600; font-size: clamp(2.3rem, 7vw, 4rem); letter-spacing: -0.045em; line-height: 0.96; }
+      .lede { margin: 1rem 0 1.5rem; max-width: 36rem; color: var(--muted); font-size: 1.05rem; }
+      .stage { position: relative; height: 250px; border-radius: 28px; overflow: hidden; background: var(--card); }
+      footer { padding: 2.4rem 0 3rem; color: var(--muted); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 1rem; }
+      .staff{position:absolute;left:10%;right:10%;top:70px;height:50px;background:repeating-linear-gradient(#ddd 0 2px,transparent 2px 12px)}.note{position:absolute;top:78px;width:14px;height:12px;border-radius:50%;background:var(--ink);opacity:0}.a{left:24%;animation:pop 2.4s linear infinite}.b{left:46%;top:66px;animation:pop 2.4s linear .4s infinite}.c{left:68%;animation:pop 2.4s linear .8s infinite}@keyframes pop{20%,100%{opacity:1}}
+      @media (prefers-reduced-motion: reduce) {
+        .go, .go * { animation: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Score</a>
+      <span>The stand</span>
+    </header>
+    <main id="top">
+      <h1>Notes, in their places.</h1>
+      <p class="lede">A page a player can hear.</p>
+      <div class="stage" aria-hidden="true"><span class="staff"></span><span class="go note a"></span><span class="go note b"></span><span class="go note c"></span></div>
+    </main>
+    <footer>
+      <span>The stand</span>
+      <a href="../../atlas.html">Nadim Mahmud Shuvo</a>
+    </footer>
+  </body>
+</html>

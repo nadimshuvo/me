@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#221c18"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#f6f1e8">Moth</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#cbbba8">The porch</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#f6f1e8">Around the lamp.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#161210"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect width="688" height="180" fill="#161210"/><circle cx="344" cy="40" r="10" fill="#f4e2b0"/><ellipse cx="420" cy="70" rx="10" ry="6" fill="#efe8dc"/></svg>
+</svg>

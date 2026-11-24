@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f6f3ee"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#2e2824">Blower</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#7e746c">Hot shop</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#2e2824">A bubble at the end of the</text><text x="56" y="180" font-family="Georgia, serif" font-size="44" fill="#2e2824">pipe.</text>
+  <rect x="56" y="244" width="688" height="220" rx="24" fill="#fffcf8"/>
+  <svg x="56" y="244" width="688" height="220" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect x="40" y="100" width="280" height="8" fill="#8a8178"/><circle cx="400" cy="90" r="46" fill="#7ec8d4" opacity=".85"/></svg>
+</svg>

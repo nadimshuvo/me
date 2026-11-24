@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f3f6f0"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#243028">Copse</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#5c7060">The edge</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#243028">Leaves let go.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#f7faf6"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect x="336" y="40" width="16" height="140" fill="#6b4a32"/><ellipse cx="300" cy="90" rx="8" ry="5" fill="#c9842a"/><ellipse cx="380" cy="120" rx="8" ry="5" fill="#c9842a"/></svg>
+</svg>

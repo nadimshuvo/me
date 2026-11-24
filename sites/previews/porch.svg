@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f6f4ee"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#2a2e28">Porch</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#6e766c">The front</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#2a2e28">The seat swings.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#fbfaf7"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect x="230" y="0" width="2" height="70" fill="#b7b1a6"/><rect x="450" y="0" width="2" height="70" fill="#b7b1a6"/><rect x="190" y="70" width="300" height="26" rx="4" fill="#6e8f62"/></svg>
+</svg>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Needle — Thread follows the eye.</title>
+    <meta name="description" content="Needle. In, and back out." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Crete+Round:wght@400;600&amp;display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --ink: #2c2824; --muted: #7d7870; --paper: #f7f4ef;
+        --card: #fffdfb; --accent: #c4553a;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "Crete Round", Georgia, "Segoe UI", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: inherit; }
+      header, main, footer { width: min(720px, calc(100% - 2rem)); margin: 0 auto; }
+      header { display: flex; justify-content: space-between; align-items: baseline; padding: 1.4rem 0; gap: 1rem; }
+      .mark { font-weight: 600; font-size: 1.35rem; letter-spacing: -0.03em; text-decoration: none; }
+      header span { color: var(--muted); font-size: 0.92rem; }
+      h1 { font-weight: 600; font-size: clamp(2.3rem, 7vw, 4rem); letter-spacing: -0.045em; line-height: 0.96; }
+      .lede { margin: 1rem 0 1.5rem; max-width: 36rem; color: var(--muted); font-size: 1.05rem; }
+      .stage { position: relative; height: 250px; border-radius: 28px; overflow: hidden; background: var(--card); }
+      footer { padding: 2.4rem 0 3rem; color: var(--muted); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 1rem; }
+      .cloth{position:absolute;left:12%;right:12%;top:100px;height:70px;background:#efe6da;border-radius:8px}.needle{position:absolute;left:20%;top:78px;width:70px;height:4px;background:var(--ink);animation:stitch 1.8s ease-in-out infinite}@keyframes stitch{50%{top:140px;left:48%}}
+      @media (prefers-reduced-motion: reduce) {
+        .go, .go * { animation: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Needle</a>
+      <span>The hem</span>
+    </header>
+    <main id="top">
+      <h1>Thread follows the eye.</h1>
+      <p class="lede">In, and back out.</p>
+      <div class="stage" aria-hidden="true"><span class="cloth"></span><span class="go needle"></span></div>
+    </main>
+    <footer>
+      <span>The hem</span>
+      <a href="../../atlas.html">Nadim Mahmud Shuvo</a>
+    </footer>
+  </body>
+</html>

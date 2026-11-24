@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f6f4ec"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#2e2818">Vineyard</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#7a7050">The slope</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#2e2818">Rows that meet.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#fbfaf6"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect x="60" y="40" width="520" height="10" fill="#6a8f3a"/><rect x="60" y="80" width="460" height="10" fill="#6a8f3a"/><rect x="60" y="120" width="400" height="10" fill="#6a8f3a"/></svg>
+</svg>

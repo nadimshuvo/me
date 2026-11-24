@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Otter — Under, then up.</title>
+    <meta name="description" content="Otter. A loop through the pool." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;600&amp;display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --ink: #16342e; --muted: #4e7268; --paper: #e5f3ef;
+        --card: #f5fbf9; --accent: #e07a45;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "Libre Baskerville", Georgia, "Segoe UI", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: inherit; }
+      header, main, footer { width: min(720px, calc(100% - 2rem)); margin: 0 auto; }
+      header { display: flex; justify-content: space-between; align-items: baseline; padding: 1.4rem 0; gap: 1rem; }
+      .mark { font-weight: 600; font-size: 1.35rem; letter-spacing: -0.03em; text-decoration: none; }
+      header span { color: var(--muted); font-size: 0.92rem; }
+      h1 { font-weight: 600; font-size: clamp(2.3rem, 7vw, 4rem); letter-spacing: -0.045em; line-height: 0.96; }
+      .lede { margin: 1rem 0 1.5rem; max-width: 36rem; color: var(--muted); font-size: 1.05rem; }
+      .stage { position: relative; height: 250px; border-radius: 28px; overflow: hidden; background: var(--card); }
+      footer { padding: 2.4rem 0 3rem; color: var(--muted); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 1rem; }
+      .pool{position:absolute;left:0;right:0;bottom:0;height:46%;background:#b9ddd4}.otter{position:absolute;left:12%;top:36px;width:54px;height:22px;background:var(--accent);border-radius:20px;animation:dive 4.6s ease-in-out infinite}@keyframes dive{40%{left:42%;top:150px}70%{left:68%;top:48px}100%{left:12%;top:36px}}
+      @media (prefers-reduced-motion: reduce) {
+        .go, .go * { animation: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Otter</a>
+      <span>The near bend</span>
+    </header>
+    <main id="top">
+      <h1>Under, then up.</h1>
+      <p class="lede">A loop through the pool.</p>
+      <div class="stage" aria-hidden="true"><span class="pool"></span><span class="go otter"></span></div>
+    </main>
+    <footer>
+      <span>The near bend</span>
+      <a href="../../atlas.html">Nadim Mahmud Shuvo</a>
+    </footer>
+  </body>
+</html>

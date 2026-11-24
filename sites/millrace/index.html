@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mill race — The wheel takes the stream.</title>
+    <meta name="description" content="Mill race. Water in, turn, water out." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;600&amp;display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --ink: #243024; --muted: #5c6b52; --paper: #e8f0e4;
+        --card: #f6f8f3; --accent: #6a4428;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "Bodoni Moda", Georgia, "Segoe UI", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: inherit; }
+      header, main, footer { width: min(720px, calc(100% - 2rem)); margin: 0 auto; }
+      header { display: flex; justify-content: space-between; align-items: baseline; padding: 1.4rem 0; gap: 1rem; }
+      .mark { font-weight: 600; font-size: 1.35rem; letter-spacing: -0.03em; text-decoration: none; }
+      header span { color: var(--muted); font-size: 0.92rem; }
+      h1 { font-weight: 600; font-size: clamp(2.3rem, 7vw, 4rem); letter-spacing: -0.045em; line-height: 0.96; }
+      .lede { margin: 1rem 0 1.5rem; max-width: 36rem; color: var(--muted); font-size: 1.05rem; }
+      .stage { position: relative; height: 250px; border-radius: 28px; overflow: hidden; background: var(--card); }
+      footer { padding: 2.4rem 0 3rem; color: var(--muted); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 1rem; }
+      .race{position:absolute;left:0;right:0;bottom:36px;height:28px;background:#8fb7c9}.wheel{position:absolute;left:50%;bottom:18px;width:120px;height:120px;margin-left:-60px;border:8px solid var(--accent);border-radius:50%;background:repeating-conic-gradient(from 0deg,var(--accent) 0 8deg,transparent 8deg 45deg);animation:spin 6s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+      @media (prefers-reduced-motion: reduce) {
+        .go, .go * { animation: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Mill race</a>
+      <span>At the weir</span>
+    </header>
+    <main id="top">
+      <h1>The wheel takes the stream.</h1>
+      <p class="lede">Water in, turn, water out.</p>
+      <div class="stage" aria-hidden="true"><span class="race"></span><span class="go wheel"></span></div>
+    </main>
+    <footer>
+      <span>At the weir</span>
+      <a href="../../atlas.html">Nadim Mahmud Shuvo</a>
+    </footer>
+  </body>
+</html>

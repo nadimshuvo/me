@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#e7eef2"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#1c2c38">Well</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#5a6d7a">Hand over hand</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#1c2c38">The bucket goes down.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#f7fafc"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect x="342" y="0" width="3" height="180" fill="#c5d3dc"/><path d="M320 40 h48 v28 q0 16 -24 16 q-24 0 -24 -16 z" fill="none" stroke="#3d6d86" stroke-width="4"/></svg>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#eef3ea"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#243024">Barrel</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#5d6b58">Under the spout</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#243024">Catch the rain.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#f7faf4"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect x="274" y="28" width="140" height="140" rx="16" fill="none" stroke="#243024" stroke-width="3"/><rect x="278" y="100" width="132" height="64" fill="#6e8f4e"/></svg>
+</svg>

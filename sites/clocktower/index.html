@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clock tower — The hands agree, twice a day.</title>
+    <meta name="description" content="Clock tower. The rest of the hour they travel." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&amp;display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --ink: #1c2428; --muted: #667278; --paper: #f3f5f4;
+        --card: #fbfcfc; --accent: #1c2428;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "Nunito", Georgia, "Segoe UI", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: inherit; }
+      header, main, footer { width: min(720px, calc(100% - 2rem)); margin: 0 auto; }
+      header { display: flex; justify-content: space-between; align-items: baseline; padding: 1.4rem 0; gap: 1rem; }
+      .mark { font-weight: 600; font-size: 1.35rem; letter-spacing: -0.03em; text-decoration: none; }
+      header span { color: var(--muted); font-size: 0.92rem; }
+      h1 { font-weight: 600; font-size: clamp(2.3rem, 7vw, 4rem); letter-spacing: -0.045em; line-height: 0.96; }
+      .lede { margin: 1rem 0 1.5rem; max-width: 36rem; color: var(--muted); font-size: 1.05rem; }
+      .stage { position: relative; height: 250px; border-radius: 28px; overflow: hidden; background: var(--card); }
+      footer { padding: 2.4rem 0 3rem; color: var(--muted); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 1rem; }
+      .face{position:absolute;left:50%;top:24px;width:160px;height:160px;margin-left:-80px;border:8px solid var(--ink);border-radius:50%}.hand{position:absolute;left:50%;top:100px;width:4px;margin-left:-2px;background:var(--ink);transform-origin:center top}.h{height:36px;animation:hour 12s linear infinite}.m{height:58px;animation:min 4s linear infinite}@keyframes hour{to{transform:rotate(360deg)}}@keyframes min{to{transform:rotate(360deg)}}
+      @media (prefers-reduced-motion: reduce) {
+        .go, .go * { animation: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Clock tower</a>
+      <span>The square</span>
+    </header>
+    <main id="top">
+      <h1>The hands agree, twice a day.</h1>
+      <p class="lede">The rest of the hour they travel.</p>
+      <div class="stage" aria-hidden="true"><span class="face"></span><span class="go hand h"></span><span class="go hand m"></span></div>
+    </main>
+    <footer>
+      <span>The square</span>
+      <a href="../../atlas.html">Nadim Mahmud Shuvo</a>
+    </footer>
+  </body>
+</html>

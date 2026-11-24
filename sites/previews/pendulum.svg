@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f3f4f2"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#222624">Pendulum</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#666e6a">The clock</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#222624">It spends the swing.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#fafafa"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect x="342" y="0" width="4" height="120" fill="#222624"/><circle cx="344" cy="140" r="16" fill="#b4532a"/></svg>
+</svg>

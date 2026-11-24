@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f3f6f6"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#1c3034">Fountain</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#5c7478">The square</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#1c3034">Three jets, one basin.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#f8fbfb"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect x="120" y="130" width="448" height="28" rx="8" fill="#d5e4e8"/><rect x="220" y="40" width="8" height="90" rx="4" fill="#3aa0b8"/><rect x="340" y="24" width="8" height="106" rx="4" fill="#3aa0b8"/><rect x="450" y="50" width="8" height="80" rx="4" fill="#3aa0b8"/></svg>
+</svg>

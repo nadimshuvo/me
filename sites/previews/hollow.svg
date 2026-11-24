@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f4f6f4"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#24302c">Hollow</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#62706a">The bottom</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#24302c">Mist stays low.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#f8faf8"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><ellipse cx="344" cy="150" rx="300" ry="50" fill="#c9d5cc"/><rect y="90" width="688" height="40" fill="#e7eeea" opacity=".8"/></svg>
+</svg>

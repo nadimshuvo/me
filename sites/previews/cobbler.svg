@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f4f1ea"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#2e2822">Cobbler</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#7d7268">The bench</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#2e2822">The last, and the hammer.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#fbfaf7"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><path d="M250 130 h90 q40 0 40 -16 q0 -20 -36 -20 h-70 z" fill="#8d4a2e"/><rect x="400" y="30" width="14" height="50" fill="#2e2822"/></svg>
+</svg>

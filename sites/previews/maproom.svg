@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f3f1ea"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#2a2c28">Map room</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#6e7268">The chart</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#2a2c28">The rose points.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#faf9f5"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect x="60" y="24" width="568" height="140" rx="8" fill="#e7f0e4"/><polygon points="344,40 352,90 344,80 336,90" fill="#c4473a"/></svg>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f1eee8"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#2a2724">Anvil</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#7a736c">The forge</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#2a2724">One strike, then the ring.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#fbfaf7"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect x="220" y="120" width="180" height="26" rx="3" fill="#4a4744"/><rect x="400" y="36" width="14" height="70" fill="#2a2724"/><rect x="380" y="96" width="48" height="14" fill="#c4552d"/></svg>
+</svg>

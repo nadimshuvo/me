@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f4f3ee"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#2c2820">Cart wheel</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#7a7468">The lane</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#2c2820">It rolls until the road</text><text x="56" y="180" font-family="Georgia, serif" font-size="44" fill="#2c2820">levels.</text>
+  <rect x="56" y="244" width="688" height="220" rx="24" fill="#fafaf7"/>
+  <svg x="56" y="244" width="688" height="220" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect y="140" width="688" height="4" fill="#d8d0c4"/><circle cx="180" cy="110" r="32" fill="none" stroke="#8d5a32" stroke-width="8"/></svg>
+</svg>

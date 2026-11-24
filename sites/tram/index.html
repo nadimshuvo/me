@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tram — It arrives, and the doors wait.</title>
+    <meta name="description" content="Tram. Then the next stop." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600&amp;display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --ink: #1e2a28; --muted: #5e706c; --paper: #f2f4f3;
+        --card: #f8faf9; --accent: #d6453d;
+      }
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: "Sora", Georgia, "Segoe UI", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.5; }
+      a { color: inherit; }
+      header, main, footer { width: min(720px, calc(100% - 2rem)); margin: 0 auto; }
+      header { display: flex; justify-content: space-between; align-items: baseline; padding: 1.4rem 0; gap: 1rem; }
+      .mark { font-weight: 600; font-size: 1.35rem; letter-spacing: -0.03em; text-decoration: none; }
+      header span { color: var(--muted); font-size: 0.92rem; }
+      h1 { font-weight: 600; font-size: clamp(2.3rem, 7vw, 4rem); letter-spacing: -0.045em; line-height: 0.96; }
+      .lede { margin: 1rem 0 1.5rem; max-width: 36rem; color: var(--muted); font-size: 1.05rem; }
+      .stage { position: relative; height: 250px; border-radius: 28px; overflow: hidden; background: var(--card); }
+      footer { padding: 2.4rem 0 3rem; color: var(--muted); font-size: 0.9rem; display: flex; justify-content: space-between; gap: 1rem; }
+      .rail{position:absolute;left:0;right:0;bottom:48px;height:4px;background:#c5cdc8}.car{position:absolute;bottom:52px;left:-30%;width:180px;height:64px;background:var(--accent);border-radius:8px;animation:arrive 5s ease-out infinite}@keyframes arrive{70%,100%{left:28%}}
+      @media (prefers-reduced-motion: reduce) {
+        .go, .go * { animation: none !important; }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="mark" href="#top">Tram</a>
+      <span>The line</span>
+    </header>
+    <main id="top">
+      <h1>It arrives, and the doors wait.</h1>
+      <p class="lede">Then the next stop.</p>
+      <div class="stage" aria-hidden="true"><span class="rail"></span><span class="go car"></span></div>
+    </main>
+    <footer>
+      <span>The line</span>
+      <a href="../../atlas.html">Nadim Mahmud Shuvo</a>
+    </footer>
+  </body>
+</html>

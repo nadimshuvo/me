@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f6f4ef"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#2c2a28">Hand bell</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#7a7670">The choir stall</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#2c2a28">It swings from the wrist.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#fbfaf8"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><path d="M310 30 h68 v50 q0 28 -34 28 q-34 0 -34 -28 z" fill="#d4b15a"/></svg>
+</svg>

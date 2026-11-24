@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="800" height="500" fill="#f6f3ef"/>
+  <text x="56" y="64" font-family="Georgia, serif" font-size="26" fill="#2a2424">Post box</text>
+  <text x="744" y="60" text-anchor="end" font-family="Segoe UI, sans-serif" font-size="16" fill="#7a6e6e">The corner</text>
+  <text x="56" y="128" font-family="Georgia, serif" font-size="44" fill="#2a2424">The flag goes up.</text>
+  <rect x="56" y="192" width="688" height="272" rx="24" fill="#fffaf8"/>
+  <svg x="56" y="192" width="688" height="272" viewBox="0 0 688 180" preserveAspectRatio="xMidYMid meet"><rect x="294" y="30" width="100" height="130" rx="8" fill="#c4372f"/><rect x="394" y="70" width="36" height="8" fill="#2a2424"/></svg>
+</svg>
