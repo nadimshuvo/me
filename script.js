@@ -491,3 +491,36 @@ if (music && musicToggle) {
     else music.pause();
   });
 }
+
+const aboutStats = document.querySelector("#about .stats");
+if (aboutStats) {
+  const figures = [...aboutStats.querySelectorAll("dt")].map((el) => {
+    const raw = el.textContent.trim();
+    const value = parseInt(raw, 10);
+    return { el, value, suffix: raw.slice(String(value).length) };
+  });
+  const paint = (progress) => {
+    figures.forEach(({ el, value, suffix }) => {
+      el.textContent = Math.round(value * progress) + suffix;
+    });
+  };
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduceMotion || !("IntersectionObserver" in window)) {
+    paint(1);
+  } else {
+    paint(0);
+    const watcher = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      watcher.disconnect();
+      const started = performance.now();
+      const tick = (now) => {
+        const progress = Math.min(1, (now - started) / 1400);
+        const eased = 1 - (1 - progress) ** 3;
+        paint(eased);
+        if (progress < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }, { threshold: 0.45 });
+    watcher.observe(aboutStats);
+  }
+}
